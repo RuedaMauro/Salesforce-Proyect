@@ -1,0 +1,22 @@
+<template >
+    <article class="slds-card slds-card_boundary ">
+        <lightning-card  variant="Narrow"  title="Eventos de la historia Clínica" icon-name="standard:unified_health_score" >                 
+            <p class="slds-p-horizontal_small" >            
+                <lightning-layout horizontal-align="space" if:true={eventosDeLaHistoriaClinica}>
+                    <template for:each={eventosDeLaHistoriaClinica} for:item="evento" >                    
+                        <lightning-layout-item key={evento.Id} padding="around-small" size="large" >
+                            <lightning-icon class="slds-m-left_x-large" size="large" icon-name={evento.iconName} data-id={evento.Id}  onclick={navigateToEvent}>                
+                            </lightning-icon>                         
+                            <p class="slds-m-left_large"> {evento.Tipo_de_Evento_Ambito__c} </p>
+                            <lightning-formatted-date-time value={evento.Fecha_hora_del_evento__c} time-zone="UTC" year="numeric" month="numeric" day="numeric" hour="2-digit"
+                            minute="2-digit"  hour12="true"></lightning-formatted-date-time>                      
+                        </lightning-layout-item>                          
+                    </template>                      
+                </lightning-layout>                                                  
+            </p> 
+            <p class="slds-text-title labelColor slds-p-horizontal_small" slot="footer">
+                <lightning-button slot="footer" if:true={respuestaEventoHC.data} variant="base" label="Ver todos los registros" onclick={navigateToEventRelatedList} class="slds-p-horizontal_small"></lightning-button>
+            </p>        
+        </lightning-card> 
+    </article>  
+</template>

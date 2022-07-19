@@ -1,0 +1,19 @@
+<template >
+    <article class="slds-card slds-card_boundary ">
+        <lightning-card  variant="Narrow"  title="Indicadores Comportamiento de Compra" icon-name="custom:custom17" >
+            <div class="slds-card__body slds-card__body_inner">      
+            <lightning-record-view-form record-id={recordId} object-api-name="Account" density="compact" >
+                <div class="slds-grid slds-p-left_x-small" >
+                    <div class="slds-col">                    
+                        <lightning-output-field field-name="Recencia__c"></lightning-output-field>
+                        <lightning-output-field field-name="Frecuencia_Paciente__c"></lightning-output-field>
+                    </div>
+                    <div class="slds-col">                        
+                        <lightning-output-field field-name="Ticket_Promedio__c"></lightning-output-field>                 
+                    </div>
+                </div>          
+              </lightning-record-view-form>
+            </div>
+        </lightning-card> 
+    </article>  
+</template>

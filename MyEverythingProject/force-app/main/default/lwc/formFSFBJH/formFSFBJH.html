@@ -1,0 +1,253 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-06-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="slds-align_absolute-center">
+      <lightning-card>
+        <div class="logo_fsfb">
+          <img src={lgFSFB}>
+        </div>
+        <div class="solicitud-title">
+          <h1>
+            Solicitud de presupuesto de atención en Fundación </BR> Santa fe de Bogotá
+            <br><br>
+          </h1>
+        </div>
+        <div class="informacion-fsfb">
+          <h2>
+            <p>
+              Diligencia el siguiente formulario web para cotizar el servicio que requieras realizarte en nuestra
+              institución. Estaremos enviado <br> la respuesta en el trascurso de 24 a 48 horas, o nos contactaremos 
+              si requerimos información adicional.
+            </p>
+            <p>
+            </p>
+          </h2>
+        </div>
+        <lightning-layout>
+          <lightning-layout-item size="6">
+            <div class="tipo-solicitante">
+              <h3>Tipo de Solicitante<br></h3>
+            </div>
+            <template if:true={getPickListTipoDeSolic.data}>
+              <lightning-combobox class="cbox-style validateOpp" title="Tipo de Solicitante" label="Obligatorio"
+                options={optionsValues}
+                onchange={handleChangeTipoDeSolic} required>
+              </lightning-combobox>
+              <div class="tipo-solicitante">
+                <span><br>Medio de Solicitud</span>
+              </div>
+              <template if:true={getPickListMedioDeSolic.data}>
+                <lightning-combobox class="cbox-style validateOpp" title="Medio de Solicitud" label="Obligatorio"
+                  options={optionsMedioSolicitud}
+                  onchange={handleChangeCanalSolic} required><br>
+                </lightning-combobox>
+              </template>
+            </template>
+            <div class="tipo-solicitante">
+              <p><br><br>Autorización de Tratamiento de Datos<br></p>
+            </div>
+          </lightning-layout-item>
+        </lightning-layout>
+        <div class="informacion-fsfb" >
+          <span>Para continuar, acepta la política de datos personales<br></span>
+        </div>
+        <div class="slds-m-top_x-medium slds-m-left_large ">
+          <p><br>Autorizo a FUNDACIÓN SANTA FE DE BOGOTÁ a realizar el tratamiento de mis datos personales 
+            incorporados tal y como lo <br> dispone  el Artículo 15 de la Constitución Política, la Ley Estatutaria 
+            1266 de 2008, la Ley Estatutaria 1581 de 2012 y sus Decretos <br> reglamentarios (1727 de 2009, 2952
+            de 2010, 1377 de 2013 y 886 de 2014). La autorización señalada no cubre la 
+            otra <br> información sensible y confidencial que repose en mi historia clínica. Puede consultar
+            el detalle de nuestra política <br> de tratamiento de datos personales en el siguiente enlace <lightning-formatted-url value="https://acortar.link/KIbFb" target="_blank"></lightning-formatted-url>   <br><br></p>
+        </div>
+        <div class="cbox-style">            
+          <lightning-input type="toggle" label="Acepta:" onchange={handleClick} message-toggle-active="Si" message-toggle-inactive="No" required=""></lightning-input>           
+          <br>
+        </div>
+        <template if:true={accepTerm}>
+          <div class="informacion-fsfb">
+            <p><br>La información diligenciada estará sujeta a verificación. La información de precios y/o
+              valores que reciba por parte de la <br> Fundación es una estimación aproximada, al tratarse
+              de un procedimiento médico usted debe estar consciente que el costo <br> final puede variar
+              si se presenta alguna novedad y/o por decisión del médico cirujano quien tiene la
+              potestad de cambiar <br> o adicionar insumos que  aseguren el éxito de la intervención. <br></p>
+          </div>
+          <div class="informacion-fsfb">
+            <h2>
+              <br><br>Para este servicio debes contar con una orden médica,
+              si no la tienes puedes solicitar tu cita ingresando a <br> <lightning-formatted-url value="https://www.fsfbcitas.co" target="_blank"></lightning-formatted-url> o marcando a
+              nuestra central de citas al 6014824488 *<br><br>
+            </h2>
+            <template if:true={getPickListTieneOrdMed.data}>
+              <template if:true={ordenMed}>
+                <lightning-combobox class="cbox-style2 validateOrdeMed" title="¿Tiene orden médica?" label="¿Tiene orden médica?"
+                  options={getPickListTieneOrdMed.data.values}
+                  onchange={handleTieneOrdenMedChange} required><br>
+                </lightning-combobox>              
+                <lightning-input type="text" class="slds-m-left_xx-small slds-m-top_small" style="width: 50vh" label='Medico quién ordena' onchange={handleMedicoQ}></lightning-input>
+              </template>
+            </template>
+          </div>
+          <div class="info-serv">
+            <span>
+              <br>Selecciona el servicio a cotizar<br>
+            </span>
+          </div>
+          <div class="flex-start">
+            <c-lookup 
+              onsearch={handleLookupSearch} 
+              onselectionchange={handleLookupSelectionChange} 
+              label="Servicios"
+              placeholder="Search Salesforce" 
+              is-multi-entry=true 
+              scroll-after-n-items=5
+              required>
+            </c-lookup>
+          </div>
+          <lightning-textarea class="cbox-style1 slds-m-left_xx-small" label="Información adicional sobre el examen diagnóstico, consulta externa, procedimiento o cirugÍa" maxlength="120" onchange={handleInfoSolic} style="width:70vh"></lightning-textarea>
+          
+          <lightning-layout>
+            <lightning-layout-item size="8" class="slds-p-around_medium">
+              <template if:true={isProfessional}>              
+                <div class="info-serv">
+                  <p><br>Información procedimiento o cirugÍa</p>
+                </div>
+                <div class="slds-p-around_medium">
+                  <lightning-input type="text" label='Tiempo estimado de duración' onchange={handleTiempoDurac}></lightning-input>
+                  <lightning-input type="text" label='Observaciones' onchange={handleDescription} style="width: 65vh"></lightning-input>
+                  <template if:true={getTipoDeAnest.data}>
+                    <lightning-combobox class="cbox-style2 validateProf" title="Tipo de anestesia" label="Tipo de anestesia"
+                      options={getTipoDeAnest.data.values}
+                      onchange={handleTipoDeAnest} required>
+                    </lightning-combobox>
+                  </template>
+                  <template if:true={getEstancia.data}>
+                    <lightning-combobox 
+                      class=".cbox-style2 validateProf" 
+                      title="Tipo de estancia" 
+                      label="Tipo de estancia"
+                      options={getEstancia.data.values}
+                      onchange={handleTipoDeEstanc} 
+                      required>
+                    </lightning-combobox>
+                  </template>
+                  <lightning-input type="text" label='Días de estancia en piso' onchange={handleTipodeEstancPiso}></lightning-input>
+                </div>
+              </template>
+              <div class="info-serv">
+                <p><br>Información del Paciente</p>
+              </div>
+              <lightning-combobox class="slds-m-left_small validateOpp" 
+                label="¿Es paciente de Fundación Santa Fé de Bogotá?" title="¿Es paciente de Fundación Santa Fé de Bogotá?"
+                placeholder="Seleccione una opción" options={options} onchange={handleChangeIsSolic} style="width: 50vh"
+                required>
+              </lightning-combobox>
+              <template if:true={isSolicitante}>
+                <lightning-input class="slds-m-left_small validateCedSol" type="text" label="Número de documento" title="Número de documento" style="width: 50vh"
+                  onchange={handleNumDeCedPatient} required></lightning-input>
+                <template if:true={validCedNumb}>
+                  <div class="slds-text-color_success info-serv">
+                    <p>
+                      El número de documento es valido
+                    </p> 
+                  </div>
+                </template> 
+                <template if:false={validCedNumb}>
+                  <div class="slds-text-color_error info-serv">
+                    <p>
+                      El número de documento <strong>No existe</strong> como solicitante en Fundación Santa Fé de Bogotá
+                    </p>
+                  </div>
+                </template> 
+              </template>
+              <template if:false={isSolicitante}>
+                <lightning-input class="slds-m-left_small validateNewSol" type="text" label="Nombres del Paciente" title="Nombres del Paciente"
+                  onchange={handleFirstnameChange} style="width: 50vh" required>
+                </lightning-input>
+                <lightning-input class="slds-m-left_small validateNewSol" type="text" label="Apellidos del Paciente" title="Apellidos del Paciente"
+                  onchange={handleLastNameChange} style="width: 50vh" required>
+                </lightning-input>
+                <template if:true={getPickListTipoDeId.data}>
+                  <lightning-combobox class="cbox-style1 validateNewSol" title="Tipo de Documento del Paciente" label="Tipo de Documento del Paciente"
+                    options={getPickListTipoDeId.data.values}
+                    onchange={handleTipoDeDocumChange} required>
+                  </lightning-combobox>
+                </template>
+                <template if:true={needsId}>
+                  <lightning-input class="slds-m-left_small validateNewSol" label="Número de documento del Paciente" title="Número de documento Paciente"
+                    onchange={handleNumeroDeDocumentoChange} style="width: 50vh"
+                    required></lightning-input>
+                </template>
+                <lightning-input class="slds-m-left_small validateNewSol" type="date" label="Fecha de nacimiento del Paciente" title="Fecha de nacimiento Paciente"
+                  placeholder="Escriba aqui..." onchange={handleFechaDeNacimHandle}
+                  style="width: 50vh" required></lightning-input>
+                <template if:true={pickListValues.data}>
+                  <lightning-combobox class="cbox-style1 validateNewSol" label="Sexo del paciente" title="Sexo del paciente"
+                    options={pickListValues.data.values} onchange={handleSexoDelPacienteChange}
+                    required>
+                  </lightning-combobox>
+                </template>
+                <template if:true={PickListPaisDeRes.data}>
+                  <lightning-combobox class="cbox-style1" label="País de residencia del Paciente" title="País de residencia del Paciente"
+                    options={PickListPaisDeRes.data.values}
+                    onchange={handlePaisdeResidenciaChange}>
+                  </lightning-combobox>
+                </template>
+                <lightning-input class="slds-m-left_small validateNewSol" label="Ciudad de residencia del Paciente" title="Ciudad de residencia del Paciente" type="text"
+                  onchange={handleCiudadDeResChange} style="width: 50vh"
+                  required></lightning-input>
+                <lightning-input class="slds-m-left_small validateNewSol" label="Correo eléctronico" title="Correo eléctronico" type="email"
+                  onchange={handleCorreoElectronicoChange} style="width: 50vh" required></lightning-input>
+                <lightning-input class="slds-m-left_small validateNewSol" label="Número de teléfono de contacto principal del Paciente" title="Número de teléfono de contacto principal del Paciente"
+                  type="phone" onchange={handleNumeroDeTelefonoChange}
+                  style="width: 50vh" required></lightning-input>
+                <lightning-input class="slds-m-left_small validateNewSol" label="Número de teléfono adicional del Paciente" title="Número de teléfono adicional del Paciente" type="phone"
+                  onchange={handleNumeroAdicionalChange} style="width: 50vh" required></lightning-input>
+              </template>
+              <lightning-input type="text" class="slds-m-left_small" style="width: 50vh" label='EPS del Paciente' onchange={handleEps}></lightning-input>
+              <lightning-input type="text" class="slds-m-left_small" style="width: 50vh" label='Convenio del Paciente' onchange={handleConvenio}></lightning-input>
+              <lightning-input type="text" class="slds-m-left_small" style="width: 50vh" label='Nombre acudiente del Paciente' onchange={handleAcudiente}></lightning-input>
+              <template if:true={accepTerm}>
+                <lightning-card title="Adjunte su prescripción medica" icon-name="custom:custom18">
+                      <div class="slds-m-around_medium">
+                          <lightning-input type="file" 
+                          accept=".png, .jpg, .jpeg , .pdf"
+                          label="Attachment" onchange={openfileUpload}></lightning-input>
+                      </div>
+                      <template if:true={fileData}>
+                        <div class="slds-m-around_medium">
+                          <lightning-badge label={fileData.filename} class="slds-badge slds-theme_success"></lightning-badge>
+                          <lightning-button variant="base" label="X"  onclick={clearfiledata} class="slds-m-right_x-small"></lightning-button>
+                        </div>
+                      </template>
+                      <!--lightning-button variant="brand" label="submit" title="Submit" onclick={handleClick} class="slds-m-left_x-small"></lightning-button!-->
+                 </lightning-card>
+              </template>   
+              <br>
+              <br>
+              <template if:true={isSolicitante}>
+                <lightning-button class="slds-m-left_small" label="Solicitar presupuesto" variant="brand"
+                  onclick={handleCreatePresupuestoWithNoAcc}></lightning-button>
+              </template>
+              <template if:false={isSolicitante}>
+                <lightning-button class="slds-m-left_small" label="Solicitar presupuesto" variant="brand"
+                  onclick={handleCreatePresupuestoWithAcc}></lightning-button>
+              </template>             
+              <br>
+              <div class="informacion-fsfb slds-text-align_center slds-m-left_medium">
+                <br>
+                <p>¿No encontraste lo que necesitabas? <br>
+                Puedes escribirnos a <lightning-formatted-email value="presupuestos.pagodirecto@fsfb.org.co" ></lightning-formatted-email></p> adjuntando el nombre completo del solicitante, tipo y número de documento de identidad y la orden del servicio que deseas 
+                cotizar.
+                </p>
+              </div>                
+            </lightning-layout-item>
+          </lightning-layout>
+        </template>
+      </lightning-card>
+    </div>
+  </template>

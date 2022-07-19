@@ -1,0 +1,83 @@
+<apex:page standardController="Opportunity" extensions="presupuestosControlador" renderAs="pdf">
+    <apex:panelGrid columns="2" id="theGrid4" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;">    
+        <apex:outputText value="NOMBRE Y APELLIDO:"/> 
+        <apex:outputText value="{!acc[0].Name}"/>
+        <apex:outputText value="TIPO DE DOCUMENTO:"/>
+        <apex:outputText value="{!Opportunity.Tipo_ID_Solicitante__c}" label="Tipo de:"/>
+        <apex:outputText value="IDENTIFICACIÓN:"/> 
+        <apex:outputText value="{!Opportunity.Numero_ID_solicitante__c}"/>
+    </apex:panelGrid>
+    <apex:pageBlock title="PRESUPUESTO APROXIMADO">
+        <table border="1px" >
+            <tr style="margin: 2px;">
+                <th>Código</th>
+                <th>Descripción</th>
+            </tr>
+            <apex:repeat value="{!lstObjectBs}" var="item" >
+                <tr style="margin: 2px;">
+                    <th>{!item.ProductCode}</th>
+                    <th>{!item.Product2.name}</th>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:pageBlock>
+    <div style="margin-top:30px; margin-bottom:30px">
+        <apex:panelGrid columns="2" id="theGrid6" width="100%" style="font-family:sans-serif;text-align:left;font-size:14pt;">
+            <apex:outputText >VALOR APROXIMADO DEL SERVICIO PRESUPUESTADO:</apex:outputText>
+            <apex:outputText value="{0, number, ###,###.##}">
+                <apex:param value="{!Opportunity.Amount}"/>
+            </apex:outputText>
+        </apex:panelGrid>
+    </div>
+    <div style="margin-top:30px; margin-bottom:30px">
+        <apex:panelGrid columns="1" id="theGrid5" width="100%" style="font-family:sans-serif;text-align:left;font-size:10pt;">
+            <div style="margin-top:20px; margin-bottom:20px">
+                <apex:outputText >ESTE VALOR NO INCLUYE HONORARIOS MÉDICOS, NI ANESTESIA, NI AYUDANTIA.</apex:outputText>
+            </div>
+        </apex:panelGrid>
+        <apex:panelGrid columns="1" id="theGrid7" width="100%" style="font-family:sans-serif;text-align:left;font-size:10pt;">
+            <div style="margin-top:20px; margin-bottom:20px">
+                <apex:outputText >Para acceder a la prestacion del servicio cotizado es necesario quede manera previa cancele el cien porciento (100%) del valor cotizado.
+                    El valor de lo presupuestado puede cambiar de acuerdo acondiciones médicas y/o evolución del
+                    paciente, situación que será informada por el área de faturación con el fin de cancelar excedente.
+                    El pago se puede realizar en las cajas del hospital, en efectivo, tarjeta débito, tarjetas de crédito,
+                    o realizando consignación en la Cuenta Corriente de Ban colombia N°.2010193516-1.
+                    "Si la opcion seleccionada es consignación en oficina(ChequeoEfectivo), favor colocaren el
+                    formato de depósito en referencias 1 y 2 el CODIGO DE CONSIGNACION, el cual aparece en
+                    el recuadro superior". Después de realizar la consignación es indispensable enviar copia legible
+                    al correo:cajaprin02@fsfb.org.co y presentarla sin falta alguna el día del ingreso.
+                    Si consigna en cheque favor tener en cuenta que la autorización para acceder al servicio se dará
+                    una vez el cheque haga canje y si realizan trasferencia internacional recuerde que el registro del
+                    pago se puede demorar ocho (8) días.</apex:outputText>
+            </div>
+        </apex:panelGrid>
+        <apex:panelGrid columns="1" id="theGrid9" width="100%" style="font-family:sans-serif;text-align:left;font-size:10pt;">
+            <div style="margin-top:20px; margin-bottom:20px">
+                <apex:outputText >
+                    El NIT de la Fundación Santa Fe de Bogotá es 860.037.950-2.
+                    Horarios de cajas: Caja principal (3 piso) de lunes a viernes de 7:00 a.m. a 3:30 p.m.
+                    Caja del servicio de urgencias (2° piso) 24 horas al día. La vigencia de este presupuesto es de
+                    90 días contados a partir de la fecha de elaboración. Este presupuesto no constituye coobligación
+                    por parte del hospital para la realización de lo cotizado.
+                </apex:outputText>
+            </div>
+        </apex:panelGrid>
+        <apex:panelGrid columns="1" id="theGrid10" width="100%" style="font-family:sans-serif;text-align:left;font-size:10pt;">
+            <apex:outputText >
+                Cordialmente,
+            </apex:outputText>
+            <apex:outputText >
+                Carolina Estupiñan Cifuentes
+            </apex:outputText>
+            <apex:outputText >
+                OFICINA DE PRESUPUESTOS
+            </apex:outputText>
+            <apex:outputText >
+                Carolina Estupiñan Cifuentes
+            </apex:outputText>
+            <apex:outputText >
+                6030303 Ext. 5972'
+            </apex:outputText>
+        </apex:panelGrid>
+    </div>
+</apex:page>

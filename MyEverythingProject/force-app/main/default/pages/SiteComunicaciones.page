@@ -1,0 +1,64 @@
+<apex:page standardController="Case" renderAs="pdf" showHeader="false">
+    <apex:panelGrid columns="2" width="100%">
+                <apex:panelGrid columns="1" width="100%">
+                    <img src="{!$Resource.Logo_Fundacion_Santa_Fe_de_Bogota}" width="220px" height="80px" align="right"/>
+                </apex:panelGrid>           
+    </apex:panelGrid> 
+      <div class='container-fluid'> 
+      <div style="width:700px; height:2px;background:black;"></div>
+      </div>  
+
+    <apex:panelGrid columns="1" id="theGrid4" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;">    
+        <apex:outputText value="{!case.CaseNumber}"/>
+        <apex:outputText value="{0,date}">
+            <apex:param value="{!today()}" />
+        </apex:outputText>
+    </apex:panelGrid>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid5" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+        <apex:outputText value="Señor(a)"/>
+        <apex:outputText value="{!case.Nombre_del_reportante__c} {!case.Apellidos_del_reportante__c}"/>
+        <apex:outputText value="{!case.Direccion_del_reportante__c}"/>
+        <apex:outputText value="Telefono {!case.Telefono_del_reportante__c}"/>
+        <apex:outputText value="Bogotá, D.C."/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid6" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+        <apex:outputText value="Respetado(a) Señor(a) {!Case.Nombre_del_reportante__c}"/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid7" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+        <apex:outputText value="{!Case.Respuesta_al_reportante__c}"/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid8" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+        <apex:outputText value="Esperamos dar de esta manera respuesta a su inquietud. Reiteramos nuestra
+                    disposición a cualquier requerimiento y colocamos a su alcance nuestro equipo
+                    humano y técnico para que siga considerando confiar en nosotros su atención en
+                    salud y la de su familia."/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid9" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+        <apex:outputText value="Coordialmente,"/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid10" width="100%" style="font-family:sans-serif;text-align:left;font-size:12pt;"> 
+            <apex:outputText value="Claudia Patricia Pulido Galindo"/>
+            <apex:outputText value="Atención al Paciente y Familia"/>
+    </apex:panelGrid>
+    </div>
+    <div style="margin-top:40px;">
+        <apex:panelGrid columns="1" id="theGrid11" width="100%" style="font-family:sans-serif;text-align:left;font-size:8pt;"> 
+            <apex:outputText value="De acuerdo con la circular única del 30 de noviembre 2007 de la Superintendencia Nacional de Salud, si usted
+                presenta cualquier desacuerdo con la opinión manifestada por la Fundación Santa Fe de Bogotá, puede elevar
+                consulta a la correspondiente dirección de salud, sea ésta la Departamental, Distrital o Local, sin perjuicio de la
+                competencia prevalente y excluyente que le corresponde a la superintendencia Nacional de Salud, como autoridad
+                máxima en materia de inspección, vigilancia y control"/>
+    </apex:panelGrid>
+    </div>
+</apex:page>

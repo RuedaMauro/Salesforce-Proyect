@@ -1,0 +1,77 @@
+.logo_fsfb{
+    padding: 1.5% 2% 2.5%;
+    margin-top: 1px;
+    width: 25%;
+    height: 20%;  
+}
+
+.solicitud-title{
+    font-family: 'Poppins', sans-serif;
+    font-size: 250%;
+    padding-left: 2%;
+}
+
+.informacion-fsfb{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 3%;
+}
+.tipo-solicitante{
+    font-family: 'Poppins', sans-serif;
+    font-size: 120%;
+    padding: 1.5% 5% 2.5%;
+    margin-top: 1px;
+}
+.text-info{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 5%;
+}
+
+.info-serv{
+    font-family: 'Poppins', sans-serif;
+    font-size: 120%;
+    padding-left: 3%;
+
+}
+
+.slds-form-element__legend{
+    font-family: 'Poppins', sans-serif;
+    padding: 1.5% 5% 2.5%;
+}
+
+.slds-checkbox{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 8%;
+}
+
+.cbox-style{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 4.5%;
+}
+
+.cbox-style1{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 3%;
+    width: 50%;
+}
+
+.cbox-style2{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 0%;
+    width: 50%;
+}
+
+.info-exam{
+    font-family: 'Poppins', sans-serif;
+    padding-left: 0%;
+    font-size: 120%;
+}
+
+.flex-start {
+    padding-left: 3.5%;
+    width: 55vh;
+}
+
+.flex-start-Prof {
+    padding-left: 0%;
+    width: 50vh;
+}

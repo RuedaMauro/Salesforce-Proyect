@@ -1,0 +1,105 @@
+<!--
+    @description       : 
+    @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+    @group             : 
+    @last modified on  : 05-09-2022
+    @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+    -->
+
+<apex:page controller="reclamosControlador" showHeader="false" applyHtmlTag="true" applyBodyTag="false" lightningStylesheets="true" standardStylesheets="false">
+    <apex:stylesheet value="{!$Resource.customCSS}">
+    <apex:outputPanel id="block">
+        <apex:form title="Formulario" id="theform">
+            <script type="text/javascript">
+                function EnableDisable(txtPassportNumber) {
+                    //Reference the Button.
+                    var btnSubmit = document.getElementById("buttonRechazarCaso");
+
+                    //Verify the TextBox value.
+                    if (txtPassportNumber.value.size != 0) {
+                        //Enable the TextBox when TextBox has value.
+                        btnSubmit.disabled = false;
+                    } else {
+                        //Disable the TextBox when TextBox is empty.
+                        btnSubmit.disabled = true;
+                    }
+                };
+            </script>
+            <image src="{!$Resource.Logo_Fundacion_Santa_Fe_de_Bogota}"
+                styleClass="imageStyle" />
+            <apex:pageBlock title="Número de caso: {!area.Caso__r.CaseNumber}" id="pageBlock">
+                <apex:pageBlockSection title="Detalles">
+                    <apex:outputField value="{!area.Caso__r.Reason}" />
+                    <apex:outputField value="{!area.Caso__r.Fecha_de_recepcion_de_caso__c}" />
+                    <apex:outputField value="{!area.Caso__r.ParentId}" />
+                    <apex:outputField value="{!area.Caso__r.Priority}" label="Prioridad" />
+                    <apex:outputField value="{!area.Caso__r.Informante__c}" />
+                    <apex:outputField value="{!area.Caso__r.Ambito__c}" />
+                    <apex:outputField value="{!area.Caso__r.Description}" />
+                    <apex:outputField value="{!area.Caso__r.Origin}" />
+                    <apex:outputField value="{!area.Caso__r.Derecho_afectado__c}" />
+                    <apex:outputField value="{!area.Caso__r.Tiempo_maximo_para_tramite__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del paciente">
+                    <apex:outputField value="{!area.Caso__r.AccountId}" />
+                    <apex:outputField value="{!area.Caso__r.Convenio_de_paciente__c}" />
+                    <apex:outputField value="{!area.Caso__r.Tipo_ID_Paciente__c}" />
+                    <apex:outputField value="{!area.Caso__r.ContactEmail}" />
+                    <apex:outputField value="{!area.Caso__r.Numero_ID_Paciente__c}" />
+                    <apex:outputField value="{!area.Caso__r.ContactId}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del reportante">
+                    <apex:outputField value="{!area.Caso__r.Nombre_del_reportante__c}" />
+                    <apex:outputField value="{!area.Caso__r.Tipo_documento_del_reportante__c}" />
+                    <apex:outputField value="{!area.Caso__r.Apellidos_del_reportante__c}" />
+                    <apex:outputField value="{!area.Caso__r.Numero_ID_reportante__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Géstion de respuestas">
+                    <apex:outputField value="{!area.area__c}" />
+                    <apex:outputField value="{!area.Fecha_de_asignacion__c}" />
+                    <apex:outputField value="{!area.Dimension__c}" />
+                    <apex:outputField value="{!area.Estado__c}" />
+                    <apex:outputField value="{!area.Atributos_de_calidad__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection rendered="{!IF(area.Estado__c != 'Rechazado por área' 
+                                                    && area.Estado__c != 'Rechazo Confirmado' 
+                                                    && area.Estado__c != 'Respuesta satisfactoria',True,False)}" columns="1">
+                    <div align="center">
+                        <h3>Respuesta del área</h3>
+                        <br/>
+                    </div>
+                    <apex:inputTextarea value="{!comentarioRespuesta}" style="width:750px; height:150px; text-align:center" label=" ">
+                        <apex:actionSupport event="onkeyup" reRender="commandButtonPanel" status="status" />
+                    </apex:inputTextarea>
+                    <br/>
+                </apex:pageBlockSection>
+                <div align="center">
+                    <apex:outputPanel rendered="{!IF(area.Estado__c != 'Rechazado por área' 
+                                                    && area.Estado__c != 'Rechazo Confirmado' 
+                                                    && area.Estado__c != 'Respuesta satisfactoria',True,False)}">
+                        <apex:actionFunction name="enviarRespuesta" action="{!enviarRespuesta}" reRender=""></apex:actionFunction>
+                        <apex:outputPanel id="commandButtonPanel">
+                            <apex:commandButton id="buttonRechazarCaso" action="{!enviarRespuesta}" value="Rechazar caso" disabled="{!AND(comentarioRespuesta==null || comentarioRespuesta == '')}"
+                                oncomplete="window.top.location.reload()" style="float:center">
+                                <apex:param name="R" value="R" assignTo="{!respuesta}" />
+                            </apex:commandButton>
+                            <apex:commandButton id="buttonAceptarCaso" action="{!enviarRespuesta}" value="Enviar Respuesta" disabled="{!AND(comentarioRespuesta==null || comentarioRespuesta == '')}"
+                                oncomplete="window.top.location.reload()">
+                                <apex:param name="A" value="A" assignTo="{!respuesta}" />
+                            </apex:commandButton>
+                        </apex:outputPanel>
+                    </apex:outputPanel>
+                </div>
+                <br/>
+                <apex:pageBlockSection title="Comentarios">
+                    <apex:pageBlockTable value="{!comentarios}" var="c">
+                        <apex:column value="{!c.CreatedDate}" />
+                        <apex:column value="{!c.LastModifiedById}" />
+                        <apex:column value="{!c.Comentarios__c}" />
+                    </apex:pageBlockTable>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+    </apex:outputPanel>
+</apex:stylesheet>
+</apex:page>

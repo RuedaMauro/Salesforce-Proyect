@@ -1,0 +1,47 @@
+<apex:page controller="ConfirmacionAgenda" showHeader="false" applyHtmlTag="true" applyBodyTag="false" lightningStylesheets="true" standardStylesheets="false">     
+<apex:stylesheet value="{!$Resource.customCSS}">
+    <head>
+         <apex:slds />
+         <meta charset="UTF-8"/>
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+         <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        </head> 
+    <apex:form >
+        <apex:pageBlock > 
+             <img src="{!$Resource.Logo_Fundacion_Santa_Fe_de_Bogota}" width="220px" height="80px" align="left"/>
+            <br/>
+            <apex:pageMessages ></apex:pageMessages>
+            <apex:pageBlockSection title="Información de la Agenda" columns="4">                
+                Estado: {!agenda.Status}		
+                <apex:pageBlockSectionItem />
+				Tipo de prestación: {!tipoDePrestacion}
+                <apex:pageBlockSectionItem />
+                Nombre del paciente: {!paciente.Name} 
+                <apex:pageBlockSectionItem />
+          		  <apex:outputText value="Fecha y hora: {0,date,d/M/yyy h:mm a}">  
+                    <apex:param value="{!datatimeAgenda}"/>
+                    </apex:outputText>
+                <apex:pageBlockSectionItem />
+            </apex:pageBlockSection>
+                                    		    
+            
+             <apex:pageBlockSection title="Información del Lugar de la Agenda" columns="4">           
+ 				Nombre de sede: {!agenda.Nombre_sede__c}
+                <apex:pageBlockSectionItem />
+                Ciudad de sede: {!agenda.Ciudad_sede__c}
+                <apex:pageBlockSectionItem />
+                Dirección de sede: {!agenda.Direccion_sede__c}                                      
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Area de confirmación de la agenda" columns="1">
+                <label style="font-size:11pt;">¿Desea confirmar la cita?:</label>
+                <apex:inputHidden value="{!confirmaAgenda}" id="ccId"/> 
+                     <label style="font-size:11pt;">(Haga click en la casilla) <input id="theCheckbox" type="checkbox" name="theCheckbox" onchange="document.getElementById('{!$Component.ccId}').value = this.checked;"/></label>
+            </apex:pageBlockSection> 
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Guardar" action="{!confirmAgenda}"/>           
+            </apex:pageBlockButtons>
+         
+        </apex:pageBlock>
+</apex:form>
+    </apex:stylesheet>
+</apex:page>

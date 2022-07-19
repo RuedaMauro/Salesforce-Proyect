@@ -1,0 +1,16 @@
+<apex:page showHeader="false" sidebar="false">
+        <apex:includeLightning />  
+        <div id="LightningComponentid"></div>
+      
+        <script>
+    $Lightning.use("c:LightningOutApp", function() {
+        $Lightning.createComponent("c:formFSFBJH",
+          { 
+          },
+          "LightningComponentid",
+          function(cmp) {
+             console.log('LWC Componenet added in VF page');
+          });
+    });
+    </script>
+    </apex:page>

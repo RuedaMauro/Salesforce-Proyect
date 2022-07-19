@@ -1,0 +1,15 @@
+<template >
+    <article class="slds-card slds-card_boundary ">
+        <lightning-card  variant="Narrow"  title="Indicadores de Experiencia" icon-name="standard:record_lookup" >       
+            <lightning-record-view-form record-id={recordId} object-api-name="Account" density="compact" >
+                <div class="slds-grid slds-p-left_medium">
+                    <br></br>
+                    <div class="slds-col">
+                        <p class="slds-text-title labelColor slds-p-horizontal_small">Respuesta NPS: <lightning-button if:true={respuestaEventoHC.data} variant="base" label={respuestaEventoHC.data.NPS_evento__c} title={respuestaEventoHC.data.NPS_evento__c} onclick={navigateToEventRelatedList} class="slds-p-horizontal_small" ></lightning-button>  </p>                         
+                        <p class="slds-text-title labelColor slds-p-horizontal_small">Respuesta CSAT: <lightning-button if:true={respuestaEventoHC.data} variant="base" label={respuestaEventoHC.data.CSAT_evento__c} title={respuestaEventoHC.data.CSAT_evento__c} onclick={navigateToEventRelatedList} class="slds-p-horizontal_small"></lightning-button>  </p>
+                    </div>                    
+                </div>          
+            </lightning-record-view-form>
+        </lightning-card> 
+    </article>  
+</template>

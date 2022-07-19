@@ -1,0 +1,22 @@
+<template >
+    <article class="slds-card slds-card_boundary ">
+        <lightning-card  variant="Narrow"  title="Agenda del Paciente" icon-name="standard:log_a_call" >       
+            <p class="slds-p-horizontal_small" >            
+                <lightning-layout horizontal-align="space" if:true={agendaInfo}>
+                    <template for:each={agendaInfo} for:item="AgendaPaciente" >                    
+                        <lightning-layout-item key={AgendaPaciente.Id} padding="around-small" size="large">
+                            <lightning-icon class="slds-m-left_x-large" size="Large" icon-name={AgendaPaciente.iconName} data-id={AgendaPaciente.Id}  onclick={navigateToAgenda}>                
+                            </lightning-icon>                         
+                            <p class="slds-m-left_large"> {AgendaPaciente.Status} </p>                            
+                            <lightning-formatted-date-time value={AgendaPaciente.Fecha_y_Hora_agenda__c} time-zone="UTC" year="numeric" month="numeric" day="numeric" hour="2-digit"
+                            minute="2-digit"  hour12="true"></lightning-formatted-date-time> 
+                        </lightning-layout-item>                       
+                    </template>                      
+                </lightning-layout>           
+            </p>
+            <p class="slds-text-title labelColor slds-p-horizontal_small" slot="footer">
+                <lightning-button slot="footer" if:true={respuestaAgenda.data} variant="base" label="Ver todos los registros" onclick={navigateToAgendaRelatedList} class="slds-p-horizontal_small"></lightning-button>
+            </p>  
+        </lightning-card> 
+    </article>  
+</template>

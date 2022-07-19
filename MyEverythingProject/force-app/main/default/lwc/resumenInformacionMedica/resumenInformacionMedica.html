@@ -1,0 +1,29 @@
+<template>
+  <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <lightning-icon icon-name="custom:custom1">
+            </lightning-icon>
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate">
+                <span>Información Médica</span>
+              </a>
+            </h2>
+          </div>
+        </header>
+      </div>
+      <div class="slds-card__body slds-card__body_inner">
+        <template if:true={account.data}>
+          <lightning-layout>
+            <lightning-layout-item flexibility="auto" >
+              <p class="slds-text-title labelColor slds-p-bottom_small">Antecedentes del Paciente: {Antecedentes_del_Paciente__c}</p>    
+              <p class="slds-text-title labelColor ">Diagnósticos del Paciente:</p><lightning-button if:true={diagnosticosPacienteaciente.data} variant="base" label={diagnosticosPacienteaciente.data.Nombre_Diagnostico__c} title={diagnosticosPacienteaciente.data.Nombre_Diagnostico__c} onclick={navigateToRelatedListDiagnosticosPaciente}></lightning-button> 
+            </lightning-layout-item>                 
+          </lightning-layout>
+        </template>                
+      </div>
+  </article>   
+</template>

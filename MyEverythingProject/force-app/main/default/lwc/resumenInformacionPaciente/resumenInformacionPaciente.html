@@ -1,0 +1,56 @@
+<template>
+  <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+            <lightning-icon icon-name="standard:people">
+            </lightning-icon>
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate" title="Accounts">
+                <span>Datos del Paciente</span>
+              </a>
+            </h2>
+          </div>
+        </header>
+      </div>
+      <div class="slds-card__body slds-card__body_inner">
+        <template if:true={account.data}>
+          <lightning-layout>
+              <lightning-layout-item size="3" flexibility="auto" padding="horizontal-large">
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Nombre del Paciente:   {name} </p>                
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Tipo de Id:   {Tipo_de_ID__c} </p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Número de Id:   {Numero_de_ID__c} </p>                
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Sexo:   {Sexo__c} </p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Donante:   {Donante__c} </p>
+                                 
+                
+              </lightning-layout-item>
+              <lightning-layout-item size="3" flexibility="auto" class="slds-p-bottom_x-small">
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Fecha de Nacimiento:   <lightning-formatted-date-time value={PersonBirthdate}></lightning-formatted-date-time></p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Estado Civil:   {Estado_civil__c} </p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Edad del Paciente:   {Edad_del_paciente__c} </p> 
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Telefono:   <lightning-formatted-phone value={phone}></lightning-formatted-phone></p>                
+              </lightning-layout-item>
+              <lightning-layout-item size="3" flexibility="auto" class="slds-p-bottom_x-small">
+                
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Celular del Paciente:   <lightning-formatted-phone value={Celular_del_Paciente__c}></lightning-formatted-phone></p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Correo Electrónico:   <lightning-formatted-email value={PersonEmail}></lightning-formatted-email></p>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Canal de Contacto Principal:   {Canal_de_contacto_principal__c} </p>                 
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Habeas Data<lightning-input type="checkbox" checked={Habeas_Data__c} disabled="true"></lightning-input></p>
+              </lightning-layout-item>
+              <lightning-layout-item size="3" flexibility="auto" class="slds-p-bottom_x-small">
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Acompañante</p>
+                <lightning-button if:true={nombreAcompanante.data} variant="base" label={nombreAcompanante.data} title={nombreAcompanante.data} onclick={navigateToAccountContR} class="slds-p-horizontal_small" ></lightning-button>  
+                <p class="slds-text-title labelColor slds-p-horizontal_small">convenios Del Paciente</p>
+                <lightning-button if:true={convenioDelPaciente.data} variant="base" label={convenioDelPaciente.data.Nombre_de_convenio_plan__c} title={convenioDelPaciente.data.Nombre_de_convenio_plan__c} onclick={navigateToRelatedList} class="slds-p-horizontal_small"></lightning-button>
+                <p class="slds-text-title labelColor slds-p-horizontal_small">Clasificación del Paciente</p>
+                <lightning-button if:true={convenioDelPaciente.data} variant="base" label={convenioDelPaciente.data.Clasificacion__c} title={convenioDelPaciente.data.Clasificacion__c} onclick={navigateToRelatedList} class="slds-p-horizontal_small"></lightning-button>
+              </lightning-layout-item> 
+          </lightning-layout>
+        </template>        
+      </div>
+    </article>
+   
+</template>
