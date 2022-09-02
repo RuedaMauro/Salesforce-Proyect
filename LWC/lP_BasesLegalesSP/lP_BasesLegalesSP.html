@@ -1,0 +1,73 @@
+<template>
+
+
+    <div if:false={isMobile} class="slds-scrollable_x slds-scrollable_y">
+        <div class="fondo slds-scrollable_x slds-scrollable_y">
+            <div class="title">
+                {iconBL.LP_BasesLegalesBL}
+            </div>
+
+            <div class="recuadro slds-scrollable_x slds-scrollable_y">
+                <div class="fondoBlanco slds-scrollable_x slds-scrollable_y">
+                    <div class="contenido slds-scrollable_x slds-scrollable_y">
+
+                      <table class="table">
+                        <colgroup>
+                            <col span="1" style="width: 30%;">
+                            <col span="1" style="width: 15%;">
+                            <col span="1" style="width: 15%;">
+                         </colgroup>
+                            <tr>
+                              <th class="th" style="text-align: start; border-bottom:1px solid #d40c2c">Nombre documento</th>
+                              <th class="th" style="text-align: center; border-bottom:1px solid #d40c2c">Fecha</th>
+                              <th class="th" style="text-align: center; border-bottom:1px solid #d40c2c" >Vigencia</th>
+                            </tr>
+                            <template for:each={data} for:item='item'>
+                                 <tr key={item.id}>
+                              <td class="td" style="text-align: start;border-bottom:1px solid #d40c2c" key={item.id}><a href= "{item.link}">{item.linkLabel}</a></td>
+                              <td class="td" style="text-align: center;border-bottom:1px solid #d40c2c" key={item.id}>{item.fechaVigencia}</td>
+                              <td class="td" style="text-align: center;border-bottom:1px solid #d40c2c" key={item.id}>{item.vigencia}</td>
+                            </tr>
+                            </template>
+                            </table>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div if:true={isMobile}>
+        <div class="fondoMobile slds-scrollable_x">
+            <div class="titleMobile">
+                {iconBL.LP_BasesLegalesBL}
+            </div>
+
+            <div class="recuadroMobile slds-scrollable_x">
+                <div class="fondoBlancoMobile slds-scrollable_x ">
+                    <div style="overflow-x:auto;" class="contenidoMobile slds-scrollable_x">
+                        <table class="table">
+                            <colgroup>
+                                <col span="1" style="width: 15%;">
+                                <col span="1" style="width: 10%;">
+                                <col span="1" style="width: 10%;">
+                             </colgroup>
+                            <tr>
+                              <th class="thMobile" style="text-align: start; ">Nombre documento</th>
+                              <th class="thMobile" style="text-align: center;">Fecha</th>
+                              <th class="thMobile" style="text-align: center;" >Vigencia</th>
+                            </tr>
+                            <template for:each={data} for:item='item'>
+                                 <tr key={item.id}>
+                              <td class="tdMobile" style="text-align: start;border-bottom:1px solid #d40c2c" key={item.id}><a href= "{item.link}">{item.linkLabel}</a></td>
+                              <td class="tdMobile" style="text-align: center;border-bottom:1px solid #d40c2c" key={item.id}>{item.fechaVigencia}</td>
+                              <td class="tdMobile" style="text-align: center;border-bottom:1px solid #d40c2c" key={item.id}>{item.vigencia}</td>
+                            </tr>
+                            </template>
+                            </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

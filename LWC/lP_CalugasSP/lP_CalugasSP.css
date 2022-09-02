@@ -1,0 +1,144 @@
+.bordes{
+    margin-right: 10rem;
+    margin-left: 8rem;
+}
+
+.caluga{ 
+    padding: 0 2rem 1rem;
+}
+
+.calugaBackground{ 
+    padding: 1rem;
+    background: #eee;
+    border-radius: 1rem;
+    min-height: 280px;
+    max-height: 300px;
+}
+
+.item2{
+
+    border-bottom: solid;
+    font-size:14px;
+    text-align:end;
+    padding-right: 35px; 
+    height: 51px;
+
+}
+
+.imgTarjeta{
+    width:40px;
+    height:100%;
+}
+
+
+.boton {
+    width: 100%;
+    border-radius: 1rem;
+    background-color:#d40c2c;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+}
+
+.button:hover {background-color: rgb(160, 23, 36);}
+.resumen {
+    margin-left: 2rem;
+    margin-right: 3rem;
+    border: thick solid #000000;
+    border-radius: 15px 15px 15px 15px;
+    font-size: 1rem;
+}
+@media screen and (max-width:600px){
+    .caluga{ 
+        padding: 0 0rem 1rem;
+    }
+ }
+
+@media screen and (max-width:1600px){
+    .item2{
+        font-size:11px;
+    }
+}
+
+@media screen and (max-width:1100px){
+    .item2{
+        font-size:9px;
+    }
+}
+
+.resumenTitulo {
+    padding-left: 15px;
+}
+.row {
+    display: flex;
+  }
+
+.tituloEstado {
+    font-weight: bold;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.facturacion {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+}
+
+.factTexto {
+    border: 1px solid;
+    border-width: thick;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 14px;
+    border-color: #c4c4c4;
+}
+
+.factTextoSinBorde {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.seguro {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.seguroTexto {
+    padding-top: 2rem;
+}
+.centro {
+    text-align: center;
+    padding: 1rem;
+ 
+    bottom: 0;
+    left: 0;
+    min-width:100%
+}
+
+.cuotas {
+    padding-right: 1rem;
+}
+
+.montoDispLabel {
+    font-weight: 400;   
+    text-align: center;
+}
+
+.oferta {
+    background:#eae1e0;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    font-size: 15px;
+    padding-left: 0.5rem;
+}
+.montoDisp {
+    font-weight: 1000;  
+    text-align: center;
+    font-size: 2rem; 
+}

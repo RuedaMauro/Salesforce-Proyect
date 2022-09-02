@@ -1,0 +1,83 @@
+<template>
+    <lightning-card title="Jerarquía"
+        icon-name="standard:case">
+
+        <div class="slds-tree_container tree-container">
+            <ul class="slds-tree"
+                role="tree">
+
+                <li role="treeitem"
+                    aria-expanded={isExpanded}
+                    aria-level="1">
+
+                    <div class="slds-tree__item item-shadow">
+                        <lightning-button-icon icon-name="utility:chevronright"
+                            title="Expandir"
+                            variant="bare"
+                            size="small"
+                            onclick={handleExpand}><label>Expand</label></lightning-button-icon>
+
+                        <span class="slds-has-flexi-truncate"
+                            data-id={parent.id}
+                            onclick={handleItemClick}>
+
+                            <div class="slds-grid">
+                                <template for:each={parent.primaryFields}
+                                    for:item="primaryField">
+                                    <span key={primaryField.developername}
+                                        class="slds-tree__item-label slds-truncate slds-var-p-left_small"><b>{primaryField.label}:</b> {primaryField.value}</span>
+                                </template>
+                            </div>
+
+                            <div class="slds-grid">
+                                <template for:each={parent.secondaryFields}
+                                    for:item="secondaryField">
+                                    <span key={secondaryField.developername}
+                                        class="slds-tree__item-meta slds-truncate slds-var-p-left_small"><b>{secondaryField.label}: </b> {secondaryField.value}</span>
+                                </template>
+                            </div>
+
+                        </span>
+                    </div>
+
+                    <template if:true={childs}>
+                        <ul role="group">
+                            <template for:each={childs}
+                                for:item="child">
+                                <li key={child.id}
+                                    data-id={child.id}
+                                    aria-level="2"
+                                    role="treeitem"
+                                    onclick={handleItemClick}>
+                                    <div class="slds-tree__item item-shadow">
+                                        <span class="slds-has-flexi-truncate">
+
+                                            <div class="slds-grid">
+                                                <template for:each={child.primaryFields}
+                                                    for:item="primaryField">
+                                                    <span key={primaryField.developername}
+                                                        class="slds-tree__item-label slds-truncate slds-var-p-left_medium"><b>{primaryField.label}:</b> {primaryField.value}</span>
+                                                </template>
+                                            </div>
+
+                                            <div class="slds-grid">
+                                                <template for:each={child.secondaryFields}
+                                                    for:item="secondaryField">
+                                                    <span key={secondaryField.developername}
+                                                        class="slds-tree__item-meta slds-truncate slds-var-p-left_medium"><b>{secondaryField.label}:</b> {secondaryField.value}</span>
+                                                </template>
+                                            </div>
+
+                                        </span>
+                                    </div>
+                                </li>
+                            </template>
+                        </ul>
+                    </template>
+
+                </li>
+            </ul>
+        </div>
+
+    </lightning-card>
+</template>

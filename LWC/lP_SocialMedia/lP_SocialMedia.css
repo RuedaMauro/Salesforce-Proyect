@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+}
+
+.social-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* height: 32px; */
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
+
+a {
+    color: #888888;
+    fill: #888888;
+    font-weight: 700;
+}
+
+.phone-label {
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    margin-right: 0.8rem;
+    color: #888888;
+    font-weight: 700;
+}
+
+.phone_icon {
+    width: 13px;
+    height: 13px;
+    margin-right: 0.3rem;
+}
+
+.whatsapp-label {
+    margin-right: 0.75rem;
+    text-decoration: none;
+    font-family: 'Nunito', sans-serif;
+    color: #888888;
+    font-weight: 700;
+}
+
+.whatsapp_icon {
+    width: 13.62px;
+    height: 15.42px;
+    margin-right: 0.3rem;
+}
+
+.facebook-label {
+    margin-right: 1rem;
+}
+
+.facebook_icon {
+    width: 10px;
+    height: 14px;
+}
+
+.twitter-label {
+    margin-right: 1rem;
+}
+
+.twitter_icon {
+    width: 14px;
+    height: 14px;
+}
+
+.youtube-label {
+    margin-right: 1rem;
+}
+
+.youtube_icon {
+    width: 16px;
+    height: 14px;
+}
+@media (min-width: 320px) and (max-width: 680px) {
+    .social-container{
+        width: 100%;
+        justify-content: space-between;
+        font-size:0.75rem ;
+    }
+    .phone-label {
+        margin-right: 0.313rem;
+        font-size:0.563rem;
+    }
+    .whatsapp-label {
+        margin-right: 0.625rem;
+        font-size:0.563rem;
+    }
+    .facebook-label {
+        margin-right: 1.1rem;
+        margin-left: 0.5rem;
+    } 
+    .twitter-label {
+        margin-right: 1.1rem;
+    }
+    .youtube-label {
+        margin-right: 0px;
+    }
+}

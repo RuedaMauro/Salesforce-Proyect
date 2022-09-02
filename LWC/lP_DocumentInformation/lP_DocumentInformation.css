@@ -1,0 +1,495 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+} 
+.mobile-title{
+    display: none;
+}
+.first-container{
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-top: 94px;
+    width: 100%;
+}
+.card-container{
+    margin-right: 6rem;
+    width: 50%;
+}
+.text-img{
+    display: flex;
+    flex-direction: row;
+    color: #333333;
+    margin-bottom: 4rem;
+}
+.card_img{
+    width: 171px;
+    height: 272px;
+}
+.info-container{
+    width: 266px;
+    margin-left: 2.5rem;
+}
+.title1, .titleLP{
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: uppercase;
+}
+.small-text, .small-text1{
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    margin-top: -0.5rem;
+    margin-bottom: 8px;
+    color: #333333;
+}
+.number{
+    margin: 1rem 0rem 2.5rem 0rem;
+    font-size: 2.125rem;
+    font-weight: 600;
+}
+.subtitle{
+    margin-top: -0.5rem;
+    font-size: 1rem;
+    color: #888888;
+}
+.check-cont{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 3.5rem;
+    align-items: baseline;
+    font-size: 16px;
+}
+input{
+    border: #D9DBDD 1px solid;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    margin-top: 1rem;
+}
+.terms{
+    width: 453px;
+}
+.btn1{
+    width: 124px;
+    height: 32px;
+    border: #DDDBDA 1px solid;
+    border-radius: 0.25rem;
+    color:#D00E2A;
+    background-color: #FFFFFF;
+    margin-right: 1.5rem;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.button-cont{
+    margin-top: 56px;
+}
+.btn2{
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 329px;
+    height: 32px;
+    border: none;
+    margin-top: 20px;
+    color: #FFFFFF;
+    background-color:#D00E2A;
+  
+}
+.btn2:disabled{
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    width: 329px;
+    height: 32px;
+    border: none;
+    margin-top: 20px;
+    color: #FFFFFF;
+    background-color: #dddbda;
+    font-weight: 600;
+}
+.doc-container{
+    width: 50%;
+    padding-bottom: 56px;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 24px;
+}
+.icon{
+    width: 40px;
+    height: 40px;
+    margin-right: 1.5rem ;
+    cursor: pointer;
+}
+.doc{
+    margin-top: 2rem;
+}
+.txt{
+    border-bottom: #D9DBDD 1px solid;
+}
+@media (min-width: 525px) and (max-width: 975px) {
+    .mobile-title{
+        display: block;
+        font-family: 'Nunito', sans-serif;
+        font-size:2.125rem;
+        color: #D00E2A;
+        /* width: 400px; */
+        line-height: 46px;
+        letter-spacing: -1.5px;
+        font-weight: 600;
+        /* margin-bottom: 48px; */
+    }
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        /* height: 151.51vh; */
+    }
+    .card-container{
+     width: 100%;
+    }
+    .card_img{
+        width: 200px;
+        height: 270px;
+    }
+    .info-container{
+        margin-left: 1.5rem;
+    }
+    .text-img {
+        margin-bottom: 3.3rem;
+    }
+    .title1{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 0px;
+    }
+    .number{
+        font-size: 1.875rem;
+        margin: 1rem 0rem 1.5rem 0rem;
+    }
+    .small-text{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        /* margin-top: -8px; */
+    }
+    .button-cont{
+        position: absolute;
+        margin-top: 52rem;
+        /* margin-left: 15px; */
+        width: 100%;
+       
+    }
+    .btn1{
+        width: 84px;
+        margin-right: 1rem;
+        font-size: 0.75rem;
+
+    }
+    .btn2, .btn2:disabled{
+        width: 228px;
+        font-size: 0.75rem;
+
+    }
+    .check-cont{
+        position: absolute;
+        margin-top: 42rem;
+        margin-bottom: 2.5rem;
+        width: 100%;
+    }
+    .doc-container{
+        width: 100%;
+        padding-bottom: 300px;
+    }
+    .icons{
+        margin-bottom: 1.5rem;
+    }
+}
+@media (min-width: 425px) and (max-width: 525px) {
+    .mobile-title{
+        display: block;
+        font-family: 'Nunito', sans-serif;
+        font-size:2.125rem;
+        color: #D00E2A;
+        /* width: 400px; */
+        line-height: 46px;
+        letter-spacing: -1.5px;
+        font-weight: 600;
+        /* margin-bottom: 48px; */
+    }
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        /* height: 151.51vh; */
+    }
+    .card-container{
+        margin-right: 0rem;
+        width: 90%;
+    }
+    .card_img{
+        width: 250px;
+        height: 250px;
+    }
+    .info-container{
+        margin-left: 1.5rem;
+    }
+    .text-img {
+        margin-bottom: 3.3rem;
+    }
+    .title1{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 0px;
+    }
+    .number{
+        font-size: 1.875rem;
+        margin: 1rem 0rem 1.5rem 0rem;
+    }
+    .small-text{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        /* margin-top: -8px; */
+    }
+    .button-cont{
+        position: absolute;
+        margin-top: 52rem;
+    /* margin-left: 15px; */
+        width: 390px;
+       
+    }
+    .btn1{
+        width: 84px;
+        margin-right: 1rem;
+        font-size: 0.75rem;
+
+    }
+    .btn2, .btn2:disabled{
+        width: 228px;
+        font-size: 0.75rem;
+
+    }
+    .check-cont{
+        position: absolute;
+        margin-top: 42rem;
+        margin-bottom: 2.5rem;
+        width: 390px;
+    }
+    .doc-container{
+        width: 350px;
+        padding-bottom: 300px;
+    }
+    .icons{
+        margin-bottom: 1.5rem;
+    }
+    
+}
+@media (min-width: 353px) and (max-width: 425px) {
+    .mobile-title{
+        display: block;
+        font-family: 'Nunito', sans-serif;
+        font-size:2.125rem;
+        color: #D00E2A;
+        /* width: 330px; */
+        line-height: 46px;
+        letter-spacing: -1.5px;
+        font-weight: 600;
+        margin-bottom: 48px;
+    }
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        /* height: 151.51vh; */
+    }
+    .card-container{
+        width: 90%;
+        /* margin-right: 0rem; */
+    }
+    .card_img{
+        width: 200px;
+        height: 200px;
+    }
+    .info-container{
+        margin-left: 1.5rem;
+        width: 236px;
+    }
+    .text-img {
+        margin-bottom: 3.3rem;
+    }
+    .title1{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 0px;
+    }
+    .titleLP{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        width: 190px;
+        margin-top: 0px;
+    }
+    .small-text1{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        width: 168px;
+        color: #333333;
+    }
+    .number{
+        font-size: 1.875rem;
+        margin: 1rem 0rem 1.5rem 0rem;
+    }
+    .small-text{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        /* margin-top: -8px; */
+    }
+    .button-cont{
+        position: absolute;
+        margin-top: 62rem;
+        /* width: 357px; */
+       
+    }
+    .btn1{
+        width: 80px;
+        margin-right: 1rem;
+        font-size: 10px;
+
+    }
+    .btn2, .btn2:disabled{
+        width: 191px;
+        font-size: 10px;
+
+    }
+    .check-cont{
+        position: absolute;
+        margin-top: 50rem;
+        margin-bottom: 2.5rem;
+        width: 328px;
+    }
+    .doc-container{
+        width: 250px;
+        padding-bottom: 300px;
+    }
+    .icons{
+        margin-bottom: 1.5rem;
+    }
+    
+}
+@media (min-width: 320px) and (max-width: 352px) {
+    .mobile-title{
+        display: block;
+        font-family: 'Nunito', sans-serif;
+        font-size:2.125rem;
+        color: #D00E2A;
+        width: 300px;
+        line-height: 46px;
+        letter-spacing: -1.5px;
+        font-weight: 600;
+        margin-bottom: 48px;
+    }
+    .first-container{
+        display: flex;
+        flex-direction: column;
+        /* height: 151.51vh; */
+    }
+    .card-container{
+        width: 75%;
+        margin-right: 0rem;
+    }
+    .card_img{
+        width: 200px;
+        height: 200px;
+    }
+    .info-container{
+        margin-left: 1.5rem;
+        width: 340px;
+    }
+    .text-img {
+        margin-bottom: 3.3rem;
+    }
+    .title1{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        margin-top: 0px;
+    }
+    .titleLP{
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        width: 155px;
+        margin-top: 0px;
+    }
+    .number{
+        font-size: 1.6rem;
+        width: 145px;
+        margin: 1rem 0rem 1.5rem 0rem;
+    }
+    .small-text{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        /* width: 129px; */
+        /* margin-top: -8px; */
+    }
+    .small-text1{
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 19px;
+        width: 129px;
+        color: #333333;
+    }
+    .button-cont{
+        position: absolute;
+        margin-top: 62rem;
+        width: 357px;
+       
+    }
+    .btn1{
+        width: 80px;
+        margin-right: 0.5rem;
+        font-size: 10px;
+
+    }
+    .btn2, .btn2:disabled{
+        width: 191px;
+        font-size: 10px;
+
+    }
+    .check-cont{
+        position: absolute;
+        margin-top: 50rem;
+        margin-bottom: 2.5rem;
+        width: 328px;
+    }
+    .doc-container{
+        width: 250px;
+        padding-bottom: 300px;
+    }
+    .icons{
+        margin-bottom: 1.5rem;
+    }
+    .info-container{
+        width: 423px;
+    }
+    
+}

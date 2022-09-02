@@ -1,0 +1,522 @@
+<template>
+    
+
+    <div if:false={isMobile}>
+        <lightning-layout multiple-rows class="myAccountLayout">
+            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                <img src={profile} width="20px" height="20px"></img> <b class="textlong">
+                    {iconMyaccount.LP_MiCuentaHome}</b>
+            </lightning-layout-item>
+            <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"
+                alignment-bump="left">
+                <lightning-layout multiple-rows class="myAccountLayoutLeftSide">
+                    <template if:true={showButtonDigitalAccount}>
+                        <lightning-layout-item size="12" alignment-bump="left" class="buttons">
+                            <template if:true={showDigitalAccount}>
+                            <button class="sfdc_buttonSelected myAccountRadiousTop" style="width: 100%;"
+                                onclick={changeShowDigitalAccount}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b> {iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                            </template>
+                            <template if:false={showDigitalAccount}>
+                                <button class="sfdc_button myAccountRadiousTop" style="width: 100%;"
+                                onclick={changeShowDigitalAccount}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b> {iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                            </template>
+                        </lightning-layout-item>
+                    </template>
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                       <template if:true={showButtonDigitalAccount}>
+                            <template if:true={showCardLimits}>
+                                <button class="sfdc_buttonSelected" style="width: 100%;" onclick={changeShowCardLimits}>
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="11" class="buttons">
+                                            <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                            <img src={arrow} width="100%" height="100%"></img>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </button>
+                            </template>
+                            <template if:false={showCardLimits}>
+                                <button class="sfdc_button" style="width: 100%;"
+                                    onclick={changeShowCardLimits}>
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="11" class="buttons">
+                                            <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                            <img src={arrow} width="100%" height="100%"></img>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </button>
+                            </template>
+                       </template>
+                       <template if:false={showButtonDigitalAccount}>
+                            <template if:true={showCardLimits}>
+                                <button class="sfdc_buttonSelected myAccountRadiousTop" style="width: 100%;" onclick={changeShowCardLimits}>
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="11" class="buttons">
+                                            <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                            <img src={arrow} width="100%" height="100%"></img>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </button>
+                            </template>
+                            <template if:false={showCardLimits}>
+                                <button class="sfdc_button myAccountRadiousTop" style="width: 100%;"
+                                    onclick={changeShowCardLimits}>
+                                    <lightning-layout multiple-rows>
+                                        <lightning-layout-item size="11" class="buttons">
+                                            <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                            <img src={arrow} width="100%" height="100%"></img>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </button>
+                            </template>
+                       </template>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <template if:true={showUnbilledMovements}>
+                        <button class="sfdc_buttonSelected" style="width: 100%;" onclick={changeShowUnbilledMovements}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="11" class="buttons">
+                                    <b> {iconMyaccount.LP_MovNoFacturadosMC}</b>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                    <img src={arrow} width="100%" height="100%"></img>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                        </template>
+
+                        <template if:false={showUnbilledMovements}>
+                            <button class="sfdc_button" style="width: 100%;" onclick={changeShowUnbilledMovements}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b> {iconMyaccount.LP_MovNoFacturadosMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>   
+                        </template>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <template if:true={showUpcomingMaturities}>
+                            <button class="sfdc_buttonSelected" style="width: 100%;" onclick={changeShowUpcomingMaturities}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b>{iconMyaccount.LP_ProximosVencimientosMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </template>
+                        <template if:false={showUpcomingMaturities}>
+                            <button class="sfdc_button" style="width: 100%;" onclick={changeShowUpcomingMaturities}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b>{iconMyaccount.LP_ProximosVencimientosMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </template>
+                    </lightning-layout-item>
+
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons"
+                        data-id="EstadoCuenta">
+                        <template if:true={showAccountState}>
+                            <button class="sfdc_buttonSelected myAccountRadiousBottom" style="width: 100%;"
+                                onclick={changeShowAccountState}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b>{iconMyaccount.LP_EstadodeCuentaMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </template>
+
+                        <template if:false={showAccountState}>
+                            <button class="sfdc_button myAccountRadiousBottom" style="width: 100%;"
+                                onclick={changeShowAccountState}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="11" class="buttons">
+                                        <b>{iconMyaccount.LP_EstadodeCuentaMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1" alignment-bump="left" class="buttons">
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </template>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            
+            <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12"
+                alignment-bump="left">
+                <lightning-layout multiple-rows class="myAccountLayoutRightSide">
+                    <template if:true={showAccountState}>
+
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={eAccount} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_EstadodeCuentaMC}</b>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="8" large-device-size="8" medium-device-size="8" small-device-size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Account-With-Payment></c-l-p_-My-Account-With-Payment>
+                        </lightning-layout-item>
+                        <template if:false={noAccountStatements}>
+                            <lightning-layout-item size="4" large-device-size="4" medium-device-size="4" small-device-size="12" 
+                            padding="around-small" alignment-bump="left">
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <b class="textlong">{iconMyaccount.LP_RevisarEstadoCuentaMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="7" padding="around-small" alignment-bump="left">
+                                        <lightning-combobox name="progress" label="Mes" value={value1}
+                                            placeholder={value2} options={options} onchange={handleChange}>
+                                        </lightning-combobox>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="5" padding="around-small" alignment-bump="left">
+                                        <lightning-combobox name="progress1" label="Año" value={value2}
+                                            placeholder={value1} options={options2} onchange={handleChange2}>
+                                        </lightning-combobox>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <template if:true={isErrorsDate}>
+                                            <p class="error-message">{errorsDate}</p>
+                                        </template>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                <template if:true={showPDF}>
+                                    <iframe referrerpolicy="same-origin" src={srcVF} height="700px"
+                                        width="100%"></iframe>
+                                </template>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:true={noAccountStatements}>
+                            <lightning-layout-item size="4" padding="around-small" alignment-bump="left">
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                <p class="frame"> {errorsText} </p>
+                            </lightning-layout-item>
+                        </template>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Payment-Component></c-l-p_-Payment-Component>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showCardLimits}>
+                        <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"  padding="around-small" alignment-bump="left">
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={quota} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_MisCuposMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Limit-Amount></c-l-p_-My-Limit-Amount>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showUnbilledMovements}>
+                        <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"  padding="around-small" alignment-bump="left">
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={unbilled} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_MovNoFacturadosMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Unbilled-Movements></c-l-p_-Unbilled-Movements>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showUpcomingMaturities}>
+                        <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"  padding="around-small" alignment-bump="left">
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={maturities} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_ProximosVencimientosMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Upcoming-Maturities></c-l-p_-Upcoming-Maturities>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showDigitalAccount}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <b class="textTitle">{iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Digital-Account-s-p></c-l-p_-My-Digital-Account-s-p>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+
+    <div if:true={isMobile}>
+        <lightning-layout multiple-rows class="myAccountLayout">
+            <lightning-layout-item size="12" padding="around-small" style="text-align:center;" alignment-bump="center">
+                <img src={profile} width="25px" height="25px"></img> <b style="text-align:center;"
+                    class="textlong2">{iconMyaccount.LP_MiCuentaHome}</b>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" alignment-bump="left">
+                <lightning-layout multiple-rows class="myAccountLayoutLeftSideMobile">
+                    <template if:true={showButtonDigitalAccount}>
+                        <template if:false= "{showDigitalAccount}">
+                        <lightning-layout-item size="12" alignment-bump="left" class="buttons">
+                            <button class="sfdc_buttonMobile" style="width: 100%; border-radius: 10px 10px 0px 0px;" onclick={changeShowDigitalAccount}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" class="buttons">
+                                        <b>{iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true= "{showDigitalAccount}">
+                        <lightning-layout-item size="12" alignment-bump="left" class="buttons">
+                            <button class="sfdc_buttonSelectedMobile" style="width: 100%; border-radius: 10px 10px 0px 0px;" onclick={changeShowDigitalAccount}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" class="buttons">
+                                        <b>{iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </lightning-layout-item>
+                    </template>
+                    </template>
+                    <template if:false= "{showCardLimits}">
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                            <button class="sfdc_buttonMobile" style="width: 100%;" onclick={changeShowCardLimits}>
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" class="buttons">
+                                        <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </button>
+                        </lightning-layout-item>
+                        </template>
+                    <template if:true= "{showCardLimits}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelectedMobile" style="width: 100%;" onclick={changeShowCardLimits}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" class="buttons">
+                                    <b> {iconMyaccount.LP_MisCuposMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                    </template>
+                    <template if:false= "{showUnbilledMovements}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonMobile" style="width: 100%;" onclick={changeShowUnbilledMovements}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" class="buttons">
+                                    <b> {iconMyaccount.LP_MovNoFacturadosMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                <template if:true= "{showUnbilledMovements}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelectedMobile" style="width: 100%;" onclick={changeShowUnbilledMovements}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" class="buttons">
+                                    <b> {iconMyaccount.LP_MovNoFacturadosMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                <template if:false= "{showUpcomingMaturities}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonMobile" style="width: 100%;" onclick={changeShowUpcomingMaturities}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" class="buttons">
+                                    <b> {iconMyaccount.LP_ProximosVencimientosMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                <template if:true= "{showUpcomingMaturities}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelectedMobile" style="width: 100%;" onclick={changeShowUpcomingMaturities}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="12" class="buttons">
+                                    <b> {iconMyaccount.LP_ProximosVencimientosMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                <template if:false= "{showAccountState}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonMobile" style="width: 100%; border-radius: 0px 0px 10px 10px;" onclick={changeShowAccountState}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="11" class="buttons">
+                                    <b> {iconMyaccount.LP_EstadodeCuentaMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                <template if:true= "{showAccountState}">
+                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelectedMobile" style="width: 100%; border-radius: 0px 0px 10px 10px;" onclick={changeShowAccountState}>
+                            <lightning-layout multiple-rows>
+                                <lightning-layout-item size="11" class="buttons">
+                                    <b> {iconMyaccount.LP_EstadodeCuentaMC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </button>
+                    </lightning-layout-item>
+                </template>
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" alignment-bump="left">
+                <lightning-layout multiple-rows class="myAccountLayoutRightSideMobile">
+                    <template if:true={showAccountState}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={eAccount} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_EstadodeCuentaMC}</b>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Account-With-Payment></c-l-p_-My-Account-With-Payment>
+                        </lightning-layout-item>
+                        <template if:false={noAccountStatements}>
+                            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                <lightning-layout multiple-rows>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <b class="textlong">{iconMyaccount.LP_RevisarEstadoCuentaMC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <lightning-combobox name="progress" label="Mes" value={value1}
+                                            placeholder={value2} options={options} onchange={handleChange}>
+                                        </lightning-combobox>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <lightning-combobox name="progress1" label="Año" value={value2}
+                                            placeholder={value1} options={options2} onchange={handleChange2}>
+                                        </lightning-combobox>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                        <template if:true={isErrorsDate}>
+                                            <p class="error-message">{errorsDate}</p>
+                                        </template>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                <template if:true={showPDF}>
+                                    <iframe src={srcVF} height="700px" width="100%"></iframe>
+                                </template>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:true={noAccountStatements}>
+                            <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                                <p class="frame"> {errorsText} </p>
+                            </lightning-layout-item>
+                        </template>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Payment-Component></c-l-p_-Payment-Component>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showCardLimits}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={quota} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_MisCuposMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Limit-Amount></c-l-p_-My-Limit-Amount>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showUnbilledMovements}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={unbilled} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_MovNoFacturadosMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Unbilled-Movements></c-l-p_-Unbilled-Movements>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showUpcomingMaturities}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <img src={maturities} width="30px" height="30px"></img> <b
+                                class="textTitle">{iconMyaccount.LP_ProximosVencimientosMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-Upcoming-Maturities></c-l-p_-Upcoming-Maturities>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:true={showDigitalAccount}>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <b class="textTitle"> {iconMyaccount.LP_MiTarjetaDigitalMC}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+                            <c-l-p_-My-Digital-Account-s-p></c-l-p_-My-Digital-Account-s-p>
+                        </lightning-layout-item>
+                    </template>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+    </div>
+  
+
+</template>

@@ -1,0 +1,35 @@
+<template>
+  <template if:false={errors}>
+    <lightning-layout multiple-rows vertical-align="stretch">
+      <lightning-layout-item size="12"  alignment-bump="left">
+        <div style="overflow-x:auto;" >
+          <!-- <lightning-datatable class="tableType"
+            key-field="id"
+            data={data}
+            columns={columns} >
+          </lightning-datatable> -->
+          <table class="table">
+            <tr>
+              <template for:each={dataHard} for:item='item'>   
+                <th class="th" key={item.id}>{item.date}</th>
+              </template>
+            </tr>
+            <template for:each={dataHard} for:item='item'>   
+              <td class="td" key={item.id}>${item.amount}</td>
+            </template>
+          </table>
+        </div>    
+      </lightning-layout-item>
+      <lightning-layout-item size="12"  alignment-bump="left" class="message">
+        <p class="frame">{iconProx.LP_MsjProxVencimientosMC} </p>
+      </lightning-layout-item>
+    </lightning-layout>
+  </template>
+  <template if:true={errors}>
+  <lightning-layout>
+    <lightning-layout-item size="12"  alignment-bump="left" class="message">
+      <p class="frame"> {errorsText} </p>
+    </lightning-layout-item>
+  </lightning-layout>
+  </template>
+  </template>

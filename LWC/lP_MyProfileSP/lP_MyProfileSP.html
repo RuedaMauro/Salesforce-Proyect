@@ -1,0 +1,209 @@
+<template>
+    <div if:true= "{isMobile}">
+        <h1 class="title" style="margin-left:0px;">{iconHelp.LP_MiPerfilMP}</h1>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" >
+                <h1 class="subtitle">{iconHelp.LP_DatosPersonalesMP}</h1>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_NombreMP}</h2>
+                        <h4 class="data">{name}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_ApellidoPaternoMP}</h2>
+                        <h4 class="data">{last_Name_1}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_ApellidoMaternoMP}</h2>
+                        <h4 class="data">{last_Name_2}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_RutMP}</h2>
+                        <h4 class="data">{rut}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_FechaNacimientoMP}</h2>
+                        <h4 class="data">{day_birth}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_CorreoElectronicoMP}</h2>
+                        <h4 class="data">{email}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_TelefonoFijoMP}</h2>
+                        <h4 class="data">-</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_TelefonoMovilMP}</h2>
+                        <h4 class="data">+56 {no_movil}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item size="12">
+                <h1 class="subtitle">{iconHelp.LP_DatosParticulatesMP}</h1>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_DireccionMP}</h2>
+                        <h4 class="data" style="text-transform: uppercase;">{domicilio}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_NumeroDireccionMP}</h2>
+                        <h4 class="data">{tipoCasa}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_ComunaMP}</h2>
+                        <h4 class="data">{comuna}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout class="container2" multiple-rows>
+            <lightning-layout-item style="padding-left:7px; margin-top: 20px; margin-bottom: 10px; padding-right: 8px; border-right: 1px solid black;" size="6">
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h1 class="titleHelp">
+                            <lightning-formatted-rich-text
+                             value={textHelp}> 
+                            </lightning-formatted-rich-text></h1>
+                        
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item  style="padding-left: 15px; margin-top: 10px; margin-bottom: 10px;" size="6">
+                <a style="text-decoration: none;" href= "{iconHelp.LP_FooterCallCenter}" target ="_blank">
+                    <lightning-layout>
+                        <lightning-layout-item size="12">
+                            <div class="txt">
+                                <h4 style="letter-spacing: 1px; font-weight: 600;">{iconHelp.LP_ServicioalClienteFooter}</h4>
+                                <p style="font-size: 20px;">{iconHelp.LP_CallCenter}</p>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </a>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+
+
+    <div if:false= "{isMobile}">
+        <h1 class="title">{iconHelp.LP_MiPerfilMP}</h1>
+        <lightning-layout class="container" multiple-rows>
+            <lightning-layout-item size="6" >
+                <h1 class="subtitle">{iconHelp.LP_DatosPersonalesMP}</h1>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_NombreMP}</h2>
+                        <h4 class="data">{name}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_ApellidoPaternoMP}</h2>
+                        <h4 class="data">{last_Name_1}</h4>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_ApellidoMaternoMP}</h2>
+                        <h4 class="data">{last_Name_2}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_RutMP}</h2>
+                        <h4 class="data">{rut}</h4>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_FechaNacimientoMP}</h2>
+                        <h4 class="data">{day_birth}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_CorreoElectronicoMP}</h2>
+                        <h4 class="data">{email}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_TelefonoFijoMP}</h2>
+                        <h4 class="data">-</h4>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <h2 class="outputTitle">{iconHelp.LP_TelefonoMovilMP}</h2>
+                        <h4 class="data">+56{no_movil}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item size="6" alignment-bump="left">
+                <h1 class="subtitle">{iconHelp.LP_DatosParticulatesMP}</h1>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_DireccionMP}</h2>
+                        <h4 class="data">{domicilio}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_NumeroDireccionMP}</h2>
+                        <h4 class="data">{tipoCasa}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+                <lightning-layout>
+                    <lightning-layout-item size="12">
+                        <h2 class="outputTitle">{iconHelp.LP_ComunaMP}</h2>
+                        <h4 class="data">{comuna}</h4>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout class="container2" multiple-rows>
+            <lightning-layout-item style="margin-top: 20px; margin-bottom: 10px; padding-right: 15px; border-right: 1px solid black;" size="6">
+                <lightning-layout>
+                    <lightning-layout-item class="alignCenter" size="2">
+                        <img style="height:28px; display: inline-block; vertical-align: middle;" src= "{iconHelp.LP_AlertCicleSP}"/>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="10">
+                        <h1 class="titleHelp">
+                            <lightning-formatted-rich-text
+                             value={textHelp}> 
+                            </lightning-formatted-rich-text></h1>
+                        
+                    </lightning-layout-item>
+                </lightning-layout>
+            </lightning-layout-item>
+            <lightning-layout-item  style="padding-left: 15px; margin-top: 10px; margin-bottom: 10px;" size="6">
+                <a style="text-decoration: none;" href= "{iconHelp.LP_FooterCallCenter}" target ="_blank">
+                    <lightning-layout>
+                        <lightning-layout-item class="alignCenter" size="1">
+                            <img style="height: 30px; display: inline-block; vertical-align: middle;" src= "{iconHelp.LP_NubefooterSP}" alt="Servicio Al Cliente" />
+                        </lightning-layout-item>
+                        <lightning-layout-item style="padding-left: 15px;" size="11" alignment-bump="left">
+                            <div class="txt">
+                                <h4 style="letter-spacing: 1px; font-weight: 600;">{iconHelp.LP_ServicioalClienteFooter}</h4>
+                                <p style="font-size: 25px;">{iconHelp.LP_CallCenter}</p>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </a>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+</template>

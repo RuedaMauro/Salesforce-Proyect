@@ -1,0 +1,132 @@
+@font-face {
+
+    font-family: 'Nunito', sans-serif;
+
+    src: url ('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+}
+
+.table {
+    font-family:'Nunito', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+     border-radius: 1em; 
+    font-weight: 700;
+    overflow:hidden;
+  }
+
+  .table1 {
+    font-family:'Nunito', sans-serif;
+    border-collapse: collapse;
+    width: 700px;
+     border-radius: 1em; 
+    font-weight: 700;
+    overflow:hidden;
+  }
+
+ .th {
+    background-color: red;
+    color:white;
+    font-weight: 700;
+    /* border: 1px solid #dddddd;
+    border-right: none; */
+    text-align: left;
+    padding: 8px;
+  }
+
+  .td{
+    background-color: white;
+    font-weight: 700;
+    text-transform:uppercase;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .col1{
+    width: 15%;
+  }
+  .col2{
+    width: 30%;
+  }
+  .col3{
+    width: 20%;
+  }
+  .col4{
+    width: 20%;
+  }
+  .col5{
+    width: 20%;
+  }
+
+  .img{
+    width: 20px;
+    height: 20px;
+  }
+
+  .table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+}
+
+.textRight{
+    text-align: right;
+}
+
+.message{
+    color:rgb(94, 94, 94);
+    padding-top:20px;
+    padding-bottom:40px;
+    border-color:rgb(102, 102, 102);
+    border-width: 5px;
+  }
+  
+  .frame{
+    color:rgba(94, 94, 94, 0.678);
+    padding:10px;
+    border-style:solid;
+    border-color:rgba(102, 102, 102, 0.404);
+    border-width: 1px;
+  }
+
+  .tr td:last-child{
+    width: 1%;
+    white-space: nowrap;
+  }
+
+  @media all and (max-width:1000px){
+
+    .img{
+      width: 15px;
+      height: 15px;
+    }
+
+    .th {
+     font-size: 9px;
+    }
+    .td{
+      font-size: 10px;
+    }
+
+    .col1{
+      width: 15%;
+    }
+    .col2{
+      width: 15%;
+    }
+    .col3{
+      width: 25%;
+    }
+    .col4{
+      width: 21%;
+    }
+    .col5{
+      width: 50%;
+    }
+  
+  
+
+  }

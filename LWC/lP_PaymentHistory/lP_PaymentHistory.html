@@ -1,0 +1,102 @@
+<template>
+    <div if:false={isMobile}>
+    <div if:true={checkAmount}>
+    <div class="table-wrapper">
+        <div class="table-scroll">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="th">Mes</th>
+                        <th class="th">Tienda</th>
+                        <th class="th"  onclick= {sortTable}>Fecha<img src={flechas} width="20px" height="20px"></img></th>
+                        <th class="th">Monto Pagado</th>  
+                    </tr>
+                </thead>
+                <template for:each={dataHard} for:item='item'>
+                     <tr key={item.id}>
+                  <td class="td" key={item.id}>{item.month}</td>
+                  <td class="td" key={item.id} >{item.store}</td>
+                  <td class="td" key={item.id}>{item.date}</td>
+                  <td class="td" key={item.id}>$ {item.amount}</td>
+                </tr>
+                </template>
+                </table>
+        </div>
+    </div>
+</div>
+<div if:false={checkAmount}>
+    <div class="table-wrapper"> 
+        <div class="table-scroll2">     
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="th">Mes</th>
+                        <th class="th">Tienda</th>
+                        <th class="th"  onclick= {sortTable}>Fecha<img src={flechas} width="20px" height="20px"></img></th>
+                        <th class="th">Monto Pagado</th>  
+                    </tr>
+                </thead>
+                <template for:each={dataHard} for:item='item'>
+                     <tr key={item.id}>
+                  <td class="td" key={item.id}>{item.month}</td>
+                  <td class="td" key={item.id} >{item.store}</td>
+                  <td class="td" key={item.id}>{item.date}</td>
+                  <td class="td" key={item.id}>$ {item.amount}</td>
+                </tr>
+                </template>
+                </table>
+            </div>
+        </div>
+</div>
+</div>
+<div if:true={isMobile}>
+    <div if:true={checkAmount}>
+    <div class="table-wrapper">
+        <div class="table-scroll">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="th">Mes</th>
+                        <th class="th">Tienda</th>
+                        <th class="th"  onclick= {sortTable}>Fecha<img src={flechas} width="20px" height="20px"></img></th>
+                        <th class="th">Monto Pagado</th>  
+                    </tr>
+                </thead>
+                <template for:each={dataHard} for:item='item'>
+                     <tr key={item.id}>
+                  <td class="td" key={item.id}>{item.month}</td>
+                  <td class="td" key={item.id} >{item.store}</td>
+                  <td class="td" key={item.id}>{item.date}</td>
+                  <td class="td" key={item.id}>$ {item.amount}</td>
+                </tr>
+                </template>
+                </table>
+            </div>
+            </div>
+    </div>
+    <div if:false={checkAmount}>
+        <div class="table-wrapper"> 
+            <div class="table-scroll2">     
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="th">Mes</th>
+                            <th class="th">Tienda</th>
+                            <th class="th"  onclick= {sortTable}>Fecha<img src={flechas} width="20px" height="20px"></img></th>
+                            <th class="th">Monto Pagado</th>  
+                        </tr>
+                    </thead>
+                    <template for:each={dataHard} for:item='item'>
+                         <tr key={item.id}>
+                      <td class="td" key={item.id}>{item.month}</td>
+                      <td class="td" key={item.id} >{item.store}</td>
+                      <td class="td" key={item.id}>{item.date}</td>
+                      <td class="td" key={item.id}>$ {item.amount}</td>
+                    </tr>
+                    </template>
+                    </table>
+                </div>
+            </div>
+    </div>
+</div>
+</template>

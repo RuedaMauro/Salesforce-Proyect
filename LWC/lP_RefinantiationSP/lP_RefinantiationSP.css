@@ -1,0 +1,187 @@
+.title{
+    text-align: start;
+    font-size: 20px;
+    font-weight: 600;
+    padding:5px;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    background: #fff;
+    padding-top: 2px;
+    border: 1px solid grey;
+    color: grey;
+    text-align: center;
+    font: 24px Arial,sans-serif;
+  }
+
+.container{
+
+
+    padding:3%;
+    background-color: #ececec;
+    border-radius:15px;
+    text-align:start;
+    
+
+}
+
+.buttons{
+
+    display:flex;
+    padding-left: 49px;
+    margin-bottom: 10px;
+
+}
+
+.input1{
+    margin-right: 20px;
+    margin-top:10px;
+}
+
+.inputTitle{
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.sfdc_button {
+    color: white;
+    background-color: #242424;
+    font-size: 16px;
+    font-weight: 500;
+    }
+
+.step{
+
+    margin-top: 10px;
+
+}
+
+.stepOpaque{
+
+    margin-top: 10px;
+    opacity:0.5;
+
+
+}
+
+.error {
+    text-align: center;
+    color:#705a5a;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.amountOpaque{
+    background-color: #b4b4b4;
+    color: #b4b4b4;
+    border-radius:20px;
+    margin-bottom: 10px;
+}
+
+.amountCuota{
+    font-size: 18px; 
+    font-weight:600; 
+    letter-spacing:2px;
+}
+
+.info{
+
+    display:flex; 
+    margin-left: 49px;
+    margin-top:55px;
+    font-weight:600;
+
+}
+
+.info2{
+    display: flex;
+    margin-left: 49px;
+    margin-bottom: 15px;
+    font-weight:600;
+}
+
+.slds-button{
+
+    
+    --sds-c-button-neutral-color-background: #d40c2c;
+    --sds-c-button-neutral-color-border: #d40c2c;
+    --sds-c-button-neutral-text-color: white;
+    --sds-c-button-brand-text-color:white;
+    --sds-c-button-text-color-hover: #d40c2c;
+    --sds-c-button-text-color: white;
+    --sds-c-button-neutral-color-background-hover: #d40c2c;
+    --sds-c-button-neutral-color-border-hover: #d40c2c; 
+    --sds-c-button-text-color-hover:white;
+}
+
+
+
+.sfdc_username_container{
+    
+    border: 1px solid rgb(110, 110, 110);
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+  }
+  
+  .input {
+    width: 100%;
+    -webkit-appearance: none;
+    font-size: 14px;
+    text-align: initial;
+    padding:6px;
+    border-radius: 3px;
+    background-color:rgb(230, 222, 222);
+  
+  }
+
+  .cuotas{
+    background-color:#535353;
+    border-radius:10px;
+    margin-left: 49px;
+    margin-bottom: 10px;
+    width:35%
+
+  }
+
+  .infoCuota{
+      text-align:center;
+      font-weight:500;
+      padding:15px;
+      color:white;
+  }
+
+.subtitle{
+
+    font: 12px;
+    font-weight: 400;
+    color: grey;
+    padding-left: 15px;
+    margin-top: 8px;
+}
+
+@media all and (max-width:750px){
+
+    .amountOpaque{
+        background-color: #b4b4b4;
+        color: #b4b4b4;
+        border-radius:20px;
+        margin-bottom: 10px;
+        font-size: 8px; 
+    }
+    
+    .amountCuota{
+        font-size: 14px; 
+        font-weight:600; 
+        letter-spacing:1px;
+    }
+
+    .input1{
+        margin-right: 5px;
+    }
+
+}

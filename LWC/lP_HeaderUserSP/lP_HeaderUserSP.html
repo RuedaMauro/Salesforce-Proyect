@@ -1,0 +1,31 @@
+<template>
+    <div if:false={isMobile}>
+        <lightning-layout>
+            <lightning-layout-item class="logo" size="1" large-device-size="1" medium-device-size="3"
+            small-device-size="6"
+                padding="around-small">
+                <a href="/SitioPrivado/">
+                    <img src={logo}>
+                </a>
+            </lightning-layout-item>
+            <lightning-layout-item size="11" large-device-size="11" medium-device-size="9"
+            small-device-size="6" style="text-align: start;"
+                padding="around-small" alignment-bump="left" class="user">
+                <div if:true={showUser}>
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                            small-device-size="12" padding="around-small" class="saludo bienvenido">
+                            <b>Bienvenido/a {nombre}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                            small-device-size="12" padding="around-small" class="saludo ulti">
+                            Última conexión: {conexion}
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+    </div>
+
+
+</template>

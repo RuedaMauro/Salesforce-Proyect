@@ -1,0 +1,110 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap');
+}
+
+.autoatention-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-top: 0.625rem;
+    padding-bottom: 2.625rem;
+}
+
+.cards{
+    display:flex;   
+}
+.buttons{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    margin-top:0.3rem;
+    height: 32px;
+}
+.card-img, .card-img2 {
+    width: 40px;
+    height: 55px;
+}
+
+.card-img2{
+    margin-left: 1rem;
+}
+
+.button {
+    text-align: center;
+    width: 200px;
+    height: 44px;
+    border:#D00E2A 1px solid ;
+    /* padding: 0.063rem 1rem; */
+    padding: 12px 0px 14px 0px;
+    background-color: white;
+    color: #BA0517;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 0.25rem;
+}
+
+.button2 {
+    border: none;
+    padding-top: 0.625rem;
+    background-color: white;
+    color: #333333;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    margin-right: 2.188rem;
+    margin-bottom: 1.25rem;
+}
+
+.icon {
+    margin-right: 0.313rem;
+}
+@media (min-width: 320px) and (max-width: 976px) {
+    .autoatention-container {
+        height: 105px;
+        margin-top: 24px;
+        padding-bottom: 16px;
+    }
+    .cards{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap; 
+    }
+    .card-img {
+        width: 29.18px;
+        height: 40px;
+    }
+    .card-img2 {
+        width: 29.18px;
+        height: 40px;
+        margin-left: 0.5rem;
+    }
+    .cards{
+        justify-content:start;
+        width: 50%;
+    }
+    .buttons{
+        margin-top:0rem;
+    }
+    .button2{
+        display:none;
+    }
+    .button{
+        width: 90px;
+        height: 50px;
+        border: #DDDDDD 1px solid ;
+        text-align: center;
+    }
+    .icon {
+        margin-right: 0rem;
+        width:16px;
+        height: 16px;
+        padding: 0rem;
+        margin-top: 0.438rem;
+    }
+    .btn-text{
+        display:none;
+    }
+}

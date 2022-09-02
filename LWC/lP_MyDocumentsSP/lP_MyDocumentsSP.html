@@ -1,0 +1,51 @@
+<template>
+  
+
+
+    
+    <template if:true= "{isMobile}">
+        <h1 class="title" style="margin-left:0px;">{icons.LP_MisDocumentosMP}</h1>
+        <h2 class="subtitle" style="margin-left:0px;">{icons.LP_DocImportantesMP}</h2>
+        <div class="orderButtons" style="margin-left:0px;">
+            <button class="buttonMobile" style="margin-left:0px; margin-right:10px;" onclick= {sortTable1} >{icons.LP_OrdenarNombreMP}</button>
+            <button class="buttonMobile"  style="margin-left:0px;" onclick= {sortTable0}>{icons.LP_OrdenarFechaMP}</button>
+        </div>
+        <table class="table" style="margin-left:0px;" id="myTable2">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 10%;">
+             </colgroup>
+            <template for:each={data} for:item='item'>   
+                <tr key={item.id}>
+                    <td class="td" style="color:rgb(26, 165, 211); font-size:8px" key={item.id}><img style="height:25px; width:25px; margin-right:5px" src= "{icons.LP_DocumentsFilesSP}">{item.nombre}</td>
+                    <td class="td" style="font-size:8px" key={item.id}>{item.fecha}</td>
+                    <td class="td" style="font-size:8px" key={item.id}><a data-item={item.download}  onclick={openDocument} style="color:rgb(26, 165, 211)">Descargar<img class="imgDownload" src= "{icons.LP_DownloadFilesSP}"></a></td>
+                </tr>
+            </template>
+        </table>
+    </template>
+    <template if:false= "{isMobile}">
+        <h1 class="title">{icons.LP_MisDocumentosMP}</h1>
+        <h2 class="subtitle">{icons.LP_DocImportantesMP}</h2>
+        <div class="orderButtons">
+            <button class="button" onclick= {sortTable1} style="margin-right:10px;">{icons.LP_OrdenarNombreMP}</button>
+            <button class="button" onclick= {sortTable0}>{icons.LP_OrdenarFechaMP}</button>
+        </div>
+        <table class="table" id="myTable3">
+            <colgroup>
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 15%;">
+                <col span="1" style="width: 5%;">
+             </colgroup>
+            <template for:each={data} for:item='item'>   
+                <tr key={item.id}>
+                    <td class="td" style="color:rgb(26, 165, 211)" key={item.id}><img style="height:25px; width:25px; margin-right:5px" src= "{icons.LP_DocumentsFilesSP}">{item.nombre}</td>
+                    <td class="td" key={item.id}>{item.fecha}</td>
+                    <td class="td" key={item.id}><a data-item={item.download}  onclick={openDocument} style="color:rgb(26, 165, 211)" >Descargar<img class="imgDownload" src= "{icons.LP_DownloadFilesSP}"></a></td>
+                </tr>
+            </template>
+        </table>
+    </template>
+    
+</template>

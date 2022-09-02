@@ -1,0 +1,349 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+}
+
+.header-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:100%;
+}
+
+.first-header{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width:100%;
+    border-bottom: #888888 1px solid;
+}
+
+.interesting-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    
+}
+
+.iconLogout{
+    width: 25px;
+    height: 25px;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-bottom: 5px;
+}
+
+.iconProfile{
+    width:25px; 
+    height:25px;
+    margin-right:10px;
+}
+
+.interesting-containerMobile {
+    text-align:center;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    background-color: #d40c2c;
+    
+}
+
+.user-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-left: 48%;
+    margin-right: 1%;
+    top: 1%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    border: 2px solid #d40c2c;
+    border-radius: 20px;
+    background-color: #d40c2c;
+    
+
+}
+
+.logoMobile{
+    margin-top:15px;
+}
+
+.btnLoginOffMobile {
+    background-color: #d40c2c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+  .btnLoginOff {
+    background-color: #d40c2c;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+
+.sociallinks_area {
+    visibility: visible;
+    justify-content: center;
+}
+.sociallinks_area ul {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}
+.sociallinks_area ul li {
+    margin: 0 5px;
+}
+.sociallinks_area ul li a {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: red;
+    color: white;
+    text-align: center;
+    line-height: 33px;
+    display: block;
+}
+.notUnderline{
+    text-decoration: none;
+}
+
+
+  .btn {
+    background-color: white;
+    border: none;
+    color: white;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+
+  .btnClose {
+    background-color: white;
+    border: none;
+    color: white;
+    font-size: 7px;
+    margin-top: 10px;
+  }
+
+
+.user-containerMobile{
+   
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+
+}
+
+.sfdc_button {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    margin-top: 20px;
+    color: white;
+    background-color: #d40c2c;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.42857143;
+    border-radius: 40px;
+    transition: 0.5s;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.saludo {
+    margin-left: 0.5rem;
+
+}
+
+.underlineMobile{
+    border-bottom: 2px solid white;
+}
+.rowMobile{
+
+    background-color: #d40c2c;
+    color:white;
+    font-weight:600;
+    text-decoration:none;
+}
+.bienvenido {
+    font-size: 1.1rem;
+    margin-top:-1rem;
+}
+
+.ulti {
+    margin-top: -1.3rem;
+    color:gray;
+}
+
+.resumen {
+   
+    font-size: 1rem;
+    color:black;
+    background-color: #d40c2c; 
+    border-radius: 40px;
+    margin-right: 37px;
+}
+
+.resumenMobile {
+    
+    border-radius: 50px;
+    text-align:start;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Nunito', sans-serif;
+
+}
+
+.menu-textMobile {
+    text-align:center;
+    color: white;
+    font-weight: 600; 
+    font-size: 14px;
+    margin-top:15px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.socialIcon{
+    border-radius: 100%;
+    padding: 10px 10px;
+    background-color:#d40c2c;
+    align-items:center;
+    text-align: center;
+    display:flex;
+}
+
+.resumenSociales {
+   
+    font-size: 1rem;
+    color:white;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+
+}
+.menu-textLogOff{
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.menu-text{
+    text-align:center;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0px -10px 15px 12px;
+    padding-right: 8px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.menu-text2 {
+    text-align:center;
+    color: white;
+    font-weight: 600; 
+    font-size: 14px;
+    padding-right: 12px;
+    padding-left: 15px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dropbtn {
+    font-size: 16px;
+    border: none;
+    background-color: #d40c2c; 
+    color: white;
+    text-align:center;
+    margin: 0px 0px 0px 5px;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 230px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0px 8px 16px 0px rgb(0 0 0 / 20%);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 5px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+
+
+
+.button {
+    text-align: center;
+    border: 0px;
+    width: 220px;
+    height: 30px;
+    padding: 5px;
+    background-color: #d40c2c;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    border-radius: 4px;
+}
+
+.lock_icon {
+    width: 11.69px;
+    height: 15.68px;
+    margin: 0px 8px 3px 8px;
+}
+/*@media (min-width: 320px) and (max-width: 480px) {
+    .interesting-container{
+        display:none;
+         visibility: hidden; 
+    }
+}
+*/

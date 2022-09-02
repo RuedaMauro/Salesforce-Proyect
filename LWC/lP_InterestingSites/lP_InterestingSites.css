@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+}
+
+.interesting-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    margin-left: 5%;
+    top: 1%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.75rem;
+}
+
+.menu-text {
+    color: #888888;
+    font-weight: 500;
+    font-size: 0.75rem;
+    margin: 0.625rem;
+}
+
+.button {
+    text-align: center;
+    border: 0px;
+    width: 220px;
+    height: 27px;
+    padding: 0.313rem;
+    background-color: #d00e2a;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    border-radius: 0.25rem;
+}
+
+.lock_icon {
+    width: 11.69px;
+    height: 15.68px;
+    margin: 0rem 0.5rem 0.188rem 0.5rem;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .interesting-container{
+        display:none;
+        /* visibility: hidden; */
+    }
+}

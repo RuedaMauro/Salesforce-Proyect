@@ -1,0 +1,50 @@
+.fondo {
+    background-color: #eee;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fondoGris {
+    background-color: #eee;
+    border-radius: 10px 10px 10px 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 4%;
+}
+
+.centerButton{
+    float: none; margin-right: 0; width: 100%;
+}
+
+.fondoBlanco {
+    background-color: white;
+}
+
+.fondoMobile {
+    background-color: #eee;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.fondoGrisMobile {
+    background-color: #eee;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 4%;
+}
+
+.fondoBlancoMobile {
+    background-color: white;
+}
+
+@media screen and (max-width:700px){
+    .fondoGris {
+        background-color: #eee;
+        border-radius: 10px 10px 10px 10px;
+        margin-left: 0%;
+        margin-right: 0%;
+        padding: 4%;
+    }    
+}

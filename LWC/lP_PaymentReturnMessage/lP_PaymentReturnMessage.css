@@ -1,0 +1,21 @@
+.topSection{
+    background-color: #06834b;
+    color:white;
+    padding:1rem;
+    border-radius: 0.5rem;
+}
+.textTop{
+    padding-left: 0.5rem;
+}
+
+.BottomSection{
+    padding:1rem;
+    border:solid;
+    border-radius: 0.5rem;
+    border-width: 2px;
+    border-color: rgb(219, 219, 219);
+}
+
+.textBot{
+    font: size 17px;
+}

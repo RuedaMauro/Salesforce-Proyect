@@ -1,0 +1,231 @@
+@font-face {
+  font-family: 'Nunito', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+}
+
+.h1Login{
+
+  background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623768963000/LP_TarjetasSP?) center 1em/90px no-repeat;
+  font-size: 1.375em;
+  font-weight: 300;
+  font-family: 'Nunito', sans-serif;
+  color: #363636;
+  text-align: center;
+  margin: 0;
+  padding: 9em 42px 0px;
+
+
+}
+
+.sfdc_button {
+margin-left: 0px !important;
+margin-right: 0px !important;
+width: 100%;
+margin-top: 7px;
+margin-bottom: 5px;
+color: white;
+background-color: #a00b20;
+display: inline-block;
+vertical-align: middle;
+background-image: none;
+border: 1px solid transparent;
+white-space: nowrap;
+padding: 6px 0px;
+font-size: 16px;
+font-weight: 300;
+line-height: 1.42857143;
+border-radius: 2px;
+opacity: 0.7;
+transition: 0.5s;
+border-radius: 5px;
+user-select:none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+.sfdc_button2 {
+margin-left: 0px !important;
+margin-right: 22px;
+width: 100%;
+margin-top: 7px;
+margin-bottom: 5px;
+color: red;
+background-color: white;
+display: inline-block;
+vertical-align: middle;
+background-image: none;
+border: 1px solid red;
+white-space: nowrap;
+padding: 6px 0px;
+font-size: 16px;
+font-weight: 500;
+line-height: 1.42857143;
+border-radius: 2px;
+transition: 0.5s;
+border-radius: 5px;
+user-select:none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+.sfdc_button_4 {
+margin-left: 0px !important;
+margin-right: 22px;
+width: 100%;
+margin-top: 5px;
+margin-bottom: 3px;
+color: red;
+background-color: white;
+display: inline-block;
+vertical-align: middle;
+background-image: none;
+border: 1px solid red;
+white-space: nowrap;
+padding: 6px 0px;
+font-size: 16px;
+font-weight: 500;
+line-height: 1.42857143;
+border-radius: 2px;
+transition: 0.5s;
+border-radius: 5px;
+user-select:none;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+}
+
+
+.sfdc_button:hover {
+opacity:1;
+}
+
+.sfdc_button2:hover {
+background-color: #a00b20;
+color: white;
+}
+
+.sfdc_button_4:hover {
+opacity:1;
+}
+
+.blackarrow1{
+
+background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623727863000/LP_flecha?) no-repeat;
+padding: 8px 17px;
+margin: 10px 10px 10px -33px;
+
+
+}
+.blackarrow_1{
+
+background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623727863000/LP_flecha?) no-repeat;
+padding: 8px 17px;
+margin: 10px 10px 10px -33px;
+
+
+}
+
+.blackarrow3{
+
+background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623727863000/LP_flecha?) no-repeat;
+padding: 9px 17px;
+margin: 10px 10px 10px -41px;
+
+
+}
+
+.blackarrow2{
+
+background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623727863000/LP_flecha?) no-repeat;
+padding: 8px 17px;
+margin: 10px 10px 10px -20px;
+
+
+}
+
+.sfdc_username_container{
+  margin-bottom:10px;
+  padding: 12px;
+  background-color:white;
+  border: 2px solid Red;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.input {
+  margin-top: 0px;
+  border: 0px solid transparent !important;
+  width: 100%;
+  -webkit-appearance: none;
+  font-size: 14px;
+  text-align: initial;
+  padding-top: 0px;
+  padding-bottom: 3px;
+
+}
+
+.error-message{
+  font-size: 12px;
+  color: #C23934;
+  text-align:center;
+}
+
+@media screen and (max-width:500px){
+
+  .sfdc_button2 {
+    margin-left: 0px !important;
+    margin-right: 22px;
+    width: 100%;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    color: red;
+    background-color: white;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid red;
+    white-space: nowrap;
+    padding: 6px 0px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    transition: 0.5s;
+    border-radius: 5px;
+    user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    }
+
+    .sfdc_button {
+      margin-left: 0px !important;
+      margin-right: 0px !important;
+      width: 100%;
+      margin-top: 7px;
+      margin-bottom: 5px;
+      color: white;
+      background-color: #a00b20;
+      display: inline-block;
+      vertical-align: middle;
+      background-image: none;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      padding: 6px 0px;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 1.42857143;
+      border-radius: 2px;
+      opacity: 0.7;
+      transition: 0.5s;
+      border-radius: 5px;
+      user-select:none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      }
+
+}

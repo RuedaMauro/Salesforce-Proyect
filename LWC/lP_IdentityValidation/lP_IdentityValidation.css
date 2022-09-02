@@ -1,0 +1,261 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+} 
+
+.mobile-title{
+    display: none;
+}
+.first-container{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content: center;
+  margin: 80px 0px 100px 0px;
+  
+}
+.img-cont{
+  /* width: 30%; */
+  width: 219px;
+  height: 331px;
+  /* display:flex;
+  flex-direction:row; */
+}
+.card-img{
+  width: 219px;
+  height: 331px;
+}
+.text-container{
+  /* width: 70%; */
+  /* width: 89.056vw; */
+  
+
+  /* height: 44px; */
+  display:flex;
+  flex-direction: column;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  padding-left: 2.688rem;
+  padding-top: 6.25rem;
+  color: #333333;
+}
+.text{
+  font-weight: bold;
+}
+.text2{
+  padding-top: 1rem;
+}
+.button-container{
+  display: flex;
+  flex-direction: row;
+}
+.button{
+  background-color: #FFFFFF;
+  color: #D00E2A;
+  border: #DDDBDA 1px solid;
+  width: 100px;
+  height: 32px;
+  border-radius: 0.25rem;
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-right: 1.5rem;
+  }
+.button2{
+  background-color: #D00E2A;
+  color: #FFFFFF;
+  border: none;
+  width: 189px;
+  height: 32px;
+  border-radius: 0.25rem;
+  margin-top: 3rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+button2.button:active {
+  background-color: #D00E2A;
+}
+button2.button:enabled {
+  background-color: #D00E2A;
+}
+@media (min-width: 475px) and (max-width: 975px){
+  .mobile-title{
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size:2.125rem;
+    color: #D00E2A;
+    width: 100%;
+    line-height: 46px;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+    margin-bottom: 33px;
+    }
+    .first-container{
+      width: 100vw;
+      margin: 30px 0px 40px 0px;
+      justify-content: flex-start;
+  
+    }
+  .img-cont{
+    display:flex;
+    position:absolute;
+    margin-top: 6.25rem;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  .card-img{
+    width: 116px;
+    height: 176px;
+  }
+  .text-container{
+    width: 90%;
+    padding: 0rem;
+    display: flex;
+    justify-content: center;
+  }
+  /* .text{
+    width: 360px;
+  } */
+  .text2{
+    padding-top:18.75rem;
+    width: 95vw;
+    /* width: 320px; */
+  }
+  .button-container{
+   margin-top: 2.5rem;
+}
+  .button{
+    width: 100px;
+    border-radius: 4px;
+    margin-top: 0rem;
+    /*align-self:flex-end;*/
+    /* margin-left: 160px; */
+    margin-right: 1.5rem;
+  }
+  .button2{
+    border-radius: 0px;
+    width: 204px;
+    margin-top: 0rem;
+  }
+
+}
+@media (min-width: 353px) and (max-width: 475px){
+  .mobile-title{
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size:2.125rem;
+    color: #D00E2A;
+    width: 90%;
+    line-height: 46px;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+    margin-bottom: 33px;
+    }
+    .first-container{
+      width: 100vw;
+      margin: 30px 0px 40px 0px;
+      justify-content: flex-start;
+  
+    }
+  .img-cont{
+    display:flex;
+    position:absolute;
+    margin-top: 6.25rem;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  .card-img{
+    width: 116px;
+    height: 176px;
+  }
+  .text-container{
+    /* width: 100%; */
+    padding: 0rem;
+    display: flex;
+    justify-content: center;
+  }
+  .text{
+    width: 360px;
+  }
+  .text2{
+    padding-top:18.75rem;
+    width: 320px;
+  }
+  .button-container{
+   margin-top: 2.5rem;
+}
+  .button{
+    width: 100px;
+    border-radius: 4px;
+    margin-top: 0rem;
+    /*align-self:flex-end;*/
+    /* margin-left: 160px; */
+    margin-right: 1.5rem;
+  }
+  .button2{
+    border-radius: 0px;
+    width: 204px;
+    margin-top: 0rem;
+  }
+
+}
+@media (min-width: 320px) and (max-width: 353px) {
+  .mobile-title{
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size:2.125rem;
+    color: #D00E2A;
+    width: 90%;
+    line-height: 46px;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+    margin-bottom: 33px;
+    }
+    
+    .first-container{
+      width: 100vw;
+      margin: 30px 0px 40px 0px;
+      justify-content: flex-start;
+    }
+  .img-cont{
+    display:flex;
+    position:absolute;
+    margin-top: 6.25rem;
+    justify-content: center;
+    padding-left: 50px;
+  }
+  .card-img{
+    width: 116px;
+    height: 176px;
+  }
+  .text-container{
+    /* width: 100%; */
+    padding: 0rem;
+    display: flex;
+    justify-content: center;
+  }
+  .text2{
+    padding-top:18.75rem;
+    width: 280px;
+  }
+  .text{
+    width: 280px;
+  }
+  .button-container{
+    width: 270px;
+   margin-top: 2.5rem;
+}
+  .button{
+    width: 100px;
+    border-radius: 4px;
+    margin-top: 0rem;
+    /*align-self:flex-end;*/
+    /* margin-left: 160px; */
+  }
+  .button2{
+    border-radius: 0px;
+    width: 190px;
+    margin-top: 0rem;
+  }
+  
+}

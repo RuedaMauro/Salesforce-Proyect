@@ -1,0 +1,178 @@
+<template>
+    <template if:false={isMobile}>
+        <div if:true= "{showComponent}" class="myDigitalCardContainer">
+            <lightning-layout>
+                <lightning-layout-item size="4" class="tarjeta">
+                    <lightning-layout class="headerTarjeta">
+                        <lightning-layout-item size="8" style="padding:10px;">
+                            <strong class="credito">Crédito</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" alignment-bump="left">
+                            <img src={iconTarjeta.LP_TarjetaChip} style="height:35px; width:35px;">
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="12">
+                            <template if:true= "{showTimer}">
+                                <h1 class="numberTarjeta">{pan}</h1>
+                            </template>
+                            <template if:false= "{showTimer}">
+                                <h1 class="numberTarjeta">XXXX XXXX XXXX XXXX</h1>
+                            </template>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="creditInfoContainer">
+                        <lightning-layout-item size="4">
+                            <strong class="creditoInfo">CVV</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="8" style="text-align: end; padding-right: 12px;" alignment-bump="left">
+                            <strong class="creditoInfo2" >Válida hasta</strong>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <template if:true= "{showTimer}">
+                            <lightning-layout-item size="4" style="padding-right: 10px;">
+                                <strong class="credito">{code}</strong>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="8" alignment-bump="left">
+                                <strong class="credito2">{vencimiento}</strong>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:false= "{showTimer}">
+                            <lightning-layout-item size="4" style="padding-right: 10px;">
+                                <strong class="credito">XXX</strong>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="8" alignment-bump="left">
+                                <strong class="credito2">XX/XX</strong>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="12" class="creditUserContainer">
+                            <strong>{name}</strong>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="imagesContainer">
+                        <lightning-layout-item size="6">
+                            <img src={iconTarjeta.LP_TarjetaDigitalLogoSP} style="height:45px; width:45px;">
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" alignment-bump="left">
+                            <img src={iconTarjeta.LP_LogoVisaSP} style="height:32px; width:5em; margin-top:15px;">
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item size="8" alignment-bump="left" class="opcionMenu">
+                    <lightning-layout>
+                        <lightning-layout-item size="12">
+                            <h1 class="myDigitalCardText">{iconTarjeta.LP_MiTarjetaDigitalMC}</h1>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="12">
+                            <template if:true= "{showTimer}">
+                                <h2 class="countdown">{iconTarjeta.LP_SeOcultaraMC} <span class="countdown2">{time} segundos.</span>
+                                </h2>
+                                <button class="sfdc_button" onclick={stopCountdown}><img src={iconTarjeta.LP_EyesSP}
+                                        style="height:15px; width: 15px; margin-right:5px">{iconTarjeta.LP_OcultarDatosMC}</button>
+                            </template>
+                            <template if:false= "{showTimer}">
+                                <button class="sfdc_button" onclick={startCountdown}><img src={iconTarjeta.LP_EyesSP}
+                                        style="height:15px; width: 15px; margin-right:5px">{iconTarjeta.LP_MostrarDatosMC}</button>
+                            </template>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <div if:false= "{showComponent}">
+            <div class="loader"></div>
+        </div>
+    </template>
+
+
+    <!--MOBILE-->
+
+    <template if:true={isMobile}>
+        <template if:true= "{showTimer}">
+            <h2 class="countdown">{iconTarjeta.LP_SeOcultaraMC} <span class="countdown2">{time} segundos.</span></h2>
+        </template>
+        <div if:true= "{showComponent}" class="myDigitalCardContainer">
+            <lightning-layout>
+                <lightning-layout-item size="12" class="tarjetaMobile center">
+                    <lightning-layout class="headerTarjeta">
+                        <lightning-layout-item size="8" style="padding:10px;">
+                            <strong class="credito">Crédito</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" alignment-bump="left">
+                            <img src={iconTarjeta.LP_TarjetaChip} style="height:35px; width:35px;">
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="12">
+                            <template if:true= "{showTimer}">
+                                <h1 class="numberTarjeta">{pan}</h1>
+                            </template>
+                            <template if:false= "{showTimer}">
+                                <h1 class="numberTarjeta">XXXX XXXX XXXX XXXX</h1>
+                            </template>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="creditInfoContainer">
+                        <lightning-layout-item size="4">
+                            <strong class="creditoInfo" style="font-size: 10px;">CVV</strong>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="8" alignment-bump="left" style="text-align: end; padding-right:10px;">
+                            <strong class="creditoInfo2">Válida hasta</strong>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <template if:true= "{showTimer}">
+                            <lightning-layout-item size="4" style="padding-right: 20px;">
+                                <strong class="credito" style="font-size: 12px;">{code}</strong>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="8" style="padding-left: 65px;" alignment-bump="left">
+                                <strong class="credito2">{vencimiento}</strong>
+                            </lightning-layout-item>
+                        </template>
+                        <template if:false= "{showTimer}">
+                            <lightning-layout-item size="4" style="padding-right: 20px;">
+                                <strong class="credito" style="font-size: 12px;">XXX</strong>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="8" style="padding-left: 65px;" alignment-bump="left">
+                                <strong class="credito2">XX/XX</strong>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                    <lightning-layout>
+                        <lightning-layout-item size="12" class="creditUserContainer">
+                            <strong>{name}</strong>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                    <lightning-layout class="imagesContainer">
+                        <lightning-layout-item size="6">
+                            <img src={iconTarjeta.LP_TarjetaDigitalLogoSP} style="height:45px; width:45px;">
+                        </lightning-layout-item>
+                        <lightning-layout-item size="6" alignment-bump="left">
+                            <img src={iconTarjeta.LP_LogoVisaSP} style="height:32px; width:5em; margin-top:15px;">
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout>
+                <lightning-layout-item size="12">
+                    <div align="center" if:true= "{showTimer}">
+                        <button class="sfdc_buttonMobile" onclick={stopCountdown}><img src={iconTarjeta.LP_EyesSP}
+                                style="height:15px; width: 15px; margin-right:5px">{iconTarjeta.LP_OcultarDatosMC}</button>
+                        </div>
+                    <div align="center" if:false= "{showTimer}">
+                        <button class="sfdc_buttonMobile" onclick={startCountdown}><img src={iconTarjeta.LP_EyesSP}
+                                style="height:15px; width: 15px; margin-right:5px">{iconTarjeta.LP_MostrarDatosMC}</button>
+                        </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+        <div if:false= "{showComponent}">
+            <div class="loader"></div>
+        </div>
+    </template>
+</template>

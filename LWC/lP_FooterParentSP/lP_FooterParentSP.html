@@ -1,0 +1,158 @@
+<!--*********************************************************************************
+Project      : La Polar Private Site
+Created By   : Deloitte
+Created Date : 2/07/2021
+Description  : Lightning web component - Footer ParentSP
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Lucas Lemes              LL
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       LL	     2/07/2021		initial version
+********************************************************************************/-->
+<template>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer_linksandsocial">
+                <div class="logo_area">
+                    <img src= "{iconFooter.LP_LogofooterSP}" alt="La Polar" />
+                </div>
+    
+                <div class="phones_area">
+                    <ul>
+                        <li>
+                            <a href= "{iconFooter.LP_FooterCallCenter}" target ="_blank">
+                                <img src= "{iconFooter.LP_NubefooterSP}" alt="Servicio Al Cliente" />
+                                <div class="txt">
+                                    <h4>{iconFooter.LP_ServicioalClienteFooter}</h4>
+                                    <p>{iconFooter.LP_CallCenter}</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href= "{iconFooter.LP_Whatsapp}" target ="_blank">
+                                <img src= "{iconFooter.LP_WhatsappfooterSP}"/>
+                                <div class="txt">
+                                    <h4>{iconFooter.LP_WhatsappFooter}</h4>
+                                    <p>{iconFooter.LP_WhatsappNro}</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href= "{iconFooter.LP_FooterBloqueoTarjeta}" target ="_blank">
+                                <img src= "{iconFooter.LP_CandadofooterSP}" alt="Bloqueo de tarjeta" />
+                                <div class="txt">
+                                    <h4>{iconFooter.LP_BloqueoTarjetaFooter}</h4>
+                                    <p>{iconFooter.LP_BloqueoTarjetaNro}</p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                             <div class="txt">
+                                    <h3 style="vertical-align: middle;padding-top: 8px;">{iconFooter.LP_MsjBloquearTarjetaFooter}</h3>
+                               </div>
+                        </li>
+                    </ul>
+                </div>
+    
+                <div class="sociallinks_area">
+                    <h4>{iconFooter.LP_SiguenosenFooter}</h4>
+                    <ul>
+                        <li>
+                            <a href= "{iconFooter.LP_Facebook}" target="_blank">
+                                <img src= "{iconFooter.LP_FacebookfooterSP}" align="center" style=" vertical-align: middle; width:15px; height:15px;"></img>
+                            </a>
+                        </li>
+                        <li>
+                            <a href= "{iconFooter.LP_Twitter}" target="_blank">
+                               <img src= "{iconFooter.LP_TwitterfooterSP}" align="center" style="vertical-align: middle; width:15px; height:15px;"></img>
+                            </a>
+                        </li>
+                        <li>
+                            <a href= "{iconFooter.LP_Youtube}" target="_blank">
+                                <img src= "{iconFooter.LP_YoutubefooterSP}" align="center" style="vertical-align: middle; width:15px; height:15px;"></img>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer_navigationlinks">                    
+                <div class="page_links_columns">
+                    <div class="page_links_column">
+                        <h4>{iconFooter.LP_TarjetaLaPolarFooter}</h4>
+                        <ul>               
+                        <template for:each={footerColumn0} for:item='item'>
+                            <li key={item.id}>
+                                <p key={item.id}>
+                                    <template if:true={item.isModal}>
+                                        <a onclick= "{whereUseModal}">{item.label}</a>
+                                    </template>
+                                    <template if:false={item.isModal}>
+                                    <a target= "{item.target}" href= "{item.URL}" title= "{item.label}">{item.label}</a>
+                                    </template>
+                                </p>
+                            </li>
+                        </template> 
+                        </ul> 
+
+                    </div>                    
+                    <div class="page_links_column">
+                        <h4>{iconFooter.LP_LaPolarFooter}</h4>
+                        <ul>
+                            <template for:each={footerColumn1} for:item='item'>
+                                <li key={item.id}>
+                                <p key={item.id}>
+                                    <a target= "{item.target}" href= "{item.URL}" title= "{item.label}">{item.label}</a>
+                                </p>
+                                </li>
+                            </template> 
+                            </ul> 
+                        </div>
+                    <div class="page_links_column">
+                            <h4>{iconFooter.LP_EmpresaFooter}</h4> 
+                            <ul>
+                                <template for:each={footerColumn2} for:item='item'>
+                                    <li key={item.id}>
+                                        <p key={item.id}>
+                                            <a target= "{item.target}" href= "{item.URL}" title= "{item.label}">{item.label}</a>
+                                        </p>
+                                        </li>
+                                </template>
+                        </ul>
+                    </div>
+                </div>
+
+                <p> <lightning-formatted-rich-text value={textEmp}></lightning-formatted-rich-text></p>
+            
+                <div class="secure">
+                    <img src= "{iconFooter.LP_SecureSP}" alt="Sitio seguro" />
+                    <small>{iconFooter.LP_SitioSeguroFooter}</small>
+                </div>
+
+                <p class="gray">{iconFooter.LP_DatosLaPolarFooter}</p>
+
+            </div>
+        </div>
+    </footer>
+    <template if:true= "{isModalOpen}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div onclick= "{closeModal}" class="slds-scrollable--y">
+                <div class="slds-modal__container">
+                   <figure class="slds-image"> 
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close"
+                                alternative-text="close"
+                                variant="inverse"
+                                size="small" ></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                      <a href= "{iconFooter.LP_DondeUsarModalSPLabel}" class="slds-align_absolute-center"  target="_blank" ><img src= "{iconFooter.LP_DondeUsarModalSP}"/></a>
+                   </figure>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+</template>

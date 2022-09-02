@@ -1,0 +1,28 @@
+<!--*********************************************************************************
+Project      : Sodimac Salesforce Service Cloud
+Created By   : Deloitte
+Created Date : 23/04/2021
+Description  : Lightning web component - Interesting Sites
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Nelson Lepiqueo               NL
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       NL	     23/04/2021		initial version
+********************************************************************************/-->
+<template>
+    <div class='interesting-container'>
+        <a href={label.lLaPolarUrl} class='menu-text' target ="_blank">{label.lLaPolarText} 
+        </a>
+        <p class='menu-text'>|</p>
+    
+        <a href={label.lInversUrl} class='menu-text' target ="_blank">{label.lInversText}
+        </a>
+        <p class='menu-text'>|</p>
+    
+        <a class="button" href={label.lBloqTarUrl} target ="_blank">
+            <img src={iconSM.iBloqTar} class='lock_icon'/> {label.lBloqTarText}
+        </a>   
+    </div>    
+</template>

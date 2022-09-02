@@ -1,0 +1,423 @@
+<template>
+    <template if:true={isMobile}>
+        <lightning-layout multiple-rows>
+            <template if:false={menuOpen}>
+                <lightning-layout-item size="2" large-device-size="2" medium-device-size="2" small-device-size="2"
+                    padding="around-small">
+                    <a href="/SitioPrivado/">
+                        <div class="logoMobile">
+                            <img src={logo}>
+                        </div>
+                    </a>
+                </lightning-layout-item>
+                <lightning-layout-item size="8" padding="around-small">
+                    <div class="slds-align_absolute-center">
+                        <div class='resumenMobile' style="background-color: #d40c2c; ">
+                            <a style="padding-left:10px; padding-right: 10px;" class='menu-textMobile'
+                                href="pagos-de-cuenta" target="_self">PAGAR MI CUENTA
+                            </a>
+                            <p class='menu-textMobile' style="padding-right: 10px;">|</p>
+                            <a class='menu-textMobile' style="padding-right: 10px;" href={logoutLink} target="_self">
+                                <img src={iconHome.LP_Power} style="width:22px; height:22px;"></img>
+                            </a>
+                        </div>
+                    </div>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" padding="around-small">
+                    <button class="btn" onclick={openMenu}>
+                        <lightning-icon icon-name="utility:rows"></lightning-icon>
+                    </button>
+                </lightning-layout-item>
+            </template>
+            <template if:true={menuOpen}>
+                <lightning-layout-item size="3" large-device-size="2" medium-device-size="2" small-device-size="2"
+                    padding="around-small">
+                    <a href="/SitioPrivado/">
+                        <div class="logoMobile">
+                            <img src={logo}>
+                        </div>
+                    </a>
+                </lightning-layout-item>
+                <lightning-layout-item size="7" large-device-size="8" medium-device-size="8" small-device-size="8"
+                    padding="around-small">
+                    <lightning-layout multiple-rows>
+                        <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                            small-device-size="12" padding="around-small" class="saludo bienvenido">
+                            <b>{iconHome.LP_BienvenidoHome} {nombre}</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                            small-device-size="12" padding="around-small" class="saludo ulti">
+                            {iconHome.LP_UltimaConexionHome}
+                        </lightning-layout-item>
+                        <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                            small-device-size="12" padding="around-small" class="saludo ulti">
+                            {conexion}
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" padding="around-small">
+                    <button class="btnClose" onclick={closeMenu}>
+                        <lightning-icon icon-name="utility:close"></lightning-icon>
+                    </button>
+                </lightning-layout-item>
+                <lightning-layout multiple-rows class="resumenMobile">
+                    <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;"
+                            href="mi-cuenta">{iconHome.LP_MiCuentaHome}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" large-device-size="1" medium-device-size="1" small-device-size="1"
+                        padding="around-small" class="rowMobile" alignment-bump="left">
+                        <b>></b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" large-device-size="11" medium-device-size="11" 
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;"
+                            href="pagos-de-cuenta">{iconHome.LP_PagosHome}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" large-device-size="1" medium-device-size="1" small-device-size="1"
+                        padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                        <b>></b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;"
+                            href="bloqueo-de-tarjeta">{iconHome.LP_BloqueoTarjetaHome}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" large-device-size="1" medium-device-size="1" small-device-size="1"
+                        padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                        <b>></b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;"
+                            onclick={abrirServicios}>{iconHome.LP_ServicioalClienteHome}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" large-device-size="1" medium-device-size="1" small-device-size="1"
+                        padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                        <b>></b>
+                    </lightning-layout-item>
+                    <!--<div if:true={servicionsClienteOpen}>-->
+                    <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;" href={iconHome.LP_ConsultasReclamos}>
+                            {iconHome.LP_ConsultasyReclamosMenu}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;" href={iconHome.LP_PreguntasFrencuentes}>
+                            {iconHome.LP_PreguntasFrecuentesMenu}</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;"
+                            href={iconHome.LP_TiendasLaPolarURL}>{iconHome.LP_TiendasLaPolarMenu}</a>
+                    </lightning-layout-item>
+                    <!--</div>-->
+                    <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                        small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                        <a class="rowMobile notUnderline" style="text-decoration: none;" href="mi-perfil">MI PERFIL</a>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="1" large-device-size="1" medium-device-size="1" small-device-size="1"
+                        padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                        <b>></b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                        small-device-size="12" padding="around-small">
+                        <div align="center">
+                            <button class="sfdc_button" style="width: 70%;"><a class='menu-textLogOff' href={logoutLink}
+                                    target="_self">CERRAR SESIÓN</a></button>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout multiple-rows align="center" class="resumenSociales">
+                        <lightning-layout-item size="4" padding="around-medium">
+                            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                                <a class="socialIcon" href="http://www.twitter.com/lapolarchile" target="_blank">
+                                    <img src={iconHome.LP_TwitterfooterSP} align="center"
+                                        style=" width:35px; height:35px;"></img>
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" padding="around-medium">
+                            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                                <a class="socialIcon" href="http://www.youtube.com/lapolarchile" target="_blank">
+                                    <img src={iconHome.LP_YoutubefooterSP} align="center"
+                                        style="width:35px; height:35px;"></img>
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="4" padding="around-medium">
+                            <div class="custom-box slds-p-around_medium slds-text-align_center">
+                                <a class="socialIcon" href="http://www.facebook.com/lapolarchile" target="_blank">
+                                    <img src={iconHome.LP_FacebookfooterSP} align="center"
+                                        style="width:35px; height:35px;"></img>
+                                </a>
+                            </div>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout>
+            </template>
+        </lightning-layout>
+    </template>
+    <template if:false={isMobile}>
+        <lightning-layout multiple-rows>
+            <template if:false={showResponsive}>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12" small-device-size="12"
+                    padding="around-small">
+                    <c-l-P_-Header-User-s-p class="slds-show slds-is-relative" showbar={showResponsive}>
+                    </c-l-P_-Header-User-s-p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12" small-device-size="12"
+                    padding="around-small">
+                    <lightning-layout class="resumen">
+                        <lightning-layout-item size="10" large-device-size="10" medium-device-size="5"
+                            small-device-size="5" padding="around-small">
+                            <div class='dropdown'>
+                                <button class="dropbtn" onclick={openMyAccount}>{iconHome.LP_MiCuentaHome}</button>
+                                <div class="dropdown-content">
+                                    <template if:true={showButtonDigitalAccount}>
+                                        <a href="mi-cuenta?clicked=mi-tarjeta-digital">
+                                            <lightning-layout>
+                                                <lightning-layout-item size="11">
+                                                    {iconHome.LP_MiTarjetaDigitalMenu}
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="1" style="color: red;"
+                                                    alignment-bump="left">
+                                                    >
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                        </a>
+                                    </template>
+                                    <a href="mi-cuenta?clicked=mis-cupos">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_MisCuposMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a href="mi-cuenta?clicked=movimientos-no-facturados">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_MovNoFacturadosMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a href="mi-cuenta?clicked=proximos-vencimientos">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                Próximos vencimientos
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a href="mi-cuenta?clicked=estado-de-cuenta">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_EstadodeCuentaMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class='dropdown'>
+                                <div class="dropbtn">|</div>
+                            </div>
+                            <div class='dropdown'>
+                                <button onclick={openLockCard} class="dropbtn">{iconHome.LP_PagosHome}</button>
+                                <div class="dropdown-content">
+                                    <a href="pagos-de-cuenta?clicked=paga-tu-cuota">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_PagarTuCuotaMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a href="pagos-de-cuenta?clicked=historial-de-pagos">
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_HistorialPagosMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <template if:true={showRefButton}>
+                                        <a href="pagos-de-cuenta?clicked=refinanciamiento">
+                                            <lightning-layout>
+                                                <lightning-layout-item size="11">
+                                                    {iconHome.LP_RefinanciamientoMenu}
+                                                </lightning-layout-item>
+                                                <lightning-layout-item size="1" style="color: red;"
+                                                    alignment-bump="left">
+                                                    >
+                                                </lightning-layout-item>
+                                            </lightning-layout>
+                                        </a>
+                                    </template>
+                                </div>
+                            </div>
+                            <div class='dropdown'>
+                                <div class="dropbtn">|</div>
+                            </div>
+                            <button onclick={openBlock} class="dropbtn">{iconHome.LP_BloqueoTarjetaHome}</button>
+                            <div class='dropdown'>
+                                <div class="dropbtn">|</div>
+                            </div>
+                            <div class='dropdown'>
+                                <button class="dropbtn">{iconHome.LP_ServicioalClienteHome}</button>
+                                <div class="dropdown-content">
+                                    <a target="_blank" href={iconHome.LP_ConsultasReclamos}>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_ConsultasyReclamosMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a target="_blank" href={iconHome.LP_PreguntasFrencuentes}>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_PreguntasFrecuentesMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                    <a target="_blank" href={iconHome.LP_TiendasLaPolarURL}>
+                                        <lightning-layout>
+                                            <lightning-layout-item size="11">
+                                                {iconHome.LP_TiendasLaPolarMenu}
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="1" style="color: red;" alignment-bump="left">
+                                                >
+                                            </lightning-layout-item>
+                                        </lightning-layout>
+                                    </a>
+                                </div>
+                            </div>
+                        </lightning-layout-item>
+                        <lightning-layout-item style="text-align:end" size="2" large-device-size="2"
+                            medium-device-size="7" small-device-size="7" padding="around-small" alignment-bump="left">
+                            <a class='menu-text'
+                                style="margin: 8px 5px 0px; padding-right:5px; border-right: 2px solid white"
+                                target="_blank">
+                                <button class="btnLoginOffMobile" onclick={openProfile}>
+                                    <img src={iconHome.LP_PerfilUsuario} class="iconProfile"
+                                        style="width:25px; height:25px; margin-right:10px;" title="Mi perfil">MI PERFIL
+                                </button>
+                            </a>
+                            <a class='menu-textLogOff' href={logoutLink} target="_self">
+                                <img src={iconHome.LP_Power} class="iconLogout" title="Desloguearse"></img>
+                            </a>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+            </template>
+            <template if:true={showResponsive}>
+                <lightning-layout-item size="10" large-device-size="10" medium-device-size="10" small-device-size="10"
+                    padding="around-small">
+                    <c-l-P_-Header-User-s-p class="slds-show slds-is-relative">
+                    </c-l-P_-Header-User-s-p>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" large-device-size="2" medium-device-size="2" small-device-size="2"
+                    padding="around-small">
+                    <template if:false={menuResponsiveOpen}>
+                        <button class="btn slds-align_absolute-center" style="margin-top: 75%;" onclick={openMenuResponsive}>
+                            <lightning-icon class="slds-align_absolute-center" icon-name="utility:rows"></lightning-icon>
+                        </button>
+                    </template>
+                    <template if:true={menuResponsiveOpen}>
+                        <button class="btnClose slds-align_absolute-center" style="margin-top: 75%;"  onclick={closeMenuResponsive}>
+                            <lightning-icon class="slds-align_absolute-center" icon-name="utility:close"></lightning-icon>
+                        </button>
+                    </template>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+        <template if:true={showMenuBar}>
+            <lightning-layout multiple-rows class="resumenMobile">
+                <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                    small-device-size="11" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile" style="text-decoration: none;"
+                        href="mi-cuenta">{iconHome.LP_MiCuentaHome}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" large-device-size="1" medium-device-size="1"
+                    small-device-size="1" padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                    <b>></b>
+                </lightning-layout-item>
+                <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                    small-device-size="11" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        href="pagos-de-cuenta">{iconHome.LP_PagosHome}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" large-device-size="1" medium-device-size="1"
+                    small-device-size="1" padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                    <b>></b>
+                </lightning-layout-item>
+                <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                    small-device-size="11" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        href="bloqueo-de-tarjeta">{iconHome.LP_BloqueoTarjetaHome}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" large-device-size="1" medium-device-size="1"
+                    small-device-size="1" padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                    <b>></b>
+                </lightning-layout-item>
+                <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                    small-device-size="11" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        onclick={abrirServicios}>{iconHome.LP_ServicioalClienteHome}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" large-device-size="1" medium-device-size="1"
+                    small-device-size="1" padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                    <b>></b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                    small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        href={iconHome.LP_ConsultasReclamos}>
+                        {iconHome.LP_ConsultasyReclamosMenu}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                    small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        href={iconHome.LP_PreguntasFrencuentes}>
+                        {iconHome.LP_PreguntasFrecuentesMenu}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                    small-device-size="12" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;"
+                        href={iconHome.LP_TiendasLaPolarURL}>{iconHome.LP_TiendasLaPolarMenu}</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="11" large-device-size="11" medium-device-size="11"
+                    small-device-size="11" padding="around-small" class="rowMobile underlineMobile">
+                    <a class="rowMobile notUnderline" style="text-decoration: none;" href="mi-perfil">MI PERFIL</a>
+                </lightning-layout-item>
+                <lightning-layout-item size="1" large-device-size="1" medium-device-size="1"
+                    small-device-size="1" padding="around-small" class="rowMobile underlineMobile" alignment-bump="left">
+                    <b>></b>
+                </lightning-layout-item>
+            </lightning-layout>
+        </template>
+
+    </template>
+
+</template>

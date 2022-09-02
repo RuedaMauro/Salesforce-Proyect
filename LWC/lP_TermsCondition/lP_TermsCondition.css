@@ -1,0 +1,49 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');;
+}
+.father-container{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+.form-container-TC{
+    display:grid;
+    grid-template-columns: 5% 95%;
+    width: 100%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    color: #333333;
+}
+.check{
+    width: 15px;
+    height: 15px;
+    margin: 0% 1% 0% 5%;
+    border-color:#DDDBDA 1px solid;
+}
+.checkbox-container{
+    display:grid;
+    grid-template-columns: 100%;
+    margin: 5% 0% 5% 0%;
+    font-family: 'Nunito', sans-serif;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 300;
+}
+a{
+    color:#333333;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    .form-container-TC{
+        margin-top: 40px;
+    }
+    .checkbox-container{
+        margin: 0 0 5% 0;
+    }
+    .tc-text{
+        margin-left: 10px;
+    }
+}

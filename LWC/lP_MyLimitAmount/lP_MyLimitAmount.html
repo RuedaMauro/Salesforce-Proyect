@@ -1,0 +1,25 @@
+<template>
+    <div style="height: 300px;overflow-x:auto;" >
+        <!-- <lightning-datatable class="tableType"
+                key-field="id"
+                data={data}
+                columns={columns} >
+        </lightning-datatable> -->
+        <table class="table">
+            <tr>
+              <th class="th" style="text-align: start;">Cupo Disponible</th>
+              <th class="th" style="text-align: end;">Total</th>
+              <th class="th" style="text-align: end;">Utilizado</th>
+              <th class="th" style="text-align: end; padding-right: 40px;">Disponible</th>  
+            </tr>
+            <template for:each={dataHard} for:item='item'>
+                 <tr key={item.id}>
+              <td class="td" style="text-align: start;" key={item.id}>{item.limitAmount}</td>
+              <td class="td" style="text-align: end;" key={item.id}>$ {item.total}</td>
+              <td class="td" style="text-align: end;" key={item.id}>$ {item.used}</td>
+              <td class="td" style="text-align: end; padding-right: 40px;" key={item.id}>$ {item.available}</td>
+            </tr>
+            </template>
+            </table>
+    </div>    
+</template>

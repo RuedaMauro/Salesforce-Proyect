@@ -1,0 +1,109 @@
+<template>
+    <template if:false={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch">
+        <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+            <b>Próximo Vencimiento: {nextExpiration} </b>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="12" padding="around-small" style="padding:0px"  alignment-bump="left">
+            <template if:false={errors}>
+                <lightning-layout multiple-rows vertical-align="stretch">
+                    <lightning-layout-item size="12"  alignment-bump="left">
+                        <div style="overflow-x:auto;" >
+                            <table class="table" id="myTable2">
+                                <colgroup>
+                                    <col span="1" class="col1">
+                                    <col span="1" class="col2">
+                                    <col span="1" class="col3">
+                                    <col span="1" class="col4">
+                                    <col span="1" class="col5">
+                                 </colgroup>
+                                <tr>
+                                    <th class="th"  onclick= {sortTable0} >Fecha<img src={flechas} class="img"></img></img></th>
+                                    <th class="th" onclick= {sortTable1} >Detalle<img src={flechas} class="img"></img></img></th>
+                                    <th class="th" onclick= {sortTable2}>Total a Pagar<img src={flechas} class="img"></img></img></th>
+                                    <th class="th" onclick= {sortTable3}>N° Cuota<img src={flechas} class="img"></img></img></th>  
+                                    <th class="th"  onclick= {sortTable4}>Cuota Mes<img src={flechas} class="img"></img></img></th>  
+                                </tr>
+                                <template for:each={adataHard} for:item='item'>   
+                                    <tr key={item.id}>
+                                        <td class="td"  key={item.id}>{item.date}</td>
+                                        <td class="td"  key={item.id}>{item.detail}</td>
+                                        <td class="td"  key={item.id}>${item.amountToPay}</td>
+                                        <td class="td"  key={item.id}>{item.numberAccount}</td>
+                                        <td class="td"  key={item.id}>${item.monthQuota}</td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </div>    
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="left" class="message">
+                        <p class="frame">La información que se muestra corresponde a los movimientos no facturados posteriores al último Estado de Cuenta emitido. En esta sección figuran como máximo los últimos 30 movimientos no facturados. Infórmese sobre la garantía estatal de los depósitos en su banco o en <a href="https://www.cmfchile.cl/portal/principal/613/w3-channel.html">Inicio - CMF Chile - Comisión para el Mercado Financiero Chile (portal) </a> </p>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <template if:true={errors}>
+                <lightning-layout>
+                    <lightning-layout-item size="12"  alignment-bump="left" class="message">
+                        <p class="frame"> {errorsText} </p>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
+<template if:true={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch">
+        <lightning-layout-item size="6" padding="around-small"   alignment-bump="left">
+            <b>Próximo Vencimiento: {nextExpiration} </b>
+        </lightning-layout-item>
+        <lightning-layout-item size="6" padding="around-small"   alignment-bump="right" class="textRight">
+        </lightning-layout-item>
+        <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+            <template if:false={errors}>
+                <lightning-layout multiple-rows vertical-align="stretch">
+                    <lightning-layout-item size="12"  alignment-bump="left">
+                        <div style="overflow-x:auto;" >
+                            <table class="table1" id="myTable1">
+                                <colgroup>
+                                    <col span="1" style="width: 15%;">
+                                    <col span="1" style="width: 30%;">
+                                    <col span="1" style="width: 20%;">
+                                    <col span="1" style="width: 15%;">
+                                    <col span="1" style="width: 20%;">
+                                 </colgroup>
+                                <tr>
+                                    <th class="th"  onclick= {sortTable0} >Fecha<img src={flechas} width="20px" height="20px"></img></img></th>
+                                    <th class="th"  onclick= {sortTable1} >Detalle<img src={flechas} width="20px" height="20px"></img></img></th>
+                                    <th class="th"  onclick= {sortTable2}>Total a Pagar<img src={flechas} width="20px" height="20px"></img></img></th>
+                                    <th class="th"  onclick= {sortTable3}>N° Cuota<img src={flechas} width="20px" height="20px"></img></img></th>  
+                                    <th class="th" onclick= {sortTable4}>Cuota Mes<img src={flechas} width="20px" height="20px"></img></img></th>  
+                                </tr>
+                                <template for:each={adataHard} for:item='item'>   
+                                    <tr key={item.id}>
+                                        <td class="td"  key={item.id}>{item.date}</td>
+                                        <td class="td" key={item.id}>{item.detail}</td>
+                                        <td class="td"  key={item.id}>$ {item.amountToPay}</td>
+                                        <td class="td"  key={item.id}>{item.numberAccount}</td>
+                                        <td class="td"  key={item.id}>$ {item.monthQuota}</td>
+                                    </tr>
+                                </template>
+                            </table>
+                        </div>    
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="left" class="message">
+                        <p class="frame">La información que se muestra corresponde a los movimientos no facturados posteriores al último Estado de Cuenta emitido. En esta sección figuran como máximo los últimos 30 movimientos no facturados. Infórmese sobre la garantía estatal de los depósitos en su banco o en <a href="https://www.cmfchile.cl/portal/principal/613/w3-channel.html">Inicio - CMF Chile - Comisión para el Mercado Financiero Chile (portal) </a> </p>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+            <template if:true={errors}>
+                <lightning-layout>
+                    <lightning-layout-item size="12"  alignment-bump="left" class="message">
+                        <p class="frame"> {errorsText} </p>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
+</template>

@@ -1,0 +1,41 @@
+<!--*********************************************************************************
+Project      : La Polar - Onboarding
+Created By   : Deloitte
+Created Date : 26/04/2021
+Description  : Lightning web component - Credit Card Path
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Abdon Tejos Oliva			ATO
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0      ATO			26/04/2021		initial version
+********************************************************************************/-->
+<template>
+    <!--Load the path for the Onboarding process-->
+    <div class="slds-path">
+        <div class="slds-grid slds-path__track">
+            <div class="slds-grid slds-path__scroller-container">
+                <div class="slds-path__scroller">
+                    <div class="slds-path__scroller_inner">
+                        <ul class="slds-path__nav" role="listbox" aria-orientation="horizontal">
+                            <!--Iteration over steps in path-->
+                            <template for:each={steps} for:item="step">
+                                <li key={step.order} class={step.classList} data-id={step.value} role="presentation" >
+                                    <a data-value={step.value} id={step.value} aria-selected={step.selected}
+                                        class="slds-path__link" href="#" role="option" tabindex={step.tabIndex}>
+                                        <span class="slds-path__stage">
+                                            <lightning-icon icon-name="utility:check"></lightning-icon>
+                                            <span class="slds-assistive-text">Stage Complete</span>
+                                        </span>
+                                        <span class="slds-path__title">{step.label}</span>
+                                    </a>
+                                </li>
+                            </template>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

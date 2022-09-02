@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Nunito', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+}
+.info-text{
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #888888;
+}
+.info-link{
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    color: #0070D2;
+    text-decoration: underline;
+}
+.card-info{
+    margin: 64px 39px 48px 39px
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .card-info{
+        margin: 0 10px 40px 10px
+    }
+}

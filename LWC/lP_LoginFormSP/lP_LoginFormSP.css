@@ -1,0 +1,240 @@
+@font-face {
+  font-family: 'Nunito', sans-serif;
+  src: url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+}
+
+.sfdc_username_container{
+    margin-bottom:10px;
+    padding: 12px;
+    background-color:white;
+    border: 2px solid Red;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+
+.backgroundLP{
+
+  background-image: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623783585000/LP_LoginSP);
+  background-repeat: no-repeat;
+  background-size: 100% 112%;
+  background-position-y: center;
+  background-position-x: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5% 12% 10%;
+}
+
+.backgroundLPMobile{
+
+  background-color: #a00b20;
+  background-position-y: center;
+  background-position-x: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 5% 12% 10%;
+}
+
+
+
+.sfdc_user{
+    float:left;
+    /*width:23px;
+    height:25px;*/
+    padding-top:1px;
+    padding-left:2px;
+    margin:0px;
+
+}
+
+.sfdc_lock{
+    float:left;
+    /*width:23px;
+    height:25px;*/
+    padding-top:1px;
+    padding-left:2px;
+    margin:0px;
+}
+
+.error {
+    text-align: center;
+    color:#705a5a;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.login-icon {
+    color:#ccc;font-size:22px;
+}
+
+.sfdc_password_container{
+    padding: 12px;
+    background-color:white;
+    border: 2px solid Red;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.h1Login{
+
+    background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623768963000/LP_TarjetasSP?) center 1em/90px no-repeat;
+    font-size: 1.375em;
+    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
+    color: #363636;
+    text-align: center;
+    margin: 0px 33px 0px 33px;
+    padding: 9em 42px 0px;
+
+
+}
+
+.error-message{
+  font-size: 12px;
+  color: #C23934;
+  text-align:center;
+}
+
+.blackarrow{
+
+  background: url(https://lapolartarjeta--devn2--c.visualforce.com/resource/1623727863000/LP_flecha?) no-repeat;
+  padding: 8px 17px;
+
+}
+.sfdc_button {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    margin-top: -5px;
+    margin-bottom: 5px;
+    color: white;
+    background-color: #a00b20;
+    display: inline-block;
+    vertical-align: middle;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 12px;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.42857143;
+    border-radius: 2px;
+    opacity: 0.5;
+    transition: 0.5s;
+    border-radius: 5px;
+    user-select:none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.sfdc_button:hover {
+    opacity:1;
+}
+
+.loginBox{
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px 0 rgb(0 0 0 / 30%);
+    align-content: flex-end; 
+
+}
+
+.input {
+    margin-top: -11px;
+    border: 0px solid transparent !important;
+    width: 75%;
+    -webkit-appearance: none;
+    font-size: 14px;
+    text-align: initial;
+
+}
+
+.a {
+    color:black;
+    text-decoration: none;
+}
+.a:hover {
+    color:darkslategrey;
+    text-decoration: none;
+}
+
+.label.uiLabel-hidden {
+    display:none;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 25px;
+  margin: 0px 91px 0px -75px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    white-space: nowrap;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 17px;
+    width: 17px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: red;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px red;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  .label {
+    padding: 7px 24px 8px 29px;
+    color: #666;
+    position: absolute;
+    font-size: 15px;
+    font-weight: 400;
+    margin: -6px 10px -32px -110px;
+}

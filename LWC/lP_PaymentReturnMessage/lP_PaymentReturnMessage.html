@@ -1,0 +1,51 @@
+<template>
+    <lightning-layout multiple-rows vertical-align="stretch">
+        <lightning-layout-item size="4" padding="around-small"   alignment-bump="center"></lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-small"   alignment-bump="center" class="topSection"> 
+            <lightning-layout multiple-rows vertical-align="stretch">
+                <img src={check} width="20px" height="20px"></img> <b class="textTop">El pago fue realizado exitosamente</b>
+            </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-small"   alignment-bump="center"></lightning-layout-item>
+        <lightning-layout-item size="12" padding="around-small"   alignment-bump="center"></lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-small"   alignment-bump="center"></lightning-layout-item>
+        <lightning-layout-item size="4"   alignment-bump="center">
+        <lightning-layout multiple-rows vertical-align="stretch" class="BottomSection">
+            <lightning-layout-item size="12" padding="around-small"   alignment-bump="center" > 
+                <b class="textBot"> Detalle de pago</b>
+            </lightning-layout-item>
+            <lightning-layout-item size="5" padding="around-small"   alignment-bump="center" > 
+                <p>Rut</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="7" padding="around-small"   alignment-bump="center" > 
+                <p> {rut}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="5" padding="around-small"   alignment-bump="center" > 
+                <p>N° Tarjeta</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="7" padding="around-small"   alignment-bump="center" > 
+                <p> {cardNumber}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="5" padding="around-small"   alignment-bump="center" > 
+                <p> Monto Pagado</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="7" padding="around-small"   alignment-bump="center" > 
+                <p> {amountPaid}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="5" padding="around-small"   alignment-bump="center" > 
+                <p> Codigo de Autorización</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="7" padding="around-small"   alignment-bump="center" > 
+                <p> {code}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="5" padding="around-small"   alignment-bump="center" > 
+                <p> Fecha y hora del pago</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="7" padding="around-small"   alignment-bump="center" > 
+                <p> {date}</p>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-layout-item>
+        <lightning-layout-item size="4" padding="around-small"   alignment-bump="center"></lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,94 @@
+<template>
+    <!--Use template if:true to display/hide popup based on isModalOpen value-->
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header slds-modal__header_empty">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!--<header class="slds-modal__header">   
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal/PopUp Box header LWC</h2>
+                </header>-->
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1" style="padding:0;">
+                    <div align="center">
+                        <lightning-layout multiple-rows>
+                            <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                                small-device-size="12" padding="around-small">
+                                <img src={modalImg} style="width:10%;"></img>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                                small-device-size="12" padding="around-small">
+                                <b>Bloqueo de Mi Tarjeta La Polar</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+                    <lightning-layout multiple-rows>
+                        <template for:each={tarjetas} for:item="tarjeta">
+
+                            <lightning-layout-item size="12" large-device-size="12" medium-device-size="12"
+                                small-device-size="12" key={tarjeta.Id}>
+                                <div style="padding-left:1rem; padding-right:1rem;">
+                                    <lightning-layout multiple-rows class="fondo">
+                                        <lightning-layout-item size="4" large-device-size="4" medium-device-size="4"
+                                            small-device-size="4" style="padding-left: 2rem;">
+                                            <lightning-layout-item size="12" large-device-size="12"
+                                                medium-device-size="12" small-device-size="12" key={tarjeta.Id}>
+                                                <div>TItular</div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" large-device-size="12"
+                                                medium-device-size="12" small-device-size="12">
+                                                <div>Nro Tarjeta La Polar</div>
+                                            </lightning-layout-item>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="6" large-device-size="6" medium-device-size="6"
+                                            small-device-size="4" key={tarjeta.Id}>
+                                            <lightning-layout-item size="12" large-device-size="12"
+                                                medium-device-size="12" small-device-size="12">
+                                                <div>{tarjeta.titular}</div>
+                                            </lightning-layout-item>
+                                            <lightning-layout-item size="12" large-device-size="12"
+                                                medium-device-size="12" small-device-size="12">
+                                                <div>**** **** **** {tarjeta.tarjeta}</div>
+                                            </lightning-layout-item>
+                                        </lightning-layout-item>
+                                        <lightning-layout-item size="2" large-device-size="2" medium-device-size="2"
+                                            small-device-size="2" padding="horizontal-medium" key={tarjeta.Id}>
+                                            <lightning-input type="toggle" label="" name="input1"
+                                                message-toggle-active="Bloqueada" message-toggle-inactive="Bloquear">
+                                            </lightning-input>
+                                        </lightning-layout-item>
+                                    </lightning-layout>
+                                </div>
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                    <div style="padding-left:1rem; padding-right:1rem; text-align: center;">
+                        <div>{texto}</div>
+                    </div>
+                    <div style="padding-top:1rem; text-align: center;">
+                        <a href="tel:800395800"><button style="background-color: #d40c2c; color:white;">LLAMAR AL
+                                800-395-800</button></a>
+                    </div>
+                    <div style="padding-top:1rem; padding-bottom:1rem; text-align: center;">
+                        <button onclick={closeModal} style="background-color: #000000; color:white;">CERRAR</button>
+                    </div>
+                </div>
+                <!-- Modal/Popup Box LWC footer starts here -->
+                <!--<footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
+                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">OK</button>
+                </footer>-->
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

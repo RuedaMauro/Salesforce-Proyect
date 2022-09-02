@@ -1,0 +1,32 @@
+<!--*********************************************************************************
+Project      : Sodimac Salesforce Service Cloud
+Created By   : Deloitte
+Created Date : 26/04/2021
+Description  : Lightning web component - Auto Atention
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Nelson Lepiqueo               NL
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       NL	     26/04/2021		initial version
+********************************************************************************/-->
+<template>
+    <div class='autoatention-container'>
+        <div class="cards">
+            <a href={label.lTarjetaLPUrl} target ="_blank">
+                <img src={iconSM.iTarjetaLP} class='card-img'/>
+                <img src={iconSM.iLogoLP} class='card-img2'/>
+            </a>
+        </div>       
+        <div class="buttons">
+            <a class="button2" href={label.lSACUrl} target ="_blank">
+                <img src={iconSM.iSAC} class='icon'/> {label.lSACText}
+            </a>
+        
+            <a class="button" href={label.lMiCuentaUrl} target ="_blank">
+                <img src={iconSM.iMiCuenta} class='icon'/> <label class="btn-text"> {label.lMiCuentaText}</label>
+            </a>  
+        </div> 
+    </div>    
+</template>

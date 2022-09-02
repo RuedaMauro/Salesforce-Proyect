@@ -1,0 +1,221 @@
+@font-face {
+
+    font-family: 'Nunito', sans-serif;
+
+    src: url ('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+}
+
+.myAccountLayoutLeftSide{
+    padding: 0;
+    /*background-color:rgb(196, 196, 196);*/
+    border-radius: 10px 0px 0px 10px;
+}
+.myAccountLayoutRightSide{
+    background-color:rgb(236, 236, 236);
+    padding:25px;
+    border-radius: 0px 10px 10px 10px;
+}
+
+.myAccountLayoutLeftSideMobile{
+    padding: 0;
+    background-color:rgb(219, 219, 219);
+    border-radius: 10px;
+}
+.myAccountLayoutRightMobile{
+    background-color:rgb(255, 255, 255);
+    border-radius: 10px;
+    padding:25px;
+}
+
+.myAccountRadiousTop{
+    border-radius: 10px 0px 0px 0px;
+}
+
+.myAccountRadiousBottom{
+    border-radius: 0px 0px 0px 10px;
+}
+
+.buttons{
+    padding:0;
+}
+.sfdc_button {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    height : 100%;
+    border:none;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:rgb(196, 196, 196);
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.sfdc_buttonSelected {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    height : 100%;
+    border:none;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ececec;;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.sfdc_button:hover{
+    background-color:#ececec;
+}
+
+.sfdc_button:active{
+    background-color:#ececec;
+}
+
+.sfdc_button:visited{
+    background-color:#ececec;
+}
+
+.sfdc_button:focus {     
+    background-color:#ececec;   
+}
+
+.sfdc_buttonMobile {
+    border-radius: 10px 10px 0px 0px;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    height : 100%;
+    border:none;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color:rgb(219, 219, 219);
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.sfdc_buttonSelectedMobile {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100%;
+    height : 100%;
+    border:none;
+    padding-bottom: 10px;
+    padding-top:10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ececec;;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+
+.sfdc_buttonMobile:hover{
+    background-color:rgb(231, 230, 230);
+}
+
+.sfdc_buttonMobile:active{
+    background-color:rgb(231, 231, 231);
+}
+
+.sfdc_buttonMobile:visited{
+    background-color:rgb(255, 255, 255);
+}
+.arrow{
+    text-align: right;
+}
+
+.textlong{
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+}
+.textlong2{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 600;
+    padding:5px;
+}
+
+.textTitle{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+    padding:5px;
+}
+
+a:link {
+    color:lightblue;
+  }
+
+  .frame{
+    color:rgba(94, 94, 94, 0.678);
+    padding:10px;
+    border-style:solid;
+    border-color:rgba(102, 102, 102, 0.404);
+    border-width: 1px;
+  }
+
+  .error-message{
+    font-size: 12px;
+    color: #C23934;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align:center;
+  }
+ 
+
+/* 
+.table {
+    font-family:'Nunito', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+     border-radius: 1em; 
+    font-weight: 700;
+    overflow:hidden;
+  }
+
+ .th {
+    background-color: red;
+    color:white;
+    font-weight: 700; */
+    /* border: 1px solid #dddddd;
+    border-right: none; */
+    /* text-align: left;
+    padding: 8px;
+  }
+
+  .td{
+    background-color: white;
+    font-weight: 700;
+    text-transform:uppercase;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  .table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+} */

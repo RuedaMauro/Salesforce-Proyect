@@ -1,0 +1,52 @@
+@font-face {
+
+    font-family: 'Nunito', sans-serif;
+
+    src: url ('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+}
+
+.table {
+    font-family:'Nunito', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+     border-radius: 1em; 
+    font-weight: 700;
+    overflow:hidden;
+  }
+
+ .th {
+    background-color: red;
+    color:white;
+    font-weight: 700;
+    /* border: 1px solid #dddddd;
+    border-right: none; */
+    text-align: left;
+    padding: 8px;
+  }
+
+  .tr{
+    width: 1%;
+    white-space: nowrap;
+  }
+
+  .td{
+    background-color: white;
+    font-weight: 700;
+    text-transform:uppercase;
+    border-bottom: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width:2%;
+    white-space: nowrap;
+  }
+
+  .table tr:last-child td:first-child {
+    border-bottom-left-radius: 10px;
+}
+
+.table tr:last-child td:last-child {
+    border-bottom-right-radius: 10px;
+    width: 1%;
+    white-space: nowrap;
+}

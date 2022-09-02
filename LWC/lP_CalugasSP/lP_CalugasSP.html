@@ -1,0 +1,218 @@
+<template>
+  <lightning-layout multiple-rows >
+    <lightning-layout-item size="12" large-device-size="4" medium-device-size="12" small-device-size="12"
+      padding="around-small" class="caluga">
+      <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small">
+          <div class="calugaBackground" style="position: relative;">
+            <div class="tituloEstado" style="text-align: center; color: #d30f2d;">{iconCal.LP_EstadodeCuentaCalugas}
+            </div>
+            <div if:true={showCaluga1}>
+              <!-- SE OCULTA CAMPO ULTIMA FACTURACION HASTA NUEVO AVISO <div class="factTexto">
+              {iconCal.LP_UltimaFacturacionCalugas}<b> {fechaFact}</b>
+              </div>-->  
+              <div class="factTexto">
+                {iconCal.LP_PagarantesdeCalugas}<b> {fechaVenc}</b>
+              </div>
+              <table cellspacing="0" cellpadding="0" style="border: none;margin-top: 1rem;">
+                <tr>
+                  <td style="text-align: left; font-size: 14px;">
+                    {iconCal.LP_CupodisponibleCalugas}
+                  </td>
+                  <td style="text-align: right; font-weight: bold;">
+                    $ {disp}
+
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align: left; font-size: 14px;">
+                    {iconCal.LP_TotalapagarCalugas}
+                  </td>
+                  <td style="text-align: right; font-weight: bold;">
+                    $ {monto}
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div if:false={showCaluga1}>
+              <div class="factTextoSinBorde" style="font-size: 0.9rem;">
+                {iconCal.LP_MsjEstadoCuentaCalugas}
+                <br>
+              </div>
+            </div>
+            <div class="centro" style="position: absolute;">
+              <button class="button boton" onclick={handleClickCaluga1}>
+                {labelCaluga1}
+              </button>
+            </div>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+    <lightning-layout-item size="12" large-device-size="4" medium-device-size="12" small-device-size="12"
+      padding="around-small" class="caluga">
+      <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small">
+          <div class="calugaBackground" style="position: relative;">
+            <div if:false={showCaluga2}>
+              <div style="text-align: center;">
+                <img src={avanceLogo} style="height:5rem;">
+              </div>
+              <div class="facturacion">
+                <div class="montoDispLabel">{iconCal.LP_MontoDisponibleCalugas}</div>
+                <div class="montoDisp">$ {montoDisp}</div>
+              </div>
+            </div>
+            <div if:true={showCaluga2}>
+              <div>
+                <div>
+                  <div class="tituloEstado" style="text-align: center; color: #d30f2d;">{iconCal.LP_PideHoyCalugas}
+                  </div> <br>
+                  <div style="padding-left: 0.5rem; font-size: 15px;">{iconCal.LP_SeguroFullSaludCalugas}</div>
+                  <div class="oferta">{iconCal.LP_MsjPideHoyCalugas}</div>
+                </div>
+              </div>
+            </div>
+            <div class="centro" style="position: absolute;">
+              <button class="button boton" onclick={handleClickCaluga2}>
+                {labelCaluga2}
+              </button>
+            </div>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+    <lightning-layout-item size="12" large-device-size="4" medium-device-size="12" small-device-size="12"
+      padding="around-small" class="caluga">
+      <lightning-layout multiple-rows>
+        <lightning-layout-item size="12" padding="around-small">
+          <div class="calugaBackground" style="position: relative;">
+            <div if:true={showCaluga3}>
+              <div class="tituloEstado" style="text-align: center; color: #d30f2d;">{iconCal.LP_RefinanciamientoCalugas}
+              </div>
+              <div class="facturacion">
+                <div class="factTexto">
+                  <template if:false={isMobile}>
+                    {iconCal.LP_RefinanciarMontoCalugas}$ {refinanciarMonto}
+                  </template>
+                  <template if:true={isMobile}>
+                  {iconCal.LP_RefinanciarMontoCalugas}<br> $ {refinanciarMonto}
+                </template>
+                  <br>
+                  <div class="cuotas">{iconCal.LP_NCuotasCalugas} de {cuotasMin} a {cuotasMax}</div>
+                </div>
+              </div>
+            </div>
+            <div if:false={showCaluga3}>
+              <div>
+                <div>
+                  <div class="tituloEstado" style="text-align: center; color: #d30f2d;">
+                    {iconCal.LP_OfertasExclusivasCalugas}</div> <br>
+                  <div style="padding-left: 0.5rem; font-size: 15px;">{iconCal.LP_AprovechaOfertaExclusivasCalugas}
+                  </div>
+                  <div class="oferta" style="font-size: 0.9rem;">{iconCal.LP_MsjAprovechaOfertasCalugas}</div>
+                </div>
+              </div>
+            </div>
+            <div class="centro" style="position: absolute;">
+              <button class="button boton" onclick={handleClickCaluga3}>
+                {labelCaluga3}
+              </button>
+            </div>
+          </div>
+        </lightning-layout-item>
+      </lightning-layout>
+    </lightning-layout-item>
+  </lightning-layout>
+  <div if:true={isMobile}>
+    <lightning-layout multiple-rows class="resumen">
+      <lightning-layout-item size="12" padding="around-small" style="border-bottom: solid;">
+        <b>{iconCal.LP_ResumendeTuCuentaRTC}</b>
+      </lightning-layout-item>
+      <lightning-layout multiple-rows >
+        <lightning-layout-item size="12">
+          <img src={imagenTarjeta} width="auto" style="min-height:100%;"></img>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" style="font-size:13px" padding="around-small">
+          <b>{nombreDeTarjeta}</b>
+          <br>
+          <b>{numeroTarjeta}</b>
+        </lightning-layout-item>
+      </lightning-layout>
+      <lightning-layout-item size="12" padding="around-small">
+        {iconCal.LP_CupodeCompraRTC}
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small" style="padding-top:0;">
+        <b>$ {cupoCompra}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small">
+        {iconCal.LP_CupoUtilizadoRTC}
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small" style="padding-top:0;">
+        <b>$ {cupoUtilizado}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small">
+        {iconCal.LP_CupoDisponibleRTC}
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small" style="padding-top:0;">
+        <b>$ {cupoDisponible}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="12" padding="around-small" alignment-bump="left">
+        <lightning-layout multiple-rows>
+          <lightning-layout-item size="12" padding="around-medium" class="montos">
+            {iconCal.LP_TotalaPagarRTC} <b>$ {totalPagar}</b>
+          </lightning-layout-item>
+          <lightning-layout-item size="12" padding="around-small" class="montos slds-align_absolute-center">
+            <button onclick= "{goToPayAccount}" class="button boton"><a style="color:white;">
+              {iconCal.LP_BtnPagarMiCuentaRTC}
+            </a>
+          </button>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <div if:false={isMobile}>
+    <lightning-layout multiple-rows  class="resumen">
+      <lightning-layout-item size="7" large-device-size="8" medium-device-size="12" small-device-size="12"
+        padding="around-small" class="resumenTitulo" style="border-bottom: solid; height: 51px;">
+        <b>{iconCal.LP_ResumendeTuCuentaRTC}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="5" large-device-size="4" medium-device-size="12" small-device-size="12"
+        padding="around-small" class="item2" 
+        alignment-bump="left">
+        <img src={imagenTarjeta} class="imgTarjeta"></img>
+        <b>{nombreDeTarjeta} {numeroTarjeta}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="4"  large-device-size="4" medium-device-size="12"
+        small-device-size="12" padding="around-small" style="text-align:start">
+        {iconCal.LP_CupodeCompraRTC} <b>$ {cupoCompra}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="4"  large-device-size="4" medium-device-size="12"
+        small-device-size="12" padding="around-small" style="text-align:start">
+        {iconCal.LP_CupoUtilizadoRTC} <b>$ {cupoUtilizado}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="4" large-device-size="4" medium-device-size="12"
+        small-device-size="12" padding="around-small" style="text-align:start; padding-right: 35px;">
+        {iconCal.LP_CupoDisponibleRTC} <b>$ {cupoDisponible}</b>
+      </lightning-layout-item>
+      <lightning-layout-item size="5" large-device-size="5" medium-device-size="12" small-device-size="12"
+        padding="around-small" alignment-bump="left">
+        <lightning-layout multiple-rows >
+          <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="12"
+            padding="around-medium" class="resumenTitulo">
+            {iconCal.LP_TotalaPagarRTC} <b>$ {totalPagar}</b>
+          </lightning-layout-item>
+          <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="12"
+            padding="around-small" class="resumenTitulo">
+            <button onclick= "{goToPayAccount}" class="button boton"><a style="color:white;">
+                {iconCal.LP_BtnPagarMiCuentaRTC}
+              </a>
+            </button>
+          </lightning-layout-item>
+        </lightning-layout>
+      </lightning-layout-item>
+    </lightning-layout>
+  </div>
+  <br><br>
+</template>

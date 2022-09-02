@@ -1,0 +1,142 @@
+<template>
+
+
+	<template if:false= "{isMobile}">
+		<div class="backgroundLP">
+
+			<div class="loginBox">
+				<template if:true={isUsernamePasswordEnabled}>
+					<template if:true={showLoginBox}>
+						<div style="padding: 14px 6px;">
+							<a aria-hidden="true" title="Volver" href="https://www.tarjetalapolar.cl/s/">
+								<i aria-hidden="true" class="blackarrow">
+								</i>
+							</a>
+							<h1 class="h1Login">Ingresa a Tu Cuenta</h1>
+						</div>
+						<div>
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu RUT" max-length="10"
+									class="input sfdc_username_container sfdc" label="RUT" onchange= "{handleRut}"
+									pattern={validationRule} value={rut} type="input" placeholder="Ej: 12.345.678-9">
+								</lightning-input>
+							</div>
+
+							<div align="center" class="sdfc" style="padding: 14px 15px;">
+								<label class="switch">
+									<input type="checkbox" checked>
+									<span class="slider round"></span>
+								</label>
+								<label class="label">RECORDAR</label>
+							</div>
+
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu clave" max-length="8" min-length="4"
+									class="input sfdc_password_container sfdc" placeholder="Ej: polar123"
+									value={password} onchange= "{handlePassword}" label="CLAVE" type="password">
+								</lightning-input>
+							</div>
+
+							<div align="center" style="position:relative; padding: 15px 80px;">
+								<button class="sfdc_button" style="width: 80%;"
+									onclick= "{validateLogin}">INGRESAR</button>
+							</div>
+							<template if:true={isError}>
+								<p class="error-message">{errors}</p>
+							</template>
+
+							<div class="sfdc" align="center" style="padding: 21px 5px 13px 5px;">
+								<span style="padding: 12px 85px 0px 0px;"><a
+										onclick= "{changeRecoveryPassword}">Recuperar
+										contraseña</a></span>
+								<span><a onclick= "{changeCreateAccount}">Crear cuenta</a></span>
+							</div>
+						</div>
+					</template>
+					<template if:true={showRecoveryPassword}>
+						<c-l-P_-Pasword-Recovery-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+
+						</c-l-P_-Pasword-Recovery-s-p>
+					</template>
+					<template if:true={showCreateAccount}>
+						<c-l-P_-Create-Account-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+						</c-l-P_-Create-Account-s-p>
+					</template>
+				</template>
+			</div>
+		</div>
+	</template>
+	<template if:true= "{isMobile}">
+
+		<div class="backgroundLPMobile">
+
+			<div class="loginBox">
+				<template if:true={isUsernamePasswordEnabled}>
+					<template if:true={showLoginBox}>
+						<div style="padding: 14px 6px;">
+							<a aria-hidden="true" title="Volver" href="https://www.tarjetalapolar.cl/s/">
+								<i aria-hidden="true" class="blackarrow">
+								</i>
+							</a>
+							<h1 class="h1Login">Ingresa a Tu Cuenta</h1>
+						</div>
+						<div>
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu RUT" max-length="10"
+									class="input sfdc_username_container sfdc" label="RUT" onchange= "{handleRut}"
+									pattern={validationRule} value={rut} type="input" placeholder="Ej: 12.345.678-9">
+								</lightning-input>
+							</div>
+
+							<div align="center" class="sdfc" style="padding: 14px 15px;">
+								<label class="switch">
+									<input type="checkbox" checked>
+									<span class="slider round"></span>
+								</label>
+								<label class="label">RECORDAR</label>
+							</div>
+
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu clave" max-length="8" min-length="4"
+									class="input sfdc_password_container sfdc" placeholder="Ej: polar123"
+									value={password} onchange= "{handlePassword}" label="CLAVE" type="password">
+								</lightning-input>
+							</div>
+
+							<div align="center" style="position:relative; padding: 15px 80px;">
+								<button class="sfdc_button" style="width: 100%;"
+									onclick= "{validateLogin}">INGRESAR</button>
+							</div>
+							<template if:true={isError}>
+								<p class="error-message">{errors}</p>
+							</template>
+
+							<div class="sfdc" align="center" style="padding: 21px 5px 13px 5px;">
+								<span style="padding: 12px 20% 0px 0px;"><a
+										onclick= "{changeRecoveryPassword}">Recuperar
+										contraseña</a></span>
+								<span><a onclick= "{changeCreateAccount}">Crear cuenta</a></span>
+							</div>
+						</div>
+					</template>
+					<template if:true={showRecoveryPassword}>
+						<c-l-P_-Pasword-Recovery-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+
+						</c-l-P_-Pasword-Recovery-s-p>
+					</template>
+					<template if:true={showCreateAccount}>
+						<c-l-P_-Create-Account-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+						</c-l-P_-Create-Account-s-p>
+					</template>
+				</template>
+			</div>
+		</div>
+
+
+	</template>
+
+</template>

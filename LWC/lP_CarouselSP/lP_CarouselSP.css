@@ -1,0 +1,53 @@
+.avance {
+    size: 1px;
+}
+
+
+.slds-carousel__content {
+    
+    visibility:hidden !important;
+}
+
+.prev, .next{
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 0 3px 3xp 0;
+}
+
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover{
+    background: rgba(0,0,0,0.8);
+}
+
+.dot{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #bbb;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.active, dot:hover{
+    background-color: #717171;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade{
+    from {opacity:.4}
+    to {opacity: 1}
+}

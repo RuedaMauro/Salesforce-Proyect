@@ -1,0 +1,14 @@
+button {
+    color: black;
+    background-color: aqua;
+    text-align: center;
+    border: none;
+    font-size: 14px;
+    border-radius: 10px;
+    padding: 5px 50px 5px 50px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .slds-path{
+        display: none;
+    }
+}

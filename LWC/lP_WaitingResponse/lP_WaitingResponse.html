@@ -1,0 +1,47 @@
+<!--*********************************************************************************
+Project      : La Polar Salesforce Onboarding 
+Created By   : Deloitte
+Created Date : 08/06/2021
+Description  : Lightning web component - Waiting Response
+History      : PCRM-17
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Nelson Lepiqueo L.            NLL
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       NLL	     08/06/2021		  initial version
+********************************************************************************/-->
+<template>
+    <div class="first-container">
+        <h1 class="mobile-title">4. Estamos validando 
+            tu identidad</h1>
+        <p class="title">{labels.text.msgText}</p>
+           
+        <template if:false={sppin}>    
+            <div class="demo-only" style="color:crimson ;height:6rem;position:relative">
+                <div class="slds-spinner_container">
+                <div role="status" class="slds-spinner slds-spinner_large slds-spinner_brand">
+                    <span class="slds-assistive-text">Loading</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+                </div>
+            </div>
+        </template> 
+        <br>
+        <div>
+            <template if:true={extValImg}>
+                <img class="stacResource" src={resource.resourceWait}>
+                <img class="stac_Resource" src={resource.resourceWaitMov}>
+            </template>
+            <template if:true={extValVid}> 
+                <video class="stacResourceVid" loop autoplay controls>
+                    <source src={resource.resourceWait}>
+                </video>
+            </template>            
+        </div>
+        <div class="button-container">
+            <button disabled={disabledButton} class="button" type="button" onclick={submitData}>{labels.button.next}</button>
+        </div>
+    </div>
+</template>

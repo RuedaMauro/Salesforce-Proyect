@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-var-p-around_small">
+        <lightning-button variant="brand" label="Actualizar" title="Actualizar" onclick={handleClick} class="slds-var-m-left_x-small"></lightning-button>
+        <lightning-checkbox-group name="SocialQueues"
+                              label="Colas de redes sociales"
+                              options={options}
+                              value={value}
+                              onchange={handleChange}></lightning-checkbox-group>
+        <template if:false={socialQueues}>
+            <p class="slds-align_absolute-center slds-m-top_small">No hay colas disponibles</p>
+        </template>
+        <template if:true={showSpinner}>
+            <div class="spinner-holder slds-align_absolute-center">
+                <lightning-spinner variant="brand" alternative-text="Loading" size="medium"></lightning-spinner>
+            </div>
+        </template>
+    </div>
+
+</template>

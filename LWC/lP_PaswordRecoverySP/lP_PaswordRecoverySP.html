@@ -1,0 +1,120 @@
+<template>
+    <template if:true={showhide1}>
+        <div id="hide" style="padding: 15px 0px 0px 8px;">
+            <a aria-hidden="true" title="Volver" onclick= "{handleClose}">
+                <i aria-hidden="true" style={blackarrowStyle}></i>
+            </a>
+            <h1 style={tarjetasStyle}>{iconRC.LP_RecuperarClaveRC}</h1>
+        </div>
+        <div style="text-align: right;margin-bottom: 15px; margin-right:10px;">
+            <div style="text-align: center; margin: 18px 0px 122px; padding: 10px opx 10px 5px;">
+                <h2 style="padding: 0px 14px 0px 14px; font-size: 0.85em">{iconRC.LP_MsjRecuperarTuClaveRC}</h2>
+                <div align="center" style="padding: 0px 10px 10px 10px;" class="sfdc">
+                    <lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+                        message-when-value-missing="Debe ingresar tu RUT" pattern= "{validationRule}" max-length="10" min-length="8"
+                        class="input sfdc_username_container sfdc" label="RUT" value={rut} type="input" onchange={handleRut} required
+                        placeholder="Ej: 12345678-9"
+                        message-when-pattern-mismatch="Debes ingresar tu Rut sin puntos y con guion."> </lightning-input>
+                        <template if:true={isError}>                        
+                            <p class="error-message">{errors}</p>
+                        </template>
+                </div>
+            </div>
+            <button class="sfdc_button3" style="width: 25%;" onclick= "{validateRut}">{iconRC.LP_BtnSiguienteRC}</button>
+          
+        </div>
+    </template>
+    <template if:true={showhide2}>
+        <div id="hide2" style="padding: 15px 0px 0px 8px;">
+            <a aria-hidden="true" title="Volver" onclick= "{return2}">
+                <i aria-hidden="true" style={blackarrowStyle2}></i>
+            </a>
+            <h1 style={tarjetasStyle}>{iconRC.LP_RecuperarClaveRC}</h1>
+        </div>
+        <div style="text-align: center; margin-bottom: 4px;">
+            <div style="text-align: center;margin: 6px 0px 80px 5px;">
+                <h2 style="padding: 0px 14px 0px 14px; font-size:0.8em">{iconRC.LP_EnviarCodigoOTP} xxxx{numberChopped}. <br>
+                    {iconRC.LP_MsjEnviarCodigoOTP}</h2>
+                <div align="center" style="padding: 0px 0px 10px 0px;" class="sfdc">
+
+                    <lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+                        message-when-value-missing="Debe ingresar el código" max-length="6"
+                        class="input1 sfdc_username_container sfdc" onchange= {handleOTP} value={inputOTP} type="input"
+                        > </lightning-input>
+                        <template if:true={isError}>                        
+                            <p class="error-message">{errors}</p>
+                        </template>
+                        <template if:true={isErrorBlocked}>     
+                                               
+                            <p class="error-message" style="padding-right: 10px; padding-left: 10px;">{iconRC.LP_MsjCuentaBloqueadaRC}</p>
+                        </template>
+                </div>
+                <template if:true= {attempsEqualTo1}>
+                    <h2 style="font-size:0.8em">Tienes {attemps} {iconRC.LP_MsjIntentosReenviarCod}</h2>
+                </template>
+                <template if:false= {attempsEqualTo1}>
+                    <h2 style="font-size:0.8em">Tienes {attemps} {iconRC.LP_MsjIntentosReenviarCod}</h2>
+                </template>
+
+            </div>
+            <div>
+                <button class="sfdc_button2" data-inline="true" style="width: 43%;" onclick= "{sendAgain}">{iconRC.LP_BtnReenviarCodigoRC}</button>
+                <button class="sfdc_button" data-inline="true" style="width: 25%;" onclick= "{validateOTP}">{iconRC.LP_BtnValidarRC}</button>
+            </div>
+        </div>
+    </template>
+    <template if:true={showhide3}>
+        <div id="hide3" style="padding: 15px 0px 0px 0px; margin: 0px 0px 0px 2px">
+            <a aria-hidden="true" title="Volver" onclick= "{return3}">
+                <i aria-hidden="true" style={blackarrowStyle}></i>
+            </a>
+            <h1 style={tarjetasStyle}>{iconRC.LP_RecuperarClaveRC}</h1>
+        </div>
+        <div style="text-align: center;">
+            <div style="text-align: center; margin: 10px -6px 0px; padding: 5px 0px 0px 0px;">
+                <h2 style="padding: 0px 14px 0px 14px; display:flex; font-size:0.85em">{iconRC.LP_CreaNuevaClaveRC}</h2>
+                <div align="center" style="padding: 0px 10px 0px 10px;" class="sfdc">
+
+                    <lightning-input style="padding-top: 3px; padding-bottom: 3px;" 
+                        message-when-value-missing="Debes ingresar una contraseña" pattern= "{validationRulePassword}" max-length="8" min-length="4"
+                        onclick={handleClick} class="input sfdc_username_container sfdc" label= "{iconRC.LP_ContrasenaRC}" value={password} onchange= {handlePassword}  type="password"
+                        message-when-pattern-mismatch="Tu contraseña debe tener 8 caracteres con letras y números"> </lightning-input>
+                </div>
+                <h2 style="margin: 0px 8px 0px 10px; font-size: 0.85em">{iconRC.LP_ValidaciondeClaveRC}</h2>
+            </div>
+            <div align="center" style="padding: 0px 4px 15px 4px;" class="sfdc">
+
+                
+                <lightning-input style="padding-top: 3px; padding-bottom: 35px;"
+                message-when-pattern-mismatch="Tu contraseña debe tener 8 caracteres con letras y números" max-length="8" min-length="4"
+                    class="input sfdc_username_container sfdc" message-when-value-missing="Debes ingresar una contraseña" pattern= "{validationRulePassword}" label= "{iconRC.LP_ConfirmarContrasenaRC}" value={duplicatePassword} onchange= {handleDuplicatePassword} type="password"
+                    > </lightning-input>
+                    <template if:true={isError}>                        
+                        <p class="error-message">{errors}</p>
+                    </template>
+            </div>
+            <button class="sfdc_button_4" style="width: 65%;" onclick= "{generateNewPassword}">{iconRC.LP_BtnCambiarContrasenaRC}</button>
+        </div>
+    </template>
+
+    <template if:true={showhide4}>
+        <div id="hide4" style="padding: 15px 0px 0px 0px; margin: 0px 0px 0px 2px">
+            <a aria-hidden="true" title="Volver" onclick= "{return4}">
+                <i aria-hidden="true" style={blackarrowStyle}></i>
+            </a>
+            <h1 style={tarjetasStyle}>{iconRC.LP_RecuperarClaveRC}</h1>
+        </div>
+        <div style="text-align: center; margin-bottom: 15px;">
+            <div style="text-align: center; margin: 10px 0px 191px; padding: 5px 0px 10px 0px;">
+                <div><h2 style="padding: 0px 14px 0px 14px;">{iconRC.LP_ContrasenaCambiadaRC}</h2>
+                     </div>
+                
+            </div>
+            
+            <button class="sfdc_button" style="width: 47%;" onclick= "{handleClose}">{iconRC.LP_BtnFinalizarCC}</button>
+           
+        </div>
+        
+    </template>
+
+</template>

@@ -1,0 +1,12 @@
+.item-shadow:hover {
+  background: rgba(21, 137, 238, 0.1);
+  box-shadow: inset 4px 0 0 #1b96ff;
+}
+
+.tree-container {
+  max-width: 100%;
+}
+
+.important-customer {
+  padding-inline: 1rem;
+}

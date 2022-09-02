@@ -1,0 +1,25 @@
+<!--*********************************************************************************
+Project      : Sodimac Salesforce Service Cloud
+Created By   : Deloitte
+Created Date : 27/04/2021
+Description  : Lightning web component - Terms Conditions
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Leonardo Muñoz               LM
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       NL	     27/04/2021		initial version
+********************************************************************************/-->
+<template>
+    <div class="form-container-TC">
+        <div class="checkbox-container form-container-TC">
+            <input type="checkbox" class="check"  name="casilla" onchange={handleChangeChk} required>
+        </div>
+        <div class="tc-text">
+            <label>
+                {labelTC1} <a target ="_blank" onclick={navigateToFilesTC}>{labelTC2}</a>{labelTC3} <a target ="_blank" onclick={navigateToFilesTCDT}>{labelTC4}</a>.
+            </label>
+        </div>
+    </div>
+</template>

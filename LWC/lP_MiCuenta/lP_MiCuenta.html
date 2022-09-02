@@ -1,0 +1,78 @@
+<template >
+    <div if:false={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch" class="miCuenta">
+        <lightning-layout-item size="4" large-device-size="4" medium-device-size="4" small-device-size="4" alignment-bump="center" class="img slds-align_absolute-center" >
+            <img src={imgTarjeta} width="70%" height="10%"></img>
+        </lightning-layout-item>
+        <lightning-layout-item size="8" large-device-size="8" medium-device-size="8" small-device-size="8" padding="around-small"  alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="resumen">
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    MI TARJETA <b>LA POLAR</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="4" padding="around-small"   alignment-bump="center">
+                    Titular:
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="8" padding="around-small"   alignment-bump="left">
+                    <b>{name}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="8" padding="around-small"   alignment-bump="center">
+                    N° Tarjeta La Polar:
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="4" padding="around-small"   alignment-bump="center">
+                    <b>**** {choppedCardNumber}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="8" padding="around-small"   alignment-bump="center">
+                    Cupo Utilizado:
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="4" padding="around-small"   alignment-bump="center">
+                    <b>${usedAmount}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="8" padding="around-small"   alignment-bump="center">
+                    Cupo Disponible:
+                </lightning-layout-item>
+                <lightning-layout-item size="6" large-device-size="6" medium-device-size="6" small-device-size="4" padding="around-small"   alignment-bump="center">
+                    <b>${availableAmount}</b>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+<div if:true={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch" class="miCuenta">
+        <lightning-layout-item size="12"   alignment-bump="center" class="img">
+            <img src={imgTarjeta} width="70%" height="10%"></img>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="resumen">
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    MI TARJETA <b>LA POLAR</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    Titular:
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    <b>{name}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    N° Tarjeta La Polar:
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    <b>**** {choppedCardNumber}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    Cupo Utilizado:
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    <b>$ {usedAmount}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    Cupo Disponible:
+                </lightning-layout-item>
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="center">
+                    <b>$ {availableAmount}</b>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+</template>

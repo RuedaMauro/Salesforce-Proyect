@@ -1,0 +1,115 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 08-27-2022
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-quick-action-panel>
+      <lightning-record-view-form record-id={recordId} object-api-name="Case">
+        <template if:true={hideLinkAccount}>
+          <lightning-card>
+            <lightning-layout horizontal-align="center" vertical-align="end">
+              <div
+                class="slds-var-m-top_large slds-var-p-right_medium"
+                style="font-weight:bold;"
+              >
+                <lightning-layout-item size="8">
+                  <lightning-input
+                    style="width:500px"
+                    type="search"
+                    label="Ingrese el DNI"
+                    value={searchValue}
+                    placeholder="Escriba aqui"
+                    onchange={searchText}
+                    name="SearchText"
+                    disabled={isSearchTextDisabled}
+                    autocomplete="false"
+                    minlength="7"
+                    message-when-too-short="Debe tener minimo 7 caracteres y como máximo 11 caracteres."
+                    maxlength="11"
+                  >
+                  </lightning-input>
+                </lightning-layout-item>
+              </div>
+  
+              <lightning-layout-item
+                flexibility="auto"
+                padding="horizontal-small"
+              >
+                <template if:true={disableButton}>
+                  <lightning-button
+                    variant="brand"
+                    label="Buscar"
+                    title="Search"
+                    onclick={searchClient}
+                  >
+                  </lightning-button>
+                </template>
+              </lightning-layout-item>
+            </lightning-layout>
+  
+            <template if:true={isData}>
+              <div class="slds-m-around_medium">
+                <div class="slds-page-header">
+                  <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                      <div class="slds-media">
+                        <div class="slds-media__body">
+                          <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                              <h1>
+                                <span
+                                  class="slds-page-header__title slds-truncate"
+                                  title="Accounts"
+                                  >Clientes encontrados</span
+                                >
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  <lightning-datatable
+                    key-field="name"
+                    data={data}
+                    columns={tableClientsCols}
+                    max-row-selection="1"
+                    selected-rows={selectedRows}
+                    column-widths-mode="auto"	
+                    >
+                  </lightning-datatable>
+                <template if:true={empty}>
+                  <div class="slds-clearfix">
+                    <br />
+                    <h1
+                      class="slds-align_absolute-center"
+                      style="font-family:verdana;"
+                    >
+                      No se encontró información.
+                    </h1>
+                  </div>
+                </template>
+                <br />
+                <template if:true={isData}>
+                  <lightning-button
+                    variant="brand"
+                    label="Vincular cliente Altamira"
+                    class="slds-float_right"
+                    title="VincClient"
+                    onclick={linkClient}
+                  >
+                  </lightning-button>
+                </template>
+              </div>
+              <br />
+            </template>
+          </lightning-card>
+        </template>
+      </lightning-record-view-form>
+    </lightning-quick-action-panel>
+  </template>
+  

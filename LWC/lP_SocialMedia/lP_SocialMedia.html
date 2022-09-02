@@ -1,0 +1,43 @@
+<!--*********************************************************************************
+Project      : Sodimac Salesforce Service Cloud
+Created By   : Deloitte
+Created Date : 23/04/2021
+Description  : Lightning web component - Social Media
+History      :
+**************************ACRONYM OF AUTHORS************************************
+AUTHOR                      ACRONYM
+Nelson Lepiqueo               NL
+********************************************************************************
+VERSION  AUTHOR         DATE            Description
+1.0       NL	     23/04/2021		initial version
+********************************************************************************/-->
+<template>
+        <div class='social-container'>
+        <div class='phone-label'>
+        <a href={label.lCallCenter} target ="_blank">
+            <img src={iconSM.iCallCenter} class='phone_icon'/> {label.lCallCenterNro} 
+        </a>
+    </div>
+    <div class='whatsapp-label'>
+        <a href={label.lWhatsapp} target ="_blank">
+            <img src={iconSM.iWhatsapp} class='whatsapp_icon'/> {label.lWhatsappNro} 
+        </a>
+    </div>
+    <div class='facebook-label'>
+        <a href={label.lFacebook} target ="_blank">
+            <img src={iconSM.iFacebook} class='facebook_icon'/>
+        </a>
+        </div>
+        <div class='twitter-label'>
+            <a href={label.lTwitter} target ="_blank">
+            <img src={iconSM.iTwitter}  class='twitter_icon'/>
+        </a>
+    </div>
+    <div class='youtube-label'>
+        <a href={label.lYoutube} target ="_blank">
+            <img src={iconSM.iYoutube} class='youtube_icon'/>
+        </a>
+    </div>
+</div>
+
+</template>

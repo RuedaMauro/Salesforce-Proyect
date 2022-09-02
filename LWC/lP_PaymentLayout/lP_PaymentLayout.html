@@ -1,0 +1,297 @@
+<template>
+    <div if:false={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch" class="myAccountLayout">
+        <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+            <img src={quota2} width="20px" height="20px"></img> <b class="textlong">{iconR.LP_PagosPC}</b>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"  alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="paymentLayoutLeftSide" >   
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <template if:false={showPay}>
+                            <button class="sfdc_button myAccountRadiousTop" style="width: 100%;" onclick={changeShowPay} >
+                                <lightning-layout multiple-rows vertical-align="stretch" >   
+                                    <lightning-layout-item size="11" class="buttons" >
+                                    <b > {iconR.LP_PagarTuCuotaPC}</b>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                    <img src={arrow} width="100%" height="100%"></img>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            </button> 
+                        </template>
+                        <template if:true={showPay}>
+                            <button class="sfdc_buttonSelected myAccountRadiousTop" style="width: 100%;" onclick={changeShowPay} >
+                                <lightning-layout multiple-rows vertical-align="stretch" >   
+                                    <lightning-layout-item size="11" class="buttons" >
+                                    <b > {iconR.LP_PagarTuCuotaPC}</b>
+                                </lightning-layout-item>
+                                <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                    <img src={arrow} width="100%" height="100%"></img>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            </button> 
+                        </template>
+                    </lightning-layout-item>  
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <template if:true={showRefButton}>
+                            <template if:true= "{showPaymentHistory}">
+                                <button class="sfdc_buttonSelected" style="width: 100%;" onclick={changeShowPaymentHistory} >
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_HistorialPagosPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                            <template if:false= "{showPaymentHistory}">
+                                <button class="sfdc_button" style="width: 100%;" onclick={changeShowPaymentHistory} >
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_HistorialPagosPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                        </template>
+                        <template if:false={showRefButton}>
+                            <template if:true= "{showPaymentHistory}">
+                                <button class="sfdc_buttonSelected myAccountRadiousBottom" style="width: 100%;" onclick={changeShowPaymentHistory} >
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_HistorialPagosPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                            <template if:false= "{showPaymentHistory}">
+                                <button class="sfdc_button myAccountRadiousBottom" style="width: 100%;" onclick={changeShowPaymentHistory} >
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_HistorialPagosPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                        </template>
+                    </lightning-layout-item>  
+                    <div if:true={showRefButton}>
+                        <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                            <template if:true={showRefinantiation}>
+                                <button class="sfdc_buttonSelected myAccountRadiousBottom" style="width: 100%;" onclick={changeShowRefinantiation}>                    
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_RefinanciamientoPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                            <template if:false={showRefinantiation}>
+                                <button class="sfdc_button myAccountRadiousBottom" style="width: 100%;" onclick={changeShowRefinantiation}>                    
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="11" class="buttons" >
+                                        <b >{iconR.LP_RefinanciamientoPC}</b>
+                                    </lightning-layout-item>
+                                    <lightning-layout-item size="1"   alignment-bump="left" class="buttons" >
+                                        <img src={arrow} width="100%" height="100%"></img>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </template>
+                        </lightning-layout-item>  
+                    </div>
+                </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12"  alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="paymentLayoutRightSide">
+                <template if:true={showPay}>
+                    <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12" padding="around-small"   alignment-bump="left">
+                        <c-l-p_-My-Account-With-Payment></c-l-p_-My-Account-With-Payment>
+                    </lightning-layout-item>
+                            <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12" padding="around-small"   alignment-bump="left">
+                            </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="left">
+                        <c-l-p_-Payment-Component></c-l-p_-Payment-Component>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4"  alignment-bump="center"></lightning-layout-item>
+                    <lightning-layout-item size="4"  alignment-bump="center">
+                        <div style="text-align: center;" if:true={showRefButton}>
+                        <a onclick= "{changeShowRefinantiation}" >{iconR.LP_NecesitasRefinanciarPC}</a>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4"  alignment-bump="center"></lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="center" padding="around-small"></lightning-layout-item>
+                </template>
+                <template if:true={showPaymentHistory}>
+                    <lightning-layout-item size="9" large-device-size="9" medium-device-size="9" small-device-size="12" padding="around-small" alignment-bump="left">
+                        <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" large-device-size="3" medium-device-size="3" small-device-size="12"  padding="around-small" alignment-bump="left">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+                        <img src={quota2} width="30px" height="30px"></img> <b class="textTitle"> {iconR.LP_PagosMensualesPC}</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left"></lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+                        <c-l-p_-Payment-History></c-l-p_-Payment-History>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+                        <img src={payment} width="30px" height="30px"></img> <b class="textTitle"> {iconR.LP_HistorialPagosPC}</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="graph">
+                        <c-l-p_-Payment-Graph></c-l-p_-Payment-Graph>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left"></lightning-layout-item>
+                </template>
+                <template if:true={showRefinantiation}>
+                    <lightning-layout-item size="12" padding="around-small"  >
+                        <c-l-p_-Refinantiation-S-P></c-l-p_-Refinantiation-S-P>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+<div if:true={isMobile}>
+    <lightning-layout multiple-rows vertical-align="stretch" class="myAccountLayout">
+        <lightning-layout-item size="12" padding="around-small" style="text-align:center;"  alignment-bump="center">
+            <img src={quota2} width="30px" height="30px"></img> <b style="text-align:center;" class="textlong">{iconR.LP_PagosPC}</b>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="paymentLayoutLeftSideMobile" >   
+                <template if:true= "{showPay}">
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                            <button class="sfdc_buttonSelected myAccountRadiousTopMobile" style="width: 100%;" onclick={changeShowPay} >
+                                <lightning-layout multiple-rows vertical-align="stretch" >   
+                                    <lightning-layout-item size="12" class="buttons" >
+                                    <b >{iconR.LP_PagarTuCuotaPC}</b>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                            </button> 
+                        </lightning-layout-item>  
+                    </template>   
+                <template if:false= "{showPay}">
+                <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <button class="sfdc_button myAccountRadiousTopMobile" style="width: 100%;" onclick={changeShowPay} >
+                            <lightning-layout multiple-rows vertical-align="stretch" >   
+                                <lightning-layout-item size="12" class="buttons" >
+                                <b > {iconR.LP_PagarTuCuotaPC}</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </button> 
+                    </lightning-layout-item>  
+                </template>
+                <template if:false= "{showPaymentHistory}">
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <button class="sfdc_button " style="width: 100%;" onclick={changeShowPaymentHistory} >
+                            <lightning-layout multiple-rows vertical-align="stretch" >   
+                                <lightning-layout-item size="12" class="buttons" >
+                                <b >{iconR.LP_HistorialPagosPC}</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </button> 
+                    </lightning-layout-item> 
+                </template> 
+                <template if:true= "{showPaymentHistory}">
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelected " style="width: 100%;" onclick={changeShowPaymentHistory} >
+                            <lightning-layout multiple-rows vertical-align="stretch" >   
+                                <lightning-layout-item size="12" class="buttons" >
+                                <b >{iconR.LP_HistorialPagosPC}</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </button> 
+                    </lightning-layout-item> 
+                </template> 
+                    <div if:true={showRefButton}>
+                        <template if:false= "{showRefinantiation}">
+                            <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                                <button class="sfdc_button " style="width: 100%;" onclick={changeShowRefinantiation} >
+                                    <lightning-layout multiple-rows vertical-align="stretch" >   
+                                        <lightning-layout-item size="12" class="buttons" >
+                                        <b >{iconR.LP_RefinanciamientoPC}</b>
+                                    </lightning-layout-item>
+                                </lightning-layout>
+                                </button> 
+                            </lightning-layout-item> 
+                        </template>
+                        <template if:true= "{showRefinantiation}">
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left" class="buttons">
+                        <button class="sfdc_buttonSelected " style="width: 100%;" onclick={changeShowRefinantiation} >
+                            <lightning-layout multiple-rows vertical-align="stretch" >   
+                                <lightning-layout-item size="12" class="buttons" >
+                                <b >{iconR.LP_RefinanciamientoPC}</b>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                        </button> 
+                    </lightning-layout-item> 
+                </template>
+                </div> 
+                </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" alignment-bump="left">
+            <lightning-layout multiple-rows vertical-align="stretch" class="paymentLayoutRightSideMobile">
+                <template if:true={showPay}>
+                    <lightning-layout-item size="9" padding="around-small"   alignment-bump="left">
+                        <c-l-p_-My-Account-With-Payment></c-l-p_-My-Account-With-Payment>
+                    </lightning-layout-item>
+                            <lightning-layout-item size="3" padding="around-small"   alignment-bump="left">
+                            </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="left">
+                        <c-l-p_-Payment-Component></c-l-p_-Payment-Component>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" style="text-align: center; margin-top: 15px; margin-bottom:15px;">
+                        <div style="text-align: center;" if:true={showRefButton}>
+                        <a style="text-align: center; margin-top: 8px;" onclick= "{changeShowRefinantiation}" class="href">{iconR.LP_NecesitasRefinanciarPC}</a>
+                    </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="center" padding="around-small"></lightning-layout-item>
+                </template>
+                <template if:true={showPaymentHistory}>
+                    <lightning-layout-item size="9" padding="around-small"   alignment-bump="left">
+                        <c-l-p_-Mi-Cuenta></c-l-p_-Mi-Cuenta>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3" padding="around-small"   alignment-bump="left">
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+                        <img src={quota2} width="30px" height="30px"></img> <b class="textTitle"> {iconR.LP_HistorialPagosPC}</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12"  alignment-bump="left" class="history">
+                        <c-l-p_-Payment-History></c-l-p_-Payment-History>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-medium"   alignment-bump="left"> </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left">
+                        <img src={payment} width="30px" height="30px"></img> <b class="textTitle"> {iconR.LP_PagosMensualesPC}</b>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-medium"   alignment-bump="left"> </lightning-layout-item>
+                    <lightning-layout-item size="12" alignment-bump="left" class="graph">
+                        <c-l-p_-Payment-Graph></c-l-p_-Payment-Graph>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left"></lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left"></lightning-layout-item>
+                    <lightning-layout-item size="12" padding="around-small"   alignment-bump="left"></lightning-layout-item>
+                </template>
+                <template if:true={showRefinantiation}>
+                    <lightning-layout-item size="12" padding="around-small"  >
+                        <c-l-p_-Refinantiation-S-P></c-l-p_-Refinantiation-S-P>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</div>
+</template>

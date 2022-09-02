@@ -1,0 +1,185 @@
+<template>
+    <div if:false={isMobile}>
+        <div if:false= "{showComponent}">
+            <div class="loader"></div>
+        </div>
+        <div if:true= "{showComponent}">
+    <lightning-layout multiple-rows vertical-align="stretch" class="paymentComponent">
+        <lightning-layout-item size="12"   alignment-bump="center" padding="around-small" >
+            <p class="textRed">{iconPay.LP_PagarCuotaPC}</p>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4"  alignment-bump="center" padding="around-small" >
+            <lightning-layout multiple-rows vertical-align="stretch">
+                <lightning-layout-item size="12"  alignment-bump="center" style="margin-bottom: -3px" padding="around-small">
+                    <p class="text">{iconPay.LP_MontoPagarPC}</p>
+                </lightning-layout-item>
+                <lightning-layout-item size="1"  alignment-bump="center" ></lightning-layout-item>
+                <lightning-layout-item size="10"  alignment-bump="center" >
+                    <lightning-input type="text"
+                        value= {amountToShow}
+                        id="input-monto"
+                        name="input-monto"
+                        onchange= "{handleAmount}" 
+                        variant="label-hidden"
+                         style="width:100%;height:85%">
+                    </lightning-input>
+
+    
+                </lightning-layout-item>
+                <lightning-layout-item size="1"  alignment-bump="center" ></lightning-layout-item>
+               <lightning-layout-item size="1"  alignment-bump="center" ></lightning-layout-item>
+                <lightning-layout-item size="11"  alignment-bump="center" >
+                    <b>Monto Facturado : $ {debtTotalView}</b>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="12"  alignment-bump="left" >
+                    <template if:true={isError}>
+                        <p class="error-message">{errors}</p>
+                    </template>
+                </lightning-layout-item>
+        </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center" padding="around-small" >
+            <button class="sfdc_button" style="width: 100%;"
+									onclick= "{pay}"><b>{iconPay.LP_PagaroAbonarPC}</b></button>
+        </lightning-layout-item>
+        <lightning-layout-item size="4"  small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center" >
+            <img src={pagos} class="upago"></img>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  alignment-bump="center" padding="around-small" >
+            <p class="text">{iconPay.LP_ComprobantePagosPC}</p>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4"  alignment-bump="center" padding="around-small" ></lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center"  >
+            <input id="input-mail" name="input-mail"  class="input sfdc_username_container2" onchange= "{handleEmail}" style="width:100%;height:85%" value= "{email}"
+            type="input" placeholder="Ej: micorreo@mail.com" ></input>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center" padding="around-small" ></lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center" padding="around-small" ></lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center"  >
+            <template if:true={isError2}>
+                <p class="error-message">{errors2}</p>
+            </template>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" small-device-size="12" medium-device-size="12" large-device-size="4" alignment-bump="center" padding="around-small" ></lightning-layout-item>
+    </lightning-layout>
+    <template if:true= "{modal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-scrollable--y">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        </header>
+                    <figure class="slds-image">
+                            <div class="modalCard">
+                                    <h1 class="modalTitle">Confirmación de Monto a Pagar</h1>
+                                    <h1 class="modalSubtitle">El monto a pagar es de {amountToShow}, si es correcto por favor continúa con el pago, si no, vuelve a ingresarlo nuevamente. </h1>
+                                    <h1 class="modalSubtitle2">* Serás redirigido a un sitio seguro de pago Unired </h1>
+                                    <div class="buttonsPart">
+                                        <button class="sfdc_button_2" style="width: 20%;" onclick= "{closeModal}">Cancelar</button>
+                                        <button class="sfdc_button_1" style="width: 20%;" onclick= "{handlePayment}">Pagar Ahora</button>
+                                    </div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</div>
+</div>
+<div if:true={isMobile}>
+    <div if:false= "{showComponent}">
+        <div class="loader"></div>
+    </div>
+    <div if:true= "{showComponent}">
+    <lightning-layout multiple-rows vertical-align="stretch" class="paymentComponent">
+        <lightning-layout-item size="12"  alignment-bump="center" padding="around-small" >
+            <p class="textRed">{iconPay.LP_PagarCuotaPC}</p>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  alignment-bump="center" padding="around-small" >
+            <lightning-layout multiple-rows vertical-align="stretch">
+                <lightning-layout-item size="12"  alignment-bump="center" style="padding-bottom: 0px" padding="around-small">
+                    <p class="text">{iconPay.LP_MontoPagarPC}</p>
+                </lightning-layout-item>
+                <lightning-layout-item size="12" class="slds-align_absolute-center" alignment-bump="center" style="align-items: center; text-align:center; align-content:center" >
+                    <lightning-input type="text"
+                        value= {amountToShow}
+                        id="input-monto2"
+                        name="input-monto"
+                        onchange= "{handleAmount}" 
+                        variant="label-hidden"
+                         style="width:100%;height:85%">
+                    </lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="12"  alignment-bump="center"  padding="around-small" >
+                    <b>Monto Facturado : $ {debtTotalView}</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="12"  alignment-bump="left" >
+                    <template if:true={isError}>
+                        <p class="error-message">{errors}</p>
+                    </template>
+                </lightning-layout-item>
+        </lightning-layout>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  alignment-bump="center" padding="around-small" >
+            <button class="sfdc_button" style="width: 100%;"
+									onclick= "{pay}"><b>{iconPay.LP_PagaroAbonarPC}</b></button>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" alignment-bump="center" style="align-items: center; text-align:center; align-content:center" class="slds-align_absolute-center"  >
+            <img src={pagos} width="90%" height="90%"></img>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  style ="margin-top: 8px;" alignment-bump="center" padding="around-small" >
+            <p style ="margin-top: 8px;" class="text">{iconPay.LP_ComprobantePagosPC}</p>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  alignment-bump="center" style="align-items: center; text-align:center; align-content:center" class="slds-align_absolute-center"   >
+            <input  name="input-mail"  class="input sfdc_username_container2" onchange= "{handleEmail}" style="width:90%;height:85%" value= "{email}"
+            type="input" placeholder="Ej: micorreo@mail.com" ></input>
+        </lightning-layout-item>
+        <lightning-layout-item size="12"  alignment-bump="center"  >
+            <template if:true={isError2}>
+                <p class="error-message">{errors2}</p>
+            </template>
+        </lightning-layout-item>
+    </lightning-layout>
+    <template if:true= "{modal}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-scrollable--y">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close"
+                                    alternative-text="close"
+                                    variant="inverse"
+                                    size="small" ></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        </header>
+                    <figure class="slds-image">
+                            <div class="modalCard">
+                                    <h1 class="modalTitle">Confirmación de Monto a Pagar</h1>
+                                    <h1 class="modalSubtitle">El monto a pagar es de {amountToShow}, si es correcto por favor continúa con el pago, si no, vuelve a ingresarlo nuevamente. </h1>
+                                    <h1 class="modalSubtitle2">* Serás redirigido a un sitio seguro de pago Unired </h1>
+                                    <div class="buttonsPart">
+                                        <button class="sfdc_button_2" style="width: 40%;" onclick= "{closeModal}">Cancelar</button>
+                                        <button class="sfdc_button_1" style="width: 40%;" onclick= "{handlePayment}">Pagar Ahora</button>
+                                    </div>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</div>
+</div>
+
+</template>

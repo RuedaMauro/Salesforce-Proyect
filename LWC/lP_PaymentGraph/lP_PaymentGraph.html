@@ -1,0 +1,98 @@
+<template>
+ <div if:false={isMobile}>
+  <ul class="bar-graph">
+        <li class="bar-graph-axis">
+          <div >${highestAmount}</div>
+          <div >-</div>
+          <div >-</div>
+          <div >-</div>
+          <div >-</div>
+          <div >$0</div>
+        </li>
+            <li class="bar secondary" style={widthPercentage} title={amountGetter} id="12">
+                <!-- <div class="percent">70<span>%</span></div> -->
+                <div class="description">{monthYear}</div>
+            </li>
+        <li class="bar secondary" style={widthPercentage1} title={amountGetter1}>
+          <!-- <div class="percent">90<span>%</span></div> -->
+          <div class="description">{monthYear1}</div>
+        </li>
+        <li class="bar secondary" style={widthPercentage2} title={amountGetter2}>
+          <!-- <div class="percent">80<span>%</span></div> -->
+          <div class="description">{monthYear2}</div>
+        </li>
+        <li class="bar secondary" style={widthPercentage3} title={amountGetter3}>
+          <!-- <div class="percent">75<span>%</span></div> -->
+          <div class="description">{monthYear3}</div>
+        </li>
+        <li class="bar secondary" style={widthPercentage4} title={amountGetter4}>
+          <!-- <div class="percent">40<span>%</span></div> -->
+          <div class="description">{monthYear4}</div>
+        </li>
+        <li class="bar secondary" style={widthPercentage5} title={amountGetter5}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear5}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage6} title={amountGetter6}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear6}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage7} title={amountGetter7}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear7}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage8} title={amountGetter8}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear8}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage9} title={amountGetter9}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear9}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage10} title={amountGetter10}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear10}</div>
+          </li>
+          <li class="bar secondary" style={widthPercentage11} title={amountGetter11}>
+            <!-- <div class="percent">40<span>%</span></div> -->
+            <div class="description">{monthYear11}</div>
+          </li>
+        </ul>
+      </div>
+      <div if:true={isMobile}>
+        <ul class="bar-graph">
+              <li class="bar-graph-axis">
+                <div >${highestAmount}</div>
+                <div class="bar-graph-label">-</div>
+                <div class="bar-graph-label">-</div>
+                <div class="bar-graph-label">-</div>
+                <div class="bar-graph-label">-</div>
+                <div >$0</div>
+              </li>
+                  <li class="bar secondary" style={widthPercentage6} title={amountGetter6}>
+                      <!-- <div class="percent">70<span>%</span></div> -->
+                      <div class="descriptionM">{monthYear6}</div>
+                  </li>
+              <li class="bar secondary" style={widthPercentage7} title={amountGetter7}>
+                <!-- <div class="percent">90<span>%</span></div> -->
+                <div class="descriptionM">{monthYear7}</div>
+              </li>
+              <li class="bar secondary" style={widthPercentage8} title={amountGetter8}>
+                <!-- <div class="percent">80<span>%</span></div> -->
+                <div class="descriptionM">{monthYear8}</div>
+              </li>
+              <li class="bar secondary" style={widthPercentage9} title={amountGetter9}>
+                <!-- <div class="percent">75<span>%</span></div> -->
+                <div class="descriptionM">{monthYear9}</div>
+              </li>
+              <li class="bar secondary" style={widthPercentage10} title={amountGetter10}>
+                <!-- <div class="percent">40<span>%</span></div> -->
+                <div class="descriptionM">{monthYear10}</div>
+              </li>
+              <li class="bar secondary" style={widthPercentage11} title={amountGetter11}>
+                  <!-- <div class="percent">40<span>%</span></div> -->
+                  <div class="descriptionM">{monthYear11}</div>
+                </li>
+              </ul>
+            </div>
+</template>

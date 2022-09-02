@@ -1,0 +1,149 @@
+<template>
+
+
+	<template if:false= "{isMobile}">
+	<div style={backgroundStyle}>
+
+			<div class="loginBox">
+				<template if:true={isUsernamePasswordEnabled}>
+					<template if:true={showLoginBox}>
+						<div style="padding: 14px 6px;">
+							<a aria-hidden="true" title="Volver" href="https://www.tarjetalapolar.cl/s/">
+								<i aria-hidden="true" style={blackarrowStyle}>
+								</i>
+							</a>
+							<h1 style={tarjetasStyle}>{iconLog.LP_IngresaTuCuentaLogin}</h1>
+						</div>
+						<div>
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu RUT" max-length="10"
+									class="input sfdc_username_container sfdc" label= "{iconLog.LP_RutLogin}" onchange= "{handleRut}"
+									pattern={validationRule} value={rut} type="input" placeholder="Ej: 12345678-9">
+								</lightning-input>
+							</div>
+
+							<div align="center" class="sdfc" style="padding: 14px 15px;">
+								<label class="switch">
+									<input type="checkbox" name="options" id="checkbox-unique-id-73" onchange= "{handleCheckBox}" value= "{checkboxVal}" checked= "{checkboxVal}" />
+									<span class="slider round"></span>
+								</label>
+								<label class="label">{iconLog.LP_BtnRecordarLogin}</label>
+							</div>
+
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu clave" max-length="8" min-length="4"
+									class="input sfdc_password_container sfdc" placeholder="Ej: polar123"
+									value={password} onclick={handleClick} onchange= "{handlePassword}" label= "{iconLog.LP_ClaveLogin}" type="password">
+								</lightning-input>
+							</div>
+
+							<div align="center" style="position:relative; padding: 15px 80px;">
+								<button class="sfdc_button" style="width: 80%;"
+									onclick= "{validateLoginSP}">{iconLog.LP_BtnIngresarLogin}</button>
+							</div>
+							<template if:true={isError}>
+								<p class="error-message">{errors}</p>
+							</template>
+							<template if:true={showMessageAccount}>
+								<lightning-formatted-rich-text
+
+                            			value={texto}
+
+                        			></lightning-formatted-rich-text>
+							</template>
+
+							<div class="sfdc" align="center" style="padding: 21px 5px 13px 5px;">
+								<span style="padding: 12px 85px 0px 0px;"><a
+										onclick= "{changeRecoveryPassword}">{iconLog.LP_RecuperarClaveLogin}</a></span>
+								<span><a onclick= "{changeCreateAccount}">{iconLog.LP_CrearCuentaLogin}</a></span>
+							</div>
+						</div>
+					</template>
+					<template if:true={showRecoveryPassword}>
+						<c-l-P_-Pasword-Recovery-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+
+						</c-l-P_-Pasword-Recovery-s-p>
+					</template>
+					<template if:true={showCreateAccount}>
+						<c-l-P_-Create-Account-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+						</c-l-P_-Create-Account-s-p>
+					</template>
+				</template>
+			</div>
+	</div>	
+	</template>
+	<template if:true= "{isMobile}">
+
+		<div class="backgroundLPMobile">
+
+			<div class="loginBoxMobile">
+				<template if:true={isUsernamePasswordEnabled}>
+					<template if:true={showLoginBox}>
+						<div style="padding: 14px 6px;">
+							<a aria-hidden="true" title="Volver" href="https://www.tarjetalapolar.cl/s/">
+								<i aria-hidden="true" style={blackarrowStyle}>
+								</i>
+							</a>
+							<h1 style={tarjetasStyle}>{iconLog.LP_IngresaTuCuentaLogin}</h1>
+						</div>
+						<div>
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu RUT" max-length="10"
+									class="input sfdc_username_container sfdc" label= "{iconLog.LP_RutLogin}" onchange= "{handleRut}"
+									pattern={validationRule} value={rut} type="input" placeholder="Ej: 12345678-9">
+								</lightning-input>
+							</div>
+
+							<div align="center" class="sdfc" style="padding: 14px 15px;">
+								<label class="switch">
+									<input type="checkbox" name="options" id="checkbox-unique-id-74" onchange= "{handleCheckBox}" value= "{checkboxVal}" checked= "{checkboxVal}" />
+									<span class="slider round"></span>
+								</label>
+								<label class="label">{iconLog.LP_BtnRecordarLogin}</label>
+							</div>
+
+							<div align="center" class="sfdc">
+								<lightning-input style="padding-top: 3px; padding-bottom: 3px;"
+									message-when-value-missing="Debe ingresar tu clave" max-length="8" min-length="4"
+									class="input sfdc_password_container sfdc" placeholder="Ej: polar123"
+									value={password} onchange= "{handlePassword}" label= "{iconLog.LP_ClaveLogin}" type="password">
+								</lightning-input>
+							</div>
+
+							<div align="center" style="position:relative; padding: 15px 80px;">
+								<button class="sfdc_button" style="width: 100%;"
+									onclick= "{validateLoginSP}">{iconLog.LP_BtnIngresarLogin}</button>
+							</div>
+							
+							<template if:true={isError}>
+								<p class="error-message">{errors}</p>
+							</template>
+
+							<div class="sfdc" align="center" style="padding: 21px 5px 13px 5px;">
+								<span style="padding: 12px 20% 0px 0px;"><a
+										onclick= "{changeRecoveryPassword}">{iconLog.LP_RecuperarClaveLogin}</a></span>
+								<span><a onclick= "{changeCreateAccount}">{iconLog.LP_CrearCuentaLogin}</a></span>
+							</div>
+						</div>
+					</template>
+					<template if:true={showRecoveryPassword}>
+						<c-l-P_-Pasword-Recovery-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+
+						</c-l-P_-Pasword-Recovery-s-p>
+					</template>
+					<template if:true={showCreateAccount}>
+						<c-l-P_-Create-Account-s-p class="slds-show slds-is-relative" onclose={returnToLogin}>
+						</c-l-P_-Create-Account-s-p>
+					</template>
+				</template>
+			</div>
+		</div>
+
+
+	</template>
+	
+
+</template>

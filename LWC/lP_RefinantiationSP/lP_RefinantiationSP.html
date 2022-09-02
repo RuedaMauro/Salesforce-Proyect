@@ -1,0 +1,159 @@
+<template>
+
+    <div class="container">
+
+        <img src={iconRef.LP_RefinancingSP} width="25px" height="25px"></img> <b class="title">{iconRef.LP_RefinanciamientoPC}</b>  
+
+        <template if:true={opacityStep1}>
+
+            <div class="stepOpaque">
+                <div style="display:flex;">
+                    <div class="circle">1</div>
+                    <h2 class="subtitle">{iconRef.LP_DatosSimulacionPC}</h2>
+                </div>
+                <lightning-layout class="buttons">
+                    <lightning-layout-item size="6">
+                        <div class="input1">
+                            <h2 class="inputTitle">{iconRef.LP_MontosRefinanciarPC}</h2>
+                            <input class="input sfdc_username_container sfdc" value={montoAFinanciar} type="text" disabled>
+                        </div>
+                    </lightning-layout-item>
+                    <template if:true={isMobile}>
+                        <lightning-layout-item size="6" style="width:50%">
+                            <h2 class="inputTitle" style="margin-top: 9px;">CUOTAS</h2>
+                            <lightning-combobox name="cuota" variant="label-hidden" spinner-active="true" placeholder="Seleccione" value={value}
+                                options={options} onchange={handleChange} disabled>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:false={isMobile}>
+                        <lightning-layout-item size="6" style="width:50%">
+                            <h2 class="inputTitle" style="margin-top: 9px;">CUOTAS</h2>
+                            <lightning-combobox name="cuota" variant="label-hidden" spinner-active="true" placeholder="Seleccione" value={value}
+                                options={options} onchange={handleChange} disabled>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+                    </template>              
+                </lightning-layout>
+                    <div>
+                        <lightning-button class="slds-button" label= "{iconRef.LP_BtnSimularPC}" title="SIMULAR"
+                            style="display:flex; margin-left: 49px;"></lightning-button>
+                        <template if:true={isError}>
+                                <p class="error-message">{errors}</p>
+                        </template>
+                    </div>
+                
+                
+            </div>
+
+        </template>
+        <template if:false={opacityStep1}>
+
+            <div class="step">
+                <div style="display:flex;">
+                    <div class="circle">1</div>
+                    <h2 class="subtitle">{iconRef.LP_DatosSimulacionPC}</h2>
+                </div>
+                <lightning-layout class="buttons">
+                    <lightning-layout-item size="6">
+                        <div class="input1">
+                            <h2 class="inputTitle">{iconRef.LP_MontosRefinanciarPC}</h2>
+                            <input class="input sfdc_username_container sfdc" value={montoAFinanciar} type="text" disabled>
+                        </div>
+                    </lightning-layout-item>
+                    <template if:true= "{isMobile}">
+                        <lightning-layout-item size="6" style="width:50%">
+                            <h2 class="inputTitle" style="margin-top: 9px;">CUOTAS</h2>
+                            <lightning-combobox name="cuota" variant="label-hidden" spinner-active="true" placeholder="Seleccione" value={value}
+                                options={options} onchange={handleChange}>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+                    </template>
+                    <template if:false= "{isMobile}">
+                        <lightning-layout-item size="6" style="width:50%">
+                            <h2 class="inputTitle" style="margin-top: 9px;">CUOTAS</h2>
+                            <lightning-combobox name="cuota" variant="label-hidden" spinner-active="true" placeholder="Seleccione una cuota" value={value}
+                                options={options} onchange={handleChange}>
+                            </lightning-combobox>
+                        </lightning-layout-item>
+                    </template>                                
+                </lightning-layout>
+                <div>
+                    <lightning-button onclick= "{simulate}" class="slds-button" label= "{iconRef.LP_BtnSimularPC}" title="SIMULAR"
+                        style="display:flex; margin-left: 49px;"></lightning-button>
+                </div>
+            </div>
+
+        </template>
+
+
+        <template if:false={opacityStep2}>
+
+            <div class="stepOpaque">
+
+                <div style="display:flex;">
+                    <div class="circle">2</div>
+                </div>
+                <div class="cuotas">
+                    <div class="infoCuota">
+                        <h1 class="amountOpaque">36 cuotas de</h1>
+                        <h1 class="amountOpaque" style="margin: 14px;">$7.639</h1>
+                        <h1 class="amountOpaque">CTC:</h1>
+                        <h1 class="amountOpaque" style="margin: 14px; margin-bottom: 0px;">$280.656</h1>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="info">{iconRef.LP_MsjRefinanciamientoPC}
+                    </h4>
+                    <h4 class="info2" style="color:red">{iconRef.LP_DescargarTasasInteresRef}</h4>
+                </div>
+                <div>
+                    <lightning-button class="slds-button" label= "{iconRef.LP_BtnVolverSimularPC}" title="Volver a simular"
+                        style="display:flex; margin-left: 49px;"></lightning-button>
+                </div>
+
+
+            </div>
+
+
+        </template>
+
+        <template if:true={opacityStep2}>
+
+            <div class="step">
+
+                <div style="display:flex;">
+                    <div class="circle">2</div>
+                    <h2 class="subtitle">Empieza a pagar el <span class="subtitle"
+                            style="font-weight:600; padding-left:0px;">1 de septiembre de 2021</span></h2>
+                </div>
+                <div class="cuotas">
+                    <div class="infoCuota">
+                        <h1>{value} cuotas de</h1>
+                        <h1 class="amountCuota">${montoCuota}</h1>
+                        <h1>CTC:</h1>
+                        <h1 class="amountCuota">${ctc}</h1>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="info">{iconRef.LP_MsjRefinanciamientoPC}
+                    </h4>
+                    <a href= "{LP_TasasLink}" target="_blank" class="info2" style="color:red">{iconRef.LP_DescargarTasasInteresRef}</a>
+                </div>
+                <div>
+                    <lightning-button onclick= "{simulateAgain}" class="slds-button" label= "{iconRef.LP_BtnVolverSimularPC}"
+                        title="Volver a simular" style="display:flex; margin-left: 49px;"></lightning-button>
+                </div>
+
+
+            </div>
+
+
+        </template>
+
+
+
+
+
+    </div>
+</template>
